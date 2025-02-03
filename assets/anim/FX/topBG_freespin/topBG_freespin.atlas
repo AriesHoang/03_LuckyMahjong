@@ -1,0 +1,363 @@
+
+topBG_freespin.png
+size: 1088,367
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arrow1
+  rotate: false
+  xy: 900, 82
+  size: 90, 62
+  orig: 91, 62
+  offset: 1, 0
+  index: -1
+axolotl_body
+  rotate: false
+  xy: 753, 15
+  size: 68, 68
+  orig: 68, 68
+  offset: 0, 0
+  index: -1
+axolotl_ear1
+  rotate: false
+  xy: 535, 198
+  size: 13, 11
+  orig: 14, 11
+  offset: 1, 0
+  index: -1
+axolotl_ear2
+  rotate: false
+  xy: 2, 2
+  size: 14, 13
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+axolotl_glow
+  rotate: false
+  xy: 992, 61
+  size: 87, 70
+  orig: 95, 70
+  offset: 0, 0
+  index: -1
+axolotl_tail
+  rotate: false
+  xy: 927, 11
+  size: 23, 23
+  orig: 23, 23
+  offset: 0, 0
+  index: -1
+box1
+  rotate: false
+  xy: 612, 62
+  size: 50, 62
+  orig: 50, 62
+  offset: 0, 0
+  index: -1
+box10
+  rotate: false
+  xy: 1048, 19
+  size: 28, 40
+  orig: 375, 287
+  offset: 334, 86
+  index: -1
+box2
+  rotate: true
+  xy: 664, 41
+  size: 59, 87
+  orig: 59, 88
+  offset: 0, 0
+  index: -1
+box3
+  rotate: true
+  xy: 299, 89
+  size: 44, 52
+  orig: 44, 52
+  offset: 0, 0
+  index: -1
+box4
+  rotate: true
+  xy: 660, 6
+  size: 33, 34
+  orig: 33, 35
+  offset: 0, 1
+  index: -1
+box5
+  rotate: true
+  xy: 869, 5
+  size: 29, 30
+  orig: 36, 38
+  offset: 1, 5
+  index: -1
+box6
+  rotate: true
+  xy: 696, 12
+  size: 27, 34
+  orig: 48, 45
+  offset: 15, 8
+  index: -1
+box7
+  rotate: true
+  xy: 823, 2
+  size: 17, 18
+  orig: 17, 18
+  offset: 0, 0
+  index: -1
+box8
+  rotate: false
+  xy: 357, 2
+  size: 15, 15
+  orig: 446, 153
+  offset: 431, 0
+  index: -1
+box9
+  rotate: false
+  xy: 901, 8
+  size: 24, 26
+  orig: 62, 48
+  offset: 37, 1
+  index: -1
+detail_logo
+  rotate: false
+  xy: 299, 198
+  size: 234, 167
+  orig: 234, 167
+  offset: 0, 0
+  index: -1
+light_out
+  rotate: false
+  xy: 535, 211
+  size: 131, 43
+  orig: 133, 68
+  offset: 1, 25
+  index: -1
+light_ray
+  rotate: false
+  xy: 535, 256
+  size: 271, 109
+  orig: 271, 145
+  offset: 0, 36
+  index: -1
+lion_body
+  rotate: false
+  xy: 933, 36
+  size: 49, 44
+  orig: 49, 44
+  offset: 0, 0
+  index: -1
+lion_head
+  rotate: true
+  xy: 612, 6
+  size: 54, 46
+  orig: 55, 46
+  offset: 1, 0
+  index: -1
+lion_tail
+  rotate: false
+  xy: 732, 27
+  size: 12, 12
+  orig: 12, 14
+  offset: 0, 1
+  index: -1
+logo
+  rotate: false
+  xy: 2, 104
+  size: 295, 261
+  orig: 375, 287
+  offset: 40, 0
+  index: -1
+logo_arrow1
+  rotate: true
+  xy: 984, 16
+  size: 43, 62
+  orig: 91, 62
+  offset: 1, 0
+  index: -1
+logo_arrow2
+  rotate: false
+  xy: 823, 21
+  size: 44, 62
+  orig: 91, 62
+  offset: 25, 0
+  index: -1
+logo_arrow3
+  rotate: true
+  xy: 869, 36
+  size: 44, 62
+  orig: 91, 62
+  offset: 47, 0
+  index: -1
+logo_led/logo_led_10
+  rotate: true
+  xy: 1003, 133
+  size: 114, 83
+  orig: 116, 83
+  offset: 1, 0
+  index: -1
+logo_led/logo_led_11
+  rotate: true
+  xy: 357, 19
+  size: 114, 83
+  orig: 116, 83
+  offset: 1, 0
+  index: -1
+logo_led/logo_led_12
+  rotate: true
+  xy: 1003, 249
+  size: 116, 83
+  orig: 116, 83
+  offset: 0, 0
+  index: -1
+logo_led/logo_led_13
+  rotate: false
+  xy: 668, 173
+  size: 116, 81
+  orig: 116, 83
+  offset: 0, 2
+  index: -1
+logo_led/logo_led_14
+  rotate: false
+  xy: 786, 151
+  size: 116, 78
+  orig: 116, 83
+  offset: 0, 5
+  index: -1
+logo_led/logo_led_15
+  rotate: false
+  xy: 664, 102
+  size: 116, 69
+  orig: 116, 83
+  offset: 0, 10
+  index: -1
+logo_led/logo_led_16
+  rotate: false
+  xy: 782, 85
+  size: 116, 64
+  orig: 116, 83
+  offset: 0, 11
+  index: -1
+logo_led/logo_led_17
+  rotate: false
+  xy: 442, 54
+  size: 116, 57
+  orig: 116, 83
+  offset: 0, 11
+  index: -1
+logo_led/logo_led_18
+  rotate: false
+  xy: 442, 2
+  size: 116, 50
+  orig: 116, 83
+  offset: 0, 11
+  index: -1
+logo_led/logo_led_19
+  rotate: true
+  xy: 560, 8
+  size: 116, 50
+  orig: 116, 83
+  offset: 0, 11
+  index: -1
+logo_led/logo_led_6
+  rotate: false
+  xy: 266, 2
+  size: 89, 81
+  orig: 116, 83
+  offset: 14, 0
+  index: -1
+logo_led/logo_led_7
+  rotate: false
+  xy: 904, 146
+  size: 96, 83
+  orig: 116, 83
+  offset: 10, 0
+  index: -1
+logo_led/logo_led_8
+  rotate: false
+  xy: 559, 126
+  size: 103, 83
+  orig: 116, 83
+  offset: 6, 0
+  index: -1
+logo_led/logo_led_9
+  rotate: false
+  xy: 448, 113
+  size: 109, 83
+  orig: 116, 83
+  offset: 3, 0
+  index: -1
+out
+  rotate: false
+  xy: 2, 17
+  size: 262, 85
+  orig: 305, 85
+  offset: 17, 0
+  index: -1
+shapeled1
+  rotate: false
+  xy: 786, 236
+  size: 20, 18
+  orig: 20, 18
+  offset: 0, 0
+  index: -1
+shapeled2
+  rotate: false
+  xy: 843, 2
+  size: 14, 17
+  orig: 14, 17
+  offset: 0, 0
+  index: -1
+shapeled3
+  rotate: false
+  xy: 18, 5
+  size: 12, 10
+  orig: 12, 10
+  offset: 0, 0
+  index: -1
+shapeled4
+  rotate: true
+  xy: 772, 91
+  size: 9, 8
+  orig: 9, 8
+  offset: 0, 0
+  index: -1
+shapeled5
+  rotate: true
+  xy: 859, 9
+  size: 10, 8
+  orig: 10, 8
+  offset: 0, 0
+  index: -1
+shapeled6
+  rotate: false
+  xy: 374, 6
+  size: 12, 11
+  orig: 12, 11
+  offset: 0, 0
+  index: -1
+shapeled7
+  rotate: true
+  xy: 753, 86
+  size: 14, 17
+  orig: 14, 17
+  offset: 0, 0
+  index: -1
+shapeled8
+  rotate: false
+  xy: 266, 85
+  size: 20, 17
+  orig: 20, 17
+  offset: 0, 0
+  index: -1
+sq1
+  rotate: false
+  xy: 808, 231
+  size: 193, 134
+  orig: 265, 261
+  offset: 13, 120
+  index: -1
+sq2
+  rotate: false
+  xy: 299, 135
+  size: 147, 61
+  orig: 298, 215
+  offset: 134, 136
+  index: -1

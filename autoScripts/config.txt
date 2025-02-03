@@ -1,0 +1,12 @@
+[Config]
+LANGUAGE_LIST = en,bg,cs,da,de,el,es,es-la,fi,fr,hu,it,ms,nl,no,pl,pt,pt-br,ro,sk,sv,tr,uk_ua,id,ja,ko,ru,th,tzh,vi,zh
+LOC_IMG_INPUT_DIR = ../data/text/
+LOC_IMG_OUTPUT_DIR = ../assets/resources/locales
+LOC_IMG_OUTPUT_FILENAME = text_atlas
+LOC_TEXT_INPUT_DIR = ../assets/resources/locales
+LOC_TEXT_INPUT_FILENAME = text.txt
+LOC_TEXT_COMMON_INPUT_FILENAME = common.txt
+LOC_TEXT_TEMP_DIR = ../data/locDocs/
+LOC_SAMPLE_SPREADSHEET_ID = 1epsWddjv6fsd860M7-52LL3RMQJockB49ToBAbX_vIo
+LOC_SAMPLE_RANGE_NAME = 01_Gangsta City
+LOC_CREDENTIAL_FILE_PATH = ../data/locDocs/credentials.json

@@ -1,0 +1,60 @@
+{
+"skeleton": {
+	"hash": "5PqMOQU4dvXdB/Nts2EMP0nehrc",
+	"spine": "3.8.84",
+	"x": -52,
+	"y": -60,
+	"width": 110,
+	"height": 110,
+	"images": "./images/",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "ring", "parent": "root", "x": 3, "y": -5 },
+	{ "name": "ring2", "parent": "ring" }
+],
+"slots": [
+	{ "name": "ring2", "bone": "ring2", "color": "ffffff00", "attachment": "ring2", "blend": "additive" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"ring2": {
+				"ring2": { "width": 110, "height": 110 }
+			}
+		}
+	}
+],
+"animations": {
+	"idle_touch": {
+		"slots": {
+			"ring2": {
+				"color": [
+					{ "color": "ffffff00" },
+					{ "time": 0.5, "color": "ffffffff" },
+					{ "time": 1.3333, "color": "ffffff00" }
+				]
+			}
+		},
+		"bones": {
+			"ring2": {
+				"translate": [
+					{ "x": -1.91, "y": 15.98 },
+					{ "time": 1.3333, "x": -1.91, "y": 2.35 }
+				],
+				"scale": [
+					{},
+					{ "time": 1.3333, "x": 2, "y": 2 }
+				]
+			},
+			"ring": {
+				"scale": [
+					{ "x": 1.5, "y": 0.85 }
+				]
+			}
+		}
+	}
+}
+}

@@ -1,0 +1,41 @@
+
+water_pipe.png
+size: 155,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+base_bb
+  rotate: true
+  xy: 2, 51
+  size: 55, 151
+  orig: 57, 153
+  offset: 1, 1
+  index: -1
+base_bb_shadow
+  rotate: true
+  xy: 2, 2
+  size: 47, 130
+  orig: 49, 134
+  offset: 1, 1
+  index: -1
+bb1
+  rotate: false
+  xy: 143, 27
+  size: 6, 6
+  orig: 8, 8
+  offset: 1, 1
+  index: -1
+bb2
+  rotate: false
+  xy: 134, 26
+  size: 7, 7
+  orig: 9, 9
+  offset: 1, 1
+  index: -1
+bb3
+  rotate: false
+  xy: 134, 35
+  size: 14, 14
+  orig: 16, 16
+  offset: 1, 1
+  index: -1

@@ -1,0 +1,286 @@
+
+buyfeature.png
+size: 1568,607
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1_body2
+  rotate: false
+  xy: 1276, 447
+  size: 191, 158
+  orig: 193, 177
+  offset: 1, 12
+  index: -1
+1_ear
+  rotate: true
+  xy: 1469, 412
+  size: 193, 47
+  orig: 193, 177
+  offset: 0, 130
+  index: -1
+1_hand1
+  rotate: true
+  xy: 1159, 160
+  size: 87, 118
+  orig: 87, 118
+  offset: 0, 0
+  index: -1
+1_hand2
+  rotate: true
+  xy: 870, 32
+  size: 116, 159
+  orig: 116, 159
+  offset: 0, 0
+  index: -1
+1_hand3
+  rotate: true
+  xy: 1469, 294
+  size: 116, 57
+  orig: 193, 177
+  offset: 45, 0
+  index: -1
+1_mouth
+  rotate: false
+  xy: 1528, 392
+  size: 38, 53
+  orig: 193, 177
+  offset: 70, 56
+  index: -1
+2_body2
+  rotate: false
+  xy: 1276, 290
+  size: 191, 155
+  orig: 191, 190
+  offset: 0, 0
+  index: -1
+2_hand
+  rotate: false
+  xy: 1169, 55
+  size: 66, 103
+  orig: 66, 103
+  offset: 0, 0
+  index: -1
+2_star
+  rotate: true
+  xy: 1435, 69
+  size: 59, 58
+  orig: 191, 190
+  offset: 77, 132
+  index: -1
+3_body2
+  rotate: false
+  xy: 1031, 21
+  size: 136, 127
+  orig: 149, 129
+  offset: 1, 1
+  index: -1
+3_ear1
+  rotate: false
+  xy: 1397, 69
+  size: 36, 70
+  orig: 149, 129
+  offset: 89, 35
+  index: -1
+3_ear2
+  rotate: false
+  xy: 1329, 10
+  size: 42, 42
+  orig: 149, 129
+  offset: 13, 72
+  index: -1
+3_hand
+  rotate: true
+  xy: 1397, 2
+  size: 65, 77
+  orig: 71, 82
+  offset: 3, 2
+  index: -1
+3_nose
+  rotate: false
+  xy: 1528, 337
+  size: 31, 25
+  orig: 149, 129
+  offset: 25, 44
+  index: -1
+3_tail
+  rotate: false
+  xy: 1528, 364
+  size: 31, 26
+  orig: 149, 129
+  offset: 118, 12
+  index: -1
+base
+  rotate: true
+  xy: 2, 7
+  size: 598, 676
+  orig: 600, 681
+  offset: 1, 4
+  index: -1
+circlelight
+  rotate: false
+  xy: 1495, 62
+  size: 68, 66
+  orig: 74, 74
+  offset: 3, 4
+  index: -1
+frame
+  rotate: false
+  xy: 680, 150
+  size: 477, 97
+  orig: 479, 99
+  offset: 1, 1
+  index: -1
+glow
+  rotate: false
+  xy: 680, 13
+  size: 188, 135
+  orig: 196, 143
+  offset: 4, 4
+  index: -1
+light/light_00
+  rotate: true
+  xy: 1279, 141
+  size: 22, 158
+  orig: 142, 158
+  offset: 65, 0
+  index: -1
+light/light_01
+  rotate: true
+  xy: 1237, 54
+  size: 24, 158
+  orig: 142, 158
+  offset: 60, 0
+  index: -1
+light/light_02
+  rotate: false
+  xy: 1468, 130
+  size: 26, 158
+  orig: 142, 158
+  offset: 55, 0
+  index: -1
+light/light_03
+  rotate: false
+  xy: 1525, 134
+  size: 26, 158
+  orig: 142, 158
+  offset: 50, 0
+  index: -1
+light/light_04
+  rotate: false
+  xy: 1439, 130
+  size: 27, 158
+  orig: 142, 158
+  offset: 45, 0
+  index: -1
+light/light_05
+  rotate: false
+  xy: 1496, 134
+  size: 27, 158
+  orig: 142, 158
+  offset: 40, 0
+  index: -1
+light/light_06
+  rotate: true
+  xy: 870, 2
+  size: 28, 158
+  orig: 142, 158
+  offset: 35, 0
+  index: -1
+light/light_07
+  rotate: true
+  xy: 1279, 227
+  size: 29, 158
+  orig: 142, 158
+  offset: 30, 0
+  index: -1
+light/light_08
+  rotate: true
+  xy: 1237, 80
+  size: 28, 158
+  orig: 142, 158
+  offset: 26, 0
+  index: -1
+light/light_09
+  rotate: true
+  xy: 1279, 196
+  size: 29, 158
+  orig: 142, 158
+  offset: 21, 0
+  index: -1
+light/light_10
+  rotate: true
+  xy: 1279, 165
+  size: 29, 158
+  orig: 142, 158
+  offset: 16, 0
+  index: -1
+light/light_11
+  rotate: false
+  xy: 1518, 447
+  size: 30, 158
+  orig: 142, 158
+  offset: 11, 0
+  index: -1
+light/light_12
+  rotate: true
+  xy: 1237, 110
+  size: 29, 158
+  orig: 142, 158
+  offset: 7, 0
+  index: -1
+light/light_13
+  rotate: true
+  xy: 1276, 258
+  size: 30, 158
+  orig: 142, 158
+  offset: 2, 0
+  index: -1
+light/light_14
+  rotate: true
+  xy: 1169, 26
+  size: 26, 158
+  orig: 142, 158
+  offset: 1, 0
+  index: -1
+light/light_15
+  rotate: true
+  xy: 1169, 2
+  size: 22, 158
+  orig: 142, 158
+  offset: 1, 0
+  index: -1
+light/light_16
+  rotate: true
+  xy: 1030, 2
+  size: 17, 133
+  orig: 142, 158
+  offset: 1, 15
+  index: -1
+light/light_17
+  rotate: false
+  xy: 1550, 473
+  size: 13, 132
+  orig: 142, 158
+  offset: 1, 16
+  index: -1
+light/light_18
+  rotate: true
+  xy: 680, 3
+  size: 8, 132
+  orig: 142, 158
+  offset: 1, 16
+  index: -1
+light/light_19
+  rotate: true
+  xy: 2, 2
+  size: 3, 57
+  orig: 142, 158
+  offset: 1, 71
+  index: -1
+screen
+  rotate: false
+  xy: 680, 249
+  size: 594, 356
+  orig: 596, 359
+  offset: 1, 1
+  index: -1

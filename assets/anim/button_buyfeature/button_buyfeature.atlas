@@ -1,0 +1,41 @@
+
+button_buyfeature.png
+size: 599,223
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bf_button
+  rotate: true
+  xy: 490, 13
+  size: 208, 107
+  orig: 210, 109
+  offset: 1, 1
+  index: -1
+bf_color
+  rotate: true
+  xy: 2, 2
+  size: 219, 120
+  orig: 221, 122
+  offset: 1, 1
+  index: -1
+bf_color1
+  rotate: true
+  xy: 124, 2
+  size: 219, 120
+  orig: 221, 122
+  offset: 1, 1
+  index: -1
+bf_color2
+  rotate: true
+  xy: 246, 2
+  size: 219, 120
+  orig: 221, 122
+  offset: 1, 1
+  index: -1
+bf_color3
+  rotate: true
+  xy: 368, 2
+  size: 219, 120
+  orig: 221, 122
+  offset: 1, 1
+  index: -1

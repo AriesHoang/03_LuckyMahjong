@@ -1,0 +1,48 @@
+
+reel_win.png
+size: 633,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+eff_L_1
+  rotate: false
+  xy: 2, 2
+  size: 169, 31
+  orig: 171, 33
+  offset: 1, 1
+  index: -1
+eff_L_2
+  rotate: false
+  xy: 344, 2
+  size: 109, 31
+  orig: 111, 33
+  offset: 1, 1
+  index: -1
+eff_R_1
+  rotate: false
+  xy: 173, 2
+  size: 169, 31
+  orig: 171, 33
+  offset: 1, 1
+  index: -1
+eff_R_2
+  rotate: false
+  xy: 455, 2
+  size: 109, 31
+  orig: 111, 33
+  offset: 1, 1
+  index: -1
+infoboard
+  rotate: false
+  xy: 2, 35
+  size: 561, 85
+  orig: 563, 87
+  offset: 1, 1
+  index: -1
+light
+  rotate: true
+  xy: 565, 52
+  size: 68, 66
+  orig: 74, 74
+  offset: 3, 4
+  index: -1

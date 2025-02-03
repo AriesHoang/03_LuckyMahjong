@@ -1,0 +1,82 @@
+{
+"skeleton": {
+	"hash": "M0r8vcyPhGP2qsjcRzjtoaqxPgM",
+	"spine": "3.8.84",
+	"x": -110.5,
+	"y": -61,
+	"width": 221,
+	"height": 122,
+	"images": "./images/",
+	"audio": "D:/My Drive/Outsource/Bebe/maingame"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "3", "parent": "root" }
+],
+"slots": [
+	{ "name": "bf_color", "bone": "3", "attachment": "bf_color" },
+	{ "name": "bf_color1", "bone": "3", "attachment": "bf_color1" },
+	{ "name": "bf_color2", "bone": "3", "attachment": "bf_color2" },
+	{ "name": "bf_color3", "bone": "3", "attachment": "bf_color3" },
+	{ "name": "bf_button", "bone": "3", "attachment": "bf_button" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"bf_button": {
+				"bf_button": { "x": 0.5, "y": 3.5, "width": 210, "height": 109 }
+			},
+			"bf_color": {
+				"bf_color": { "width": 221, "height": 122 }
+			},
+			"bf_color1": {
+				"bf_color1": { "width": 221, "height": 122 }
+			},
+			"bf_color2": {
+				"bf_color2": { "width": 221, "height": 122 }
+			},
+			"bf_color3": {
+				"bf_color3": { "width": 221, "height": 122 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"bf_color": {
+				"color": [
+					{ "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 1, "color": "ffffff00", "curve": "stepped" },
+					{ "time": 3, "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 4, "color": "ffffffff" }
+				]
+			},
+			"bf_color1": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped" },
+					{ "time": 1, "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 2, "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 3, "color": "ffffff00" }
+				]
+			},
+			"bf_color2": {
+				"color": [
+					{ "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 1, "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 2, "color": "ffffff00" }
+				]
+			},
+			"bf_color3": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped" },
+					{ "time": 2, "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 3, "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 4, "color": "ffffff00" }
+				]
+			}
+		}
+	}
+}
+}

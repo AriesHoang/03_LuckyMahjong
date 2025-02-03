@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+
+  <title>MOCHI MONSTER</title>
+
+  <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+  <meta name="viewport"
+    content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1,viewport-fit=cover" />
+
+  <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no,email=no" />
+
+  <!-- force webkit on 360 -->
+  <meta name="renderer" content="webkit" />
+  <meta name="force-rendering" content="webkit" />
+  <!-- force edge on IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="msapplication-tap-highlight" content="no" />
+
+  <!-- force full screen on some browser -->
+  <meta name="full-screen" content="yes" />
+  <meta name="x5-fullscreen" content="true" />
+  <meta name="360-fullscreen" content="true" />
+
+  <!-- force screen orientation on some browser -->
+  <meta name="screen-orientation" content="portrait" />
+  <meta name="x5-orientation" content="portrait" />
+
+  <!--fix fireball/issues/3568 -->
+  <!--<meta name="browsermode" content="application">-->
+  <meta name="x5-page-mode" content="app" />
+
+  <!--<link rel="apple-touch-icon" href=".png" />-->
+  <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+
+  <link rel="stylesheet" type="text/css" href="style-mobile.css" />
+  <link rel="stylesheet" type="text/css" href="style-game.css" />
+  <link rel="icon" href="favicon.ico" />
+  <script type="text/javascript">
+    let updateViewportParamsFn = function () {
+      // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+      let iw = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      let ih = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+      let vh = ih * 0.01;
+      let max_width = 0, max_height = 0;
+      if ((iw * 960) < (ih * 540)) {
+        //W/H ratio < 540/960 => fit width
+        max_width = iw;
+        max_height = Math.floor(iw * 960 / 540) - 1; //remove extra pixels to fix black border
+      }
+      else {
+        //fit height
+        max_height = ih;
+        max_width = Math.floor(ih * 540 / 960) - 1; //remove extra pixels to fix black border
+      }
+      // Then we set the value in the --vh custom property to the root of the document
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+      document.documentElement.style.setProperty("--mw", `${max_width}px`);
+      document.documentElement.style.setProperty("--mh", `${max_height}px`);
+    };
+    updateViewportParamsFn();
+  </script>
+</head>
+
+<body>
+  <div id="game-section">
+    <img id="background-img" class="background" />
+    <div id="background-container" class="background">
+
+      <!-- nagaLoadingChanges -->
+      <div id="LOA" class="loading">
+        <a id="percent-text"></a>
+      </div>
+
+      
+      <div id="fade" class="logo">
+        <img id="black-img" class="black-background"/> 
+        <div id="sprite"></div>
+      </div>
+      <!-- nagaLoadingChanges -->
+      <img id="img-splash" src="src/splash.jpg" />
+    </div>
+    <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+  </div>
+
+  <!-- <div class="loading">
+      <img src="src/loading.png" alt="launch" id="loading-img" />
+      <button class="get-started" onclick="closeLoading()">GET STARTED</button>
+      <div class="percent-loading">
+        <div class="progress-bar-web"></div>
+      </div>
+    </div> -->
+
+  <script src="src/settings.js" charset="utf-8"></script>
+  <script type="module" src="application.js" charset="utf-8"></script>
+
+  <script src="main.js" charset="utf-8"></script>
+
+  <script type="text/javascript">
+    function closeLoading() {
+      document.querySelector(".loading").remove();
+    }
+
+    (function () {
+      // open web debugger console
+      if (typeof VConsole !== "undefined") {
+        window.vConsole = new VConsole();
+      }
+
+      var debug = window._CCSettings.debug;
+
+      function loadScript(moduleName, cb) {
+        function scriptLoaded() {
+          document.body.removeChild(domScript);
+          domScript.removeEventListener("load", scriptLoaded, false);
+          cb && cb();
+        }
+        var domScript = document.createElement("script");
+        domScript.async = true;
+        domScript.src = moduleName;
+        domScript.addEventListener("load", scriptLoaded, false);
+        document.body.appendChild(domScript);
+      }
+
+      loadScript(debug ? "cocos2d-js.js" : "cocos2d-js-min.js", function () {
+        if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
+          loadScript(debug ? "physics.js" : "physics-min.js", window.boot);
+        } else {
+          window.boot();
+        }
+        // let askForLeaveConfirmation = function (e) {
+        //   e.preventDefault();
+        //   (e || window.event).returnValue = "";
+        // };
+        // window.addEventListener("beforeunload", askForLeaveConfirmation);
+      });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+
+light_X.png
+size: 149,145
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/light_background
+  rotate: false
+  xy: 2, 2
+  size: 145, 141
+  orig: 145, 144
+  offset: 0, 0
+  index: -1

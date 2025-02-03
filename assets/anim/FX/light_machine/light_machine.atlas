@@ -1,0 +1,41 @@
+
+light_machine.png
+size: 1855,894
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+light1
+  rotate: false
+  xy: 724, 3
+  size: 720, 405
+  orig: 722, 408
+  offset: 1, 2
+  index: -1
+light1.1
+  rotate: false
+  xy: 724, 410
+  size: 720, 482
+  orig: 720, 490
+  offset: 0, 4
+  index: -1
+light2
+  rotate: true
+  xy: 1446, 174
+  size: 718, 407
+  orig: 720, 410
+  offset: 1, 2
+  index: -1
+light2.1
+  rotate: false
+  xy: 2, 406
+  size: 720, 486
+  orig: 720, 490
+  offset: 0, 0
+  index: -1
+light_a
+  rotate: false
+  xy: 2, 2
+  size: 716, 402
+  orig: 721, 405
+  offset: 3, 2
+  index: -1

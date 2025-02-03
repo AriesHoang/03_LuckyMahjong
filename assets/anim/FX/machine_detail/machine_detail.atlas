@@ -1,0 +1,188 @@
+
+machine_detail.png
+size: 568,157
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+2_lamp
+  rotate: false
+  xy: 2, 128
+  size: 384, 8
+  orig: 384, 8
+  offset: 0, 0
+  index: -1
+2_light
+  rotate: false
+  xy: 2, 138
+  size: 414, 17
+  orig: 424, 20
+  offset: 5, 3
+  index: -1
+2_soundbase
+  rotate: true
+  xy: 219, 3
+  size: 35, 108
+  orig: 38, 108
+  offset: 0, 0
+  index: -1
+2_soundcolor
+  rotate: false
+  xy: 484, 47
+  size: 26, 80
+  orig: 29, 81
+  offset: 1, 0
+  index: -1
+2_soundcolor3
+  rotate: false
+  xy: 512, 47
+  size: 26, 80
+  orig: 29, 81
+  offset: 1, 0
+  index: -1
+2_soundcolor4
+  rotate: false
+  xy: 540, 47
+  size: 26, 80
+  orig: 29, 81
+  offset: 1, 0
+  index: -1
+buf_body
+  rotate: false
+  xy: 2, 22
+  size: 111, 104
+  orig: 111, 104
+  offset: 0, 0
+  index: -1
+buf_nose
+  rotate: false
+  xy: 2, 2
+  size: 32, 18
+  orig: 32, 18
+  offset: 0, 0
+  index: -1
+buf_nose_detail
+  rotate: true
+  xy: 468, 6
+  size: 34, 27
+  orig: 35, 27
+  offset: 1, 0
+  index: -1
+buf_shadow
+  rotate: false
+  xy: 418, 129
+  size: 85, 26
+  orig: 87, 30
+  offset: 1, 2
+  index: -1
+buf_tail
+  rotate: true
+  xy: 36, 2
+  size: 18, 26
+  orig: 18, 26
+  offset: 0, 0
+  index: -1
+chicken_body
+  rotate: false
+  xy: 332, 40
+  size: 94, 86
+  orig: 94, 87
+  offset: 0, 1
+  index: -1
+chicken_hand
+  rotate: false
+  xy: 432, 12
+  size: 34, 28
+  orig: 34, 28
+  offset: 0, 0
+  index: -1
+chicken_shadow
+  rotate: true
+  xy: 428, 42
+  size: 85, 26
+  orig: 87, 30
+  offset: 1, 2
+  index: -1
+chicken_tail
+  rotate: true
+  xy: 117, 10
+  size: 16, 26
+  orig: 16, 26
+  offset: 0, 0
+  index: -1
+dog_body
+  rotate: false
+  xy: 115, 28
+  size: 102, 98
+  orig: 102, 98
+  offset: 0, 0
+  index: -1
+dog_ear1
+  rotate: true
+  xy: 505, 129
+  size: 26, 53
+  orig: 26, 53
+  offset: 0, 0
+  index: -1
+dog_ear2
+  rotate: false
+  xy: 527, 17
+  size: 32, 28
+  orig: 32, 29
+  offset: 0, 0
+  index: -1
+dog_nose
+  rotate: false
+  xy: 64, 2
+  size: 26, 18
+  orig: 26, 18
+  offset: 0, 0
+  index: -1
+dog_shadow
+  rotate: false
+  xy: 329, 6
+  size: 101, 32
+  orig: 105, 36
+  offset: 2, 2
+  index: -1
+dog_tail
+  rotate: true
+  xy: 145, 6
+  size: 20, 21
+  orig: 20, 21
+  offset: 0, 0
+  index: -1
+fish_body
+  rotate: false
+  xy: 219, 40
+  size: 111, 86
+  orig: 111, 86
+  offset: 0, 0
+  index: -1
+fish_hand
+  rotate: true
+  xy: 92, 3
+  size: 17, 23
+  orig: 17, 23
+  offset: 0, 0
+  index: -1
+fish_shadow
+  rotate: true
+  xy: 456, 42
+  size: 85, 26
+  orig: 87, 30
+  offset: 1, 2
+  index: -1
+fish_star
+  rotate: false
+  xy: 497, 12
+  size: 28, 33
+  orig: 28, 33
+  offset: 0, 0
+  index: -1
+white
+  rotate: false
+  xy: 388, 129
+  size: 25, 7
+  orig: 25, 7
+  offset: 0, 0
+  index: -1

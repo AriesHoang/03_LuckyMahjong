@@ -1,0 +1,339 @@
+body {
+  touch-action: none;
+  width: 100vw;
+  height: 100vh;
+  margin: 0
+}
+#game-section {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+}
+#Cocos2dGameContainer {
+  position: relative;
+  max-width: calc(var(--mw, 1mw));
+  max-height: calc(var(--mh, 1mh));
+  margin: 0 auto !important;
+  overflow: hidden;
+  top: calc((100% - var(--mh, 1mh)) * 0.5);
+}
+/* nagaLoadingChanges */
+.logo{
+  position: fixed;
+  z-index: 999;
+  overflow: visible;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* transition: opacity 1s ease-in-out; */
+}
+#background-img {
+pointer-events: none;
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ top: 0;
+ left: 0;
+ background:#000;
+}
+#black-img {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ top: 0;
+ left: 0;
+ /* background-image: linear-gradient(rgb(32, 3, 12),rgb(61, 3, 22), rgb(116, 6, 43)); */
+}
+.black-background {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ top: 0;
+ left: 0;
+ background:#000;
+ transition: opacity .5s;
+}
+.transparent
+{
+   opacity:0;
+}
+/* nagaLoadingChanges */
+.background{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  /* background-image: linear-gradient(rgb(32, 3, 12),rgb(61, 3, 22), rgb(116, 6, 43)); */
+}
+#GameCanvas {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, calc((var(--mh, 1mh) - 100%) * 0.5));
+}
+
+
+#sprite {
+  width: 200px;
+  height: 140px;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 9999;
+  background: url('src/splashLogo.png');
+  background-position: 0px 0px;
+  /* background-repeat: no-repeat; */
+}
+
+.NAGA_00 {width:311px; height:158px; background-position: -1px -1px}
+.NAGA_01 {width:311px; height:158px; background-position: -1px -161px}
+.NAGA_02 {width:311px; height:158px; background-position: -1px -321px}
+.NAGA_03 {width:311px; height:158px; background-position: -1px -481px}
+.NAGA_04 {width:311px; height:158px; background-position: -1px -641px}
+.NAGA_05 {width:311px; height:158px; background-position: -1px -801px}
+.NAGA_06 {width:311px; height:158px; background-position: -1px -961px}
+.NAGA_07 {width:311px; height:158px; background-position: -1px -1121px}
+.NAGA_08 {width:311px; height:158px; background-position: -1px -1281px}
+.NAGA_09 {width:311px; height:158px; background-position: -1px -1441px}
+.NAGA_10 {width:311px; height:158px; background-position: -1px -1601px}
+.NAGA_11 {width:311px; height:158px; background-position: -1px -1761px}
+.NAGA_12 {width:311px; height:158px; background-position: -314px -1px}
+.NAGA_13 {width:311px; height:158px; background-position: -314px -161px}
+.NAGA_14 {width:311px; height:158px; background-position: -314px -321px}
+.NAGA_15 {width:311px; height:158px; background-position: -314px -481px}
+.NAGA_16 {width:311px; height:158px; background-position: -314px -641px}
+.NAGA_17 {width:311px; height:158px; background-position: -314px -801px}
+.NAGA_18 {width:311px; height:158px; background-position: -314px -961px}
+.NAGA_19 {width:311px; height:158px; background-position: -314px -1121px}
+.NAGA_20 {width:311px; height:158px; background-position: -314px -1281px}
+.NAGA_21 {width:311px; height:158px; background-position: -314px -1441px}
+.NAGA_22 {width:311px; height:158px; background-position: -314px -1601px}
+.NAGA_23 {width:311px; height:158px; background-position: -314px -1761px}
+.NAGA_24 {width:311px; height:158px; background-position: -627px -1px}
+.NAGA_25 {width:311px; height:158px; background-position: -627px -161px}
+.NAGA_26 {width:311px; height:158px; background-position: -627px -321px}
+.NAGA_27 {width:311px; height:158px; background-position: -627px -481px}
+.NAGA_28 {width:311px; height:158px; background-position: -627px -641px}
+.NAGA_29 {width:311px; height:158px; background-position: -627px -801px}
+.NAGA_30 {width:311px; height:158px; background-position: -627px -961px}
+.NAGA_31 {width:311px; height:158px; background-position: -627px -1121px}
+.NAGA_32 {width:311px; height:158px; background-position: -627px -1281px}
+.NAGA_33 {width:311px; height:158px; background-position: -627px -1441px}
+.NAGA_34 {width:311px; height:158px; background-position: -627px -1601px}
+.NAGA_35 {width:311px; height:158px; background-position: -627px -1761px}
+.NAGA_36 {width:311px; height:158px; background-position: -940px -1px}
+.NAGA_37 {width:311px; height:158px; background-position: -940px -161px}
+.NAGA_38 {width:311px; height:158px; background-position: -940px -321px}
+.NAGA_39 {width:311px; height:158px; background-position: -940px -481px}
+.NAGA_40 {width:311px; height:158px; background-position: -940px -641px}
+.NAGA_41 {width:311px; height:158px; background-position: -940px -801px}
+.NAGA_42 {width:311px; height:158px; background-position: -940px -961px}
+.NAGA_43 {width:311px; height:158px; background-position: -940px -1121px}
+.NAGA_44 {width:311px; height:158px; background-position: -940px -1281px}
+.NAGA_45 {width:311px; height:158px; background-position: -940px -1441px}
+.NAGA_46 {width:311px; height:158px; background-position: -940px -1601px}
+.NAGA_47 {width:311px; height:158px; background-position: -940px -1761px}
+.NAGA_48 {width:311px; height:158px; background-position: -1253px -1px}
+.NAGA_49 {width:311px; height:158px; background-position: -1253px -161px}
+.NAGA_50 {width:311px; height:158px; background-position: -1253px -321px}
+.NAGA_51 {width:311px; height:158px; background-position: -1253px -481px}
+.NAGA_52 {width:311px; height:158px; background-position: -1253px -641px}
+.NAGA_53 {width:311px; height:158px; background-position: -1253px -801px}
+.NAGA_54 {width:311px; height:158px; background-position: -1253px -961px}
+.NAGA_55 {width:311px; height:158px; background-position: -1253px -1121px}
+.NAGA_56 {width:311px; height:158px; background-position: -1253px -1281px}
+.NAGA_57 {width:311px; height:158px; background-position: -1253px -1441px}
+.NAGA_58 {width:311px; height:158px; background-position: -1253px -1601px}
+.NAGA_59 {width:311px; height:158px; background-position: -1253px -1761px}
+
+/* nagaLoadingChanges */
+/* .loading {
+  z-index: 9;
+  position: relative;
+  width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#loading-img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+button.get-started {
+  background-color: #a172f1;
+  border-color: #5521a9;
+  color: white;
+  margin: 70vh auto;
+  padding: 15px 35px;
+  font-size: 20px;
+  border-radius: 15px;
+  font-weight: bold;
+  visibility: hidden;
+}
+.percent-loading {
+  border: solid 2px #ccc;
+  position: absolute;
+  top: 75vh;
+  left: calc(50% - 125px);
+  width: 251px;
+  height: 13px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #5521a9;
+}
+
+.progress-bar-web {
+  left: 0;
+  top: 0;
+  width: 0;
+  overflow: hidden;
+  background: url("src/loading-bar.png");
+  background-size: auto 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 13px;
+  background-repeat: no-repeat;
+} */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: visible;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.loading a{
+  position: absolute;
+  margin-top: 0px;
+  margin-left: -5px;
+  color: lightblue;
+  text-shadow: 0 0 black;
+  font-size: 16px;
+  width: 20px;
+  height: 10px;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 1500ms infinite linear;
+  -moz-animation: spinner 1500ms infinite linear;
+  -ms-animation: spinner 1500ms infinite linear;
+  -o-animation: spinner 1500ms infinite linear;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.749) 1.5em 0 0 0, rgba(171, 213, 200, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.749) 0 1.5em 0 0, rgba(171, 213, 200, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.749) -1.5em 0 0 0, rgba(171, 213, 200, 0.75) -1.1em -1.1em 0 0, rgba(255, 255, 255, 0.749) 0 -1.5em 0 0, rgba(171, 213, 200, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(255, 255, 255, 0.749) 1.5em 0 0 0, rgba(171, 213, 200, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.749) 0 1.5em 0 0, rgba(171, 213, 200, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.749) -1.5em 0 0 0, rgba(171, 213, 200, 0.75) -1.1em -1.1em 0 0, rgba(255, 255, 255, 0.749) 0 -1.5em 0 0, rgba(171, 213, 200, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

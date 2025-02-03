@@ -1,0 +1,76 @@
+
+symbols.png
+size: 142,290
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+axolotl
+  rotate: false
+  xy: 63, 62
+  size: 73, 58
+  orig: 73, 58
+  offset: 0, 0
+  index: -1
+buf
+  rotate: false
+  xy: 2, 2
+  size: 70, 58
+  orig: 70, 58
+  offset: 0, 0
+  index: -1
+chicken
+  rotate: false
+  xy: 74, 236
+  size: 66, 52
+  orig: 66, 52
+  offset: 0, 0
+  index: -1
+dog
+  rotate: false
+  xy: 69, 122
+  size: 66, 56
+  orig: 66, 56
+  offset: 0, 0
+  index: -1
+fish
+  rotate: false
+  xy: 2, 124
+  size: 65, 55
+  orig: 65, 55
+  offset: 0, 0
+  index: -1
+frog
+  rotate: false
+  xy: 2, 65
+  size: 59, 57
+  orig: 59, 57
+  offset: 0, 0
+  index: -1
+lion
+  rotate: false
+  xy: 2, 181
+  size: 71, 53
+  orig: 71, 53
+  offset: 0, 0
+  index: -1
+mouse
+  rotate: false
+  xy: 75, 180
+  size: 65, 54
+  orig: 65, 54
+  offset: 0, 0
+  index: -1
+octopus
+  rotate: false
+  xy: 74, 2
+  size: 64, 58
+  orig: 64, 58
+  offset: 0, 0
+  index: -1
+tiger
+  rotate: false
+  xy: 2, 237
+  size: 70, 51
+  orig: 70, 51
+  offset: 0, 0
+  index: -1

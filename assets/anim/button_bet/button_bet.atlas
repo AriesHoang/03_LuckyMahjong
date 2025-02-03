@@ -1,0 +1,48 @@
+
+button_bet.png
+size: 372,244
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bet_color
+  rotate: false
+  xy: 2, 123
+  size: 130, 119
+  orig: 132, 121
+  offset: 1, 1
+  index: -1
+bet_color1
+  rotate: false
+  xy: 2, 2
+  size: 130, 119
+  orig: 132, 121
+  offset: 1, 1
+  index: -1
+bet_color2
+  rotate: false
+  xy: 134, 123
+  size: 130, 119
+  orig: 132, 121
+  offset: 1, 1
+  index: -1
+bet_color3
+  rotate: false
+  xy: 134, 2
+  size: 130, 119
+  orig: 132, 121
+  offset: 1, 1
+  index: -1
+sq
+  rotate: true
+  xy: 266, 127
+  size: 115, 104
+  orig: 115, 104
+  offset: 0, 0
+  index: -1
+switch
+  rotate: true
+  xy: 266, 10
+  size: 115, 88
+  orig: 115, 88
+  offset: 0, 0
+  index: -1
