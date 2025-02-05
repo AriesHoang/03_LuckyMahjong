@@ -21,14 +21,15 @@ export default class StageLoadingFont extends cc.Component {
 
     static references = {
         Main: {
-            [supportedTextLanguage[supportedTextLanguage.default]]: { path: "customFont/En + Id + Others + numbers/UTM-Cafeta", loading: false },
-            [supportedTextLanguage[supportedTextLanguage.ja]]: { path: "customFont/Jp + Tzh/RFNMU", loading: false },
-            [supportedTextLanguage[supportedTextLanguage.ko]]: { path: "customFont/Kr/DXMobrGExtraBold-KSCpc-EUC-H", loading: false },
-            [supportedTextLanguage[supportedTextLanguage.th]]: { path: "customFont/Th/JS Korakhot Normal", loading: false },
-            [supportedTextLanguage[supportedTextLanguage.zh]]: { path: "customFont/Zh/Sharp(CloudRuiSongCuGBK)Bold Song (Ming) Typeface Chinese Fontt-Simplified Chinese Fonts", loading: false },
-            [supportedTextLanguage[supportedTextLanguage.en]]: { path: "customFont/En + Id + Others + numbers/UTM-Cafeta", loading: false },
-            [supportedTextLanguage[supportedTextLanguage.id]]: { path: "customFont/En + Id + Others + numbers/UTM-Cafeta", loading: false },
-            [supportedTextLanguage[supportedTextLanguage.vi]]: { path: "customFont/Vi/STIXTwoText-SemiBold", loading: false },
+            [supportedTextLanguage[supportedTextLanguage.default]]: { path: "customFonts/default/GALSB", loading: false },
+            [supportedTextLanguage[supportedTextLanguage.ja]]: { path: "customFonts/ja_tzh/keifont", loading: false },
+            [supportedTextLanguage[supportedTextLanguage.tzh]]: { path: "customFonts/ja_tzh/keifont", loading: false },
+            [supportedTextLanguage[supportedTextLanguage.ko]]: { path: "customFonts/ko/BlackHanSans-Regular", loading: false },
+            [supportedTextLanguage[supportedTextLanguage.th]]: { path: "customFonts/th/K2D-ExtraBold", loading: false },
+            [supportedTextLanguage[supportedTextLanguage.zh]]: { path: "customFonts/zh/FZ-black", loading: false },
+            [supportedTextLanguage[supportedTextLanguage.en]]: { path: "customFonts/en_id_vi/Japanese 3017-SVG", loading: false },
+            [supportedTextLanguage[supportedTextLanguage.id]]: { path: "customFonts/en_id_vi/Japanese 3017-SVG", loading: false },
+            [supportedTextLanguage[supportedTextLanguage.vi]]: { path: "customFonts/en_id_vi/Japanese 3017-SVG", loading: false },
         }
     };
 

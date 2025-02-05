@@ -1,0 +1,90 @@
+
+winscene.png
+size: 1880,966
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bigwin/1_BG
+  rotate: false
+  xy: 1066, 128
+  size: 512, 836
+  orig: 514, 839
+  offset: 1, 1
+  index: -1
+bigwin/1_detail
+  rotate: false
+  xy: 1099, 47
+  size: 79, 79
+  orig: 81, 81
+  offset: 1, 1
+  index: -1
+bigwin/1_dot
+  rotate: false
+  xy: 1005, 12
+  size: 92, 100
+  orig: 96, 107
+  offset: 1, 3
+  index: -1
+bigwin/1_khungm
+  rotate: true
+  xy: 1580, 184
+  size: 464, 110
+  orig: 466, 112
+  offset: 1, 1
+  index: -1
+light
+  rotate: true
+  xy: 1580, 650
+  size: 314, 298
+  orig: 314, 298
+  offset: 0, 0
+  index: -1
+megawin/2_BG
+  rotate: false
+  xy: 539, 114
+  size: 525, 850
+  orig: 527, 852
+  offset: 1, 1
+  index: -1
+megawin/2_coin
+  rotate: true
+  xy: 1804, 498
+  size: 150, 70
+  orig: 152, 72
+  offset: 1, 1
+  index: -1
+megawin/2_khung
+  rotate: true
+  xy: 1692, 184
+  size: 464, 110
+  orig: 466, 112
+  offset: 1, 1
+  index: -1
+star
+  rotate: true
+  xy: 1748, 61
+  size: 121, 119
+  orig: 123, 122
+  offset: 1, 1
+  index: -1
+superwin/3_BG
+  rotate: false
+  xy: 2, 26
+  size: 535, 938
+  orig: 537, 942
+  offset: 1, 2
+  index: -1
+superwin/3_chim
+  rotate: false
+  xy: 1580, 53
+  size: 166, 129
+  orig: 168, 131
+  offset: 1, 1
+  index: -1
+superwin/3_khung
+  rotate: false
+  xy: 539, 2
+  size: 464, 110
+  orig: 466, 112
+  offset: 1, 1
+  index: -1

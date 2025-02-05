@@ -1,0 +1,48 @@
+
+freespinwon.png
+size: 1671,544
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+freespin/5_buton
+  rotate: true
+  xy: 1569, 7
+  size: 249, 100
+  orig: 251, 102
+  offset: 1, 1
+  index: -1
+freespin/5_fsw2
+  rotate: true
+  xy: 563, 37
+  size: 505, 462
+  orig: 518, 469
+  offset: 7, 7
+  index: -1
+freespin/5_khung
+  rotate: false
+  xy: 1027, 3
+  size: 540, 177
+  orig: 542, 180
+  offset: 1, 2
+  index: -1
+freespin/5_light
+  rotate: true
+  xy: 1027, 182
+  size: 360, 311
+  orig: 362, 313
+  offset: 1, 1
+  index: -1
+freespin/5_lightup
+  rotate: true
+  xy: 2, 2
+  size: 540, 559
+  orig: 542, 957
+  offset: 1, 381
+  index: -1
+totalwin/4_star1
+  rotate: false
+  xy: 1340, 258
+  size: 284, 284
+  orig: 286, 286
+  offset: 1, 1
+  index: -1

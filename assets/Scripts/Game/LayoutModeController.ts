@@ -38,8 +38,8 @@ export default class LayoutModeController extends cc.Component {
     @property(cc.Node)
     cheatBtn: cc.Node = null;
 
-    @property(cc.Node)
-    playerStats: cc.Node = null;
+    // @property(cc.Node)
+    // playerStats: cc.Node = null;
 
     @property(NumberLabel)
     bonusWinLabel: NumberLabel = null;

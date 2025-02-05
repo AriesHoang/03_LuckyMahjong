@@ -1,0 +1,13 @@
+
+win.png
+size: 252,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bigwin/fx1
+  rotate: false
+  xy: 2, 2
+  size: 248, 252
+  orig: 283, 286
+  offset: 18, 16
+  index: -1

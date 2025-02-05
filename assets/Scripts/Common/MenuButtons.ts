@@ -61,17 +61,17 @@ export default class MenuButtons extends cc.Component {
     @property(cc.Node)
     blackOverlay: cc.Node = null;
 
-    @property(cc.Node)
-    anteBetBtn: cc.Node = null;
+    // @property(cc.Node)
+    // anteBetBtn: cc.Node = null;
 
-    @property(cc.Button)
-    buyFeatureBtn: cc.Button = null;
+    // @property(cc.Button)
+    // buyFeatureBtn: cc.Button = null;
 
-    @property(cc.Label)
-    lblAnteValue: cc.Label = null;
+    // @property(cc.Label)
+    // lblAnteValue: cc.Label = null;
 
-    @property(cc.Label)
-    lblBuyFeatureValue: cc.Label = null;
+    // @property(cc.Label)
+    // lblBuyFeatureValue: cc.Label = null;
 
 
     private _isButtonsHidden: boolean = false;
@@ -320,35 +320,35 @@ export default class MenuButtons extends cc.Component {
     }
 
     onToggleAnteBet() {
-        SoundController.inst.MainAudio.playAudio(AudioPlayId.sfx_SwitchAnte);
+        // SoundController.inst.MainAudio.playAudio(AudioPlayId.sfx_SwitchAnte);
        
-        RootData.instance.gamePlayData.isAnteBet = !RootData.instance.gamePlayData.isAnteBet;
+        // RootData.instance.gamePlayData.isAnteBet = !RootData.instance.gamePlayData.isAnteBet;
 
-        let isEnable = RootData.instance.gamePlayData.isAnteBet;
+        // let isEnable = RootData.instance.gamePlayData.isAnteBet;
         
-        let animAnteBet = this.anteBetBtn.getChildByName("button_bet").getComponent(sp.Skeleton);
-        if(isEnable){
-            animAnteBet.setAnimation(0, "turn_on", false);
-            animAnteBet.addAnimation(0, "idle_turn_on", true);
-        }else {
-            animAnteBet.setAnimation(0, "turn_off", false);
-            animAnteBet.addAnimation(0, "idle_turn_off", true);
-        }
-        this.anteBetBtn.getChildByName("off_image").active = !isEnable;
-        this.anteBetBtn.getChildByName("on_image").active = isEnable;
+        // let animAnteBet = this.anteBetBtn.getChildByName("button_bet").getComponent(sp.Skeleton);
+        // if(isEnable){
+        //     animAnteBet.setAnimation(0, "turn_on", false);
+        //     animAnteBet.addAnimation(0, "idle_turn_on", true);
+        // }else {
+        //     animAnteBet.setAnimation(0, "turn_off", false);
+        //     animAnteBet.addAnimation(0, "idle_turn_off", true);
+        // }
+        // this.anteBetBtn.getChildByName("off_image").active = !isEnable;
+        // this.anteBetBtn.getChildByName("on_image").active = isEnable;
 
-        this.updateBuyFeatureValue();
+        // this.updateBuyFeatureValue();
         
 
-        clientEvent.dispatchEvent(EventName.BetAmountChanged);
-        clientEvent.dispatchEvent(EventName.OnAnteBetButtonPressed);
+        // clientEvent.dispatchEvent(EventName.BetAmountChanged);
+        // clientEvent.dispatchEvent(EventName.OnAnteBetButtonPressed);
     }
     updateBuyFeatureValue() {
-        this.buyFeatureBtn.interactable = !RootData.instance.gamePlayData.isAnteBet;
-        this.buyFeatureBtn.node.opacity = (RootData.instance.gamePlayData.isAnteBet ? 150 : 255);
+        // this.buyFeatureBtn.interactable = !RootData.instance.gamePlayData.isAnteBet;
+        // this.buyFeatureBtn.node.opacity = (RootData.instance.gamePlayData.isAnteBet ? 150 : 255);
 
-        this.lblAnteValue.string = Utils.MixCurrecyStr(RootData.instance.gamePlayData.getCurBet());
-        this.lblBuyFeatureValue.string = Utils.MixCurrecyStr(RootData.instance.gamePlayData.getCurBetNormal() * GameConfig.rateBuyFeature)
+        // this.lblAnteValue.string = Utils.MixCurrecyStr(RootData.instance.gamePlayData.getCurBet());
+        // this.lblBuyFeatureValue.string = Utils.MixCurrecyStr(RootData.instance.gamePlayData.getCurBetNormal() * GameConfig.rateBuyFeature)
     }
 
 

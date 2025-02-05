@@ -1,0 +1,153 @@
+
+spin_button.png
+size: 1888,486
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Spin_All/circle_00
+  rotate: false
+  xy: 1584, 164
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1
+Spin_All/circle_01
+  rotate: false
+  xy: 1554, 12
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1
+Spin_All/circle_02
+  rotate: false
+  xy: 1706, 12
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1
+Spin_All/circle_03
+  rotate: false
+  xy: 1736, 164
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1
+button3
+  rotate: false
+  xy: 1584, 316
+  size: 168, 168
+  orig: 168, 168
+  offset: 0, 0
+  index: -1
+button3_glow
+  rotate: false
+  xy: 1382, 112
+  size: 170, 170
+  orig: 170, 170
+  offset: 0, 0
+  index: -1
+button3_light
+  rotate: false
+  xy: 1382, 284
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+fx/1
+  rotate: false
+  xy: 2, 244
+  size: 228, 240
+  orig: 228, 240
+  offset: 0, 0
+  index: -1
+fx/10
+  rotate: false
+  xy: 922, 2
+  size: 228, 240
+  orig: 228, 240
+  offset: 0, 0
+  index: -1
+fx/11
+  rotate: false
+  xy: 1152, 244
+  size: 228, 240
+  orig: 228, 240
+  offset: 0, 0
+  index: -1
+fx/12
+  rotate: false
+  xy: 1152, 2
+  size: 228, 240
+  orig: 228, 240
+  offset: 0, 0
+  index: -1
+fx/2
+  rotate: false
+  xy: 2, 2
+  size: 228, 240
+  orig: 228, 240
+  offset: 0, 0
+  index: -1
+fx/3
+  rotate: false
+  xy: 232, 244
+  size: 228, 240
+  orig: 228, 240
+  offset: 0, 0
+  index: -1
+fx/4
+  rotate: false
+  xy: 232, 2
+  size: 228, 240
+  orig: 228, 240
+  offset: 0, 0
+  index: -1
+fx/5
+  rotate: false
+  xy: 462, 244
+  size: 228, 240
+  orig: 228, 240
+  offset: 0, 0
+  index: -1
+fx/6
+  rotate: false
+  xy: 462, 2
+  size: 228, 240
+  orig: 228, 240
+  offset: 0, 0
+  index: -1
+fx/7
+  rotate: false
+  xy: 692, 244
+  size: 228, 240
+  orig: 228, 240
+  offset: 0, 0
+  index: -1
+fx/8
+  rotate: false
+  xy: 692, 2
+  size: 228, 240
+  orig: 228, 240
+  offset: 0, 0
+  index: -1
+fx/9
+  rotate: false
+  xy: 922, 244
+  size: 228, 240
+  orig: 228, 240
+  offset: 0, 0
+  index: -1
+spin3
+  rotate: false
+  xy: 1754, 395
+  size: 82, 89
+  orig: 82, 89
+  offset: 0, 0
+  index: -1
+spin3_blur
+  rotate: false
+  xy: 1382, 12
+  size: 82, 98
+  orig: 82, 98
+  offset: 0, 0
+  index: -1

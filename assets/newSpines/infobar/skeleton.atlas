@@ -1,0 +1,132 @@
+
+skeleton.png
+size: 868,359
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+image/back_light/back_light_01
+  rotate: false
+  xy: 2, 3
+  size: 255, 55
+  orig: 255, 55
+  offset: 0, 0
+  index: -1
+image/back_light/back_light_03
+  rotate: false
+  xy: 259, 3
+  size: 255, 55
+  orig: 255, 55
+  offset: 0, 0
+  index: -1
+image/back_light/back_light_05
+  rotate: false
+  xy: 204, 235
+  size: 255, 55
+  orig: 255, 55
+  offset: 0, 0
+  index: -1
+image/back_light/back_light_07
+  rotate: false
+  xy: 204, 178
+  size: 255, 55
+  orig: 255, 55
+  offset: 0, 0
+  index: -1
+image/back_light/back_light_09
+  rotate: false
+  xy: 354, 121
+  size: 255, 55
+  orig: 255, 55
+  offset: 0, 0
+  index: -1
+image/back_light/back_light_11
+  rotate: false
+  xy: 354, 64
+  size: 255, 55
+  orig: 255, 55
+  offset: 0, 0
+  index: -1
+image/back_light/back_light_13
+  rotate: false
+  xy: 516, 7
+  size: 255, 55
+  orig: 255, 55
+  offset: 0, 0
+  index: -1
+image/back_light/back_light_15
+  rotate: false
+  xy: 461, 235
+  size: 255, 55
+  orig: 255, 55
+  offset: 0, 0
+  index: -1
+image/back_light/back_light_17
+  rotate: false
+  xy: 461, 178
+  size: 255, 55
+  orig: 255, 55
+  offset: 0, 0
+  index: -1
+image/back_light/back_light_19
+  rotate: false
+  xy: 476, 302
+  size: 255, 55
+  orig: 255, 55
+  offset: 0, 0
+  index: -1
+image/back_light/back_light_21
+  rotate: false
+  xy: 611, 121
+  size: 255, 55
+  orig: 255, 55
+  offset: 0, 0
+  index: -1
+image/back_light/back_light_23
+  rotate: false
+  xy: 611, 64
+  size: 255, 55
+  orig: 255, 55
+  offset: 0, 0
+  index: -1
+image/board
+  rotate: false
+  xy: 204, 292
+  size: 270, 65
+  orig: 270, 65
+  offset: 0, 0
+  index: -1
+image/board_ball
+  rotate: false
+  xy: 835, 42
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+image/board_ball_light
+  rotate: false
+  xy: 773, 2
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+image/board_light
+  rotate: false
+  xy: 2, 60
+  size: 350, 95
+  orig: 350, 95
+  offset: 0, 0
+  index: -1
+image/light
+  rotate: false
+  xy: 2, 157
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+image/star
+  rotate: false
+  xy: 718, 200
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1

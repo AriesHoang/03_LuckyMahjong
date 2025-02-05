@@ -10,11 +10,11 @@ export enum supportedTextLanguage {
 }
 
 export const Cfg = {
-	gameName: "Mochi Monster",
-	itemSize: cc.v2(82.5, 65),
-	slotSize: cc.v2(6, 5),
+	gameName: "Lucky Mahjong",
+	itemSize: cc.v2(84, 95),
+	slotSize: cc.v2(5, 5),
 	items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-	columnHeight: 325,
+	columnHeight: 525,
 	wildItemID: 0,
 	timeShakeItems: 1.2,
 	baseBetValue: 20,
@@ -28,7 +28,7 @@ export const Cfg = {
 	
 
 	CanvasDesign: cc.v2(540, 960),
-	gameCode: "oishi",
+	gameCode: "lucky-mahjong",
 	groupCode: null,
 	brandCode: null,
 	playerToken: null,
@@ -44,16 +44,16 @@ export const Cfg = {
 	BUY_FEATURE: 3,
 	FREESPIN: 4,
 
-	//Oishi game
+	//LuckyMahjong game
 	generateToken: "https://sandbox-casino.reelgame-api.store/api/Casino/GenerateDemoUrl",
-	getCurrentBet: envURL + "Oishi/GetCurrentBet",
+	getCurrentBet: envURL + "LuckyMahjong/GetCurrentBet",
 	getBalance: envURL + "Data/GetBalance",
-	gameBetURL: envURL + "Oishi/Bet",
-	gameSpinURL: envURL + "Oishi/Spin",
-	gamePickURL: envURL + "Oishi/Pick",
+	gameBetURL: envURL + "LuckyMahjong/Bet",
+	gameSpinURL: envURL + "LuckyMahjong/Spin",
+	gamePickURL: envURL + "LuckyMahjong/Pick",
 	getListRecentBets: envURL + "Data/ListRecentBets",
 	generateReplayId: envURL + "Data/GenerateReplay",
-	getReplayBet: envURL + "Oishi/GetReplayBet",
+	getReplayBet: envURL + "LuckyMahjong/GetReplayBet",
 
 
 

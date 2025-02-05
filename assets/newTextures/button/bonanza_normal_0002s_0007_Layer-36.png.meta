@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "2947d56e-0584-406b-9e46-4e4eb47677b8",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 49,
+  "height": 44,
+  "platformSettings": {},
+  "subMetas": {
+    "bonanza_normal_0002s_0007_Layer-36": {
+      "ver": "1.0.6",
+      "uuid": "4872f083-177d-47bd-baf1-eab33a2b90a7",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "2947d56e-0584-406b-9e46-4e4eb47677b8",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 49,
+      "height": 44,
+      "rawWidth": 49,
+      "rawHeight": 44,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

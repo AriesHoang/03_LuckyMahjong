@@ -974,9 +974,7 @@
     "icon": {
       "__id__": 4
     },
-    "itemAtlas": {
-      "__uuid__": "5095807e-fbf2-4449-b7ae-6f77f30c44cd"
-    },
+    "itemAtlas": null,
     "description": {
       "__id__": 17
     },

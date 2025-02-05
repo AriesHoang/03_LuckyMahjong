@@ -1,11 +1,11 @@
 import SoundController from "../Manager/SoundController";
 
 enum E_BTNSPIN_STATE {
-    idle,
-    spin,
-    spin_wait,
-    stop,
-    stop2
+    Idle,
+    Spin,
+    Spin_wait,
+    Stop,
+    Stop2
 };
 import { clientEvent } from "../Core/observer/clientEvent";
 import { E_BOARD_MODE, E_BOARD_STATE } from "../Game/BoardUI";
@@ -100,16 +100,16 @@ export default class SpinButton extends cc.Component {
         this._boardState = state;
         switch (state) {
             case E_BOARD_STATE.IDLE:
-                this.btnSpinSke.setAnimation(0, Utils.enumToString(E_BTNSPIN_STATE, E_BTNSPIN_STATE.idle), true);
+                this.btnSpinSke.setAnimation(0, Utils.enumToString(E_BTNSPIN_STATE, E_BTNSPIN_STATE.Idle), true);
                 this.btnSpinSke.node.active = !this.btnAutoSpin.active;
                 break;
             case E_BOARD_STATE.FINISH_SPINNING:
                 if (this.btnSpinSke.node.active)
-                    this.btnSpinSke.setAnimation(0, Utils.enumToString(E_BTNSPIN_STATE, E_BTNSPIN_STATE.stop), false);
+                    this.btnSpinSke.setAnimation(0, Utils.enumToString(E_BTNSPIN_STATE, E_BTNSPIN_STATE.Stop), false);
                 break;
             case E_BOARD_STATE.SPINNING:
-                this.btnSpinSke.setAnimation(0, Utils.enumToString(E_BTNSPIN_STATE, E_BTNSPIN_STATE.spin), false);
-                this.btnSpinSke.addAnimation(0, Utils.enumToString(E_BTNSPIN_STATE, E_BTNSPIN_STATE.spin_wait), true);
+                this.btnSpinSke.setAnimation(0, Utils.enumToString(E_BTNSPIN_STATE, E_BTNSPIN_STATE.Spin), false);
+                this.btnSpinSke.addAnimation(0, Utils.enumToString(E_BTNSPIN_STATE, E_BTNSPIN_STATE.Spin_wait), true);
                 break;
             default:
                 break;
@@ -168,7 +168,7 @@ export default class SpinButton extends cc.Component {
     }
 
     public onSkipButtonAnim() {
-        this.btnSpinSke.setAnimation(0, Utils.enumToString(E_BTNSPIN_STATE, E_BTNSPIN_STATE.stop2), false);
+        this.btnSpinSke.setAnimation(0, Utils.enumToString(E_BTNSPIN_STATE, E_BTNSPIN_STATE.Stop2), false);
     }
 
     public onAutoSpinNumChange(num: number) {

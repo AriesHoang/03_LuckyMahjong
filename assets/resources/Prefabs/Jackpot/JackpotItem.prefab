@@ -181,9 +181,7 @@
     "_headAniInfo": null,
     "_playTimes": 0,
     "_isAniComplete": true,
-    "_N$skeletonData": {
-      "__uuid__": "fa5a470a-4bee-4b3a-b27b-00d53a4f0a8c"
-    },
+    "_N$skeletonData": null,
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
     "_N$debugBones": false,
@@ -298,9 +296,7 @@
     "_headAniInfo": null,
     "_playTimes": 1,
     "_isAniComplete": true,
-    "_N$skeletonData": {
-      "__uuid__": "17bf06f3-2303-4c59-894a-cb5a03adc868"
-    },
+    "_N$skeletonData": null,
     "_N$_defaultCacheMode": 2,
     "_N$debugSlots": false,
     "_N$debugBones": false,
@@ -399,9 +395,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "032b6a95-6478-4e19-80cd-4a99115ce510"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 1,
     "_fillType": 0,

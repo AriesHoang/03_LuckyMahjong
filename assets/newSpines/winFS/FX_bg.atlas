@@ -1,0 +1,20 @@
+
+FX_bg.png
+size: 352,288
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+tubu1
+  rotate: false
+  xy: 2, 2
+  size: 173, 283
+  orig: 173, 283
+  offset: 0, 0
+  index: -1
+tubu2
+  rotate: false
+  xy: 177, 2
+  size: 173, 283
+  orig: 173, 283
+  offset: 0, 0
+  index: -1

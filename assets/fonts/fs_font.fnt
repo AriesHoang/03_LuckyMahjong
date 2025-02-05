@@ -1,0 +1,15 @@
+info face="sans-serif" size=72 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=1,1,1,1 spacing=1,1
+common lineHeight=72 base=56 scaleW=465 scaleH=427 pages=1 packed=0
+page id=0 file="fs_font.png"
+chars count=11
+char id=32 x=0 y=0 width=0 height=0 xoffset=0 yoffset=0 xadvance=21 page=0 chnl=15
+char id=48 x=0 y=0 width=124 height=144 xoffset=27 yoffset=1 xadvance=85 page=0 chnl=15
+char id=49 x=375 y=0 width=90 height=138 xoffset=28 yoffset=6 xadvance=52 page=0 chnl=15
+char id=50 x=250 y=0 width=124 height=141 xoffset=27 yoffset=5 xadvance=84 page=0 chnl=15
+char id=51 x=0 y=145 width=128 height=141 xoffset=28 yoffset=5 xadvance=89 page=0 chnl=15
+char id=52 x=249 y=287 width=127 height=138 xoffset=28 yoffset=6 xadvance=89 page=0 chnl=15
+char id=53 x=129 y=145 width=128 height=141 xoffset=28 yoffset=5 xadvance=89 page=0 chnl=15
+char id=54 x=258 y=145 width=128 height=141 xoffset=28 yoffset=5 xadvance=89 page=0 chnl=15
+char id=55 x=0 y=287 width=120 height=140 xoffset=30 yoffset=5 xadvance=81 page=0 chnl=15
+char id=56 x=125 y=0 width=124 height=144 xoffset=27 yoffset=6 xadvance=85 page=0 chnl=15
+char id=57 x=121 y=287 width=127 height=140 xoffset=28 yoffset=5 xadvance=89 page=0 chnl=15
