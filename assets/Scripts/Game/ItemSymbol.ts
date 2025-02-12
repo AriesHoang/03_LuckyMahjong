@@ -103,6 +103,7 @@ export default class ItemSymbol extends cc.Component {
     coinAmountLabel: cc.Label = null;
     static_image: cc.Sprite = null;
     isJackpotSymbol: boolean = false;
+    skinName: string = null;
 
     protected _itemAnimConfig: SymbolAnimConfig = null;
     public get itemCfg(): ItemConfig {
@@ -111,7 +112,7 @@ export default class ItemSymbol extends cc.Component {
     public set itemCfg(itemCfg: ItemConfig) {
         this._itemCfg = itemCfg;
         // (itemCfg.symbol - 1 >= 0 && itemCfg.symbol - 1 < SymbolList.length) ? SymbolList[itemCfg.symbol - 1] : null
-        this._itemAnimConfig =  SymbolList[Math.abs(itemCfg.symbol - 1)];
+        this._itemAnimConfig =  SymbolList[Math.abs(itemCfg.symbol) - 1];
     }
     protected static _itemPool: cc.NodePool = null;
 
@@ -186,45 +187,24 @@ export default class ItemSymbol extends cc.Component {
 
     initSkeletonData(itemState: E_ITEM_STATE = E_ITEM_STATE.NORMAL) {
         this.coinAmountLabel.node.active = (this.itemCfg.type == E_SYMBOL_TYPE.MONEY_CREDIT_BLOCK);
-
+        this.ske.setToSetupPose();
         let ske_data: sp.SkeletonData = this.symbolAnim;;
         let skin_name: string = null;
-        let cache_mode = sp.Skeleton.AnimationCacheMode.REALTIME;
+        // let cache_mode = sp.Skeleton.AnimationCacheMode.PRIVATE_CACHE;
 
-        // switch (this.itemCfg.symbol) {
-        //     case E_SYMBOL.H1:                
-        //     case E_SYMBOL.H2:
-        //     case E_SYMBOL.H3:
-        //     case E_SYMBOL.H4:
-        //     case E_SYMBOL.L1:
-        //     case E_SYMBOL.L2:
-        //     case E_SYMBOL.L3:
-        //     case E_SYMBOL.L4:
-        //     case E_SYMBOL.L5:
-        //         ske_data = this.symbolAnim;
-        //         break;
-        //     case E_SYMBOL.SCATTER:
-        //         ske_data = this.specialAnim;
-        //         break;
-        //     // case E_SYMBOL.MULTIPLIER:
-        //     //     ske_data = this.specialAnim;
-        //     //     break;
-        //     default:
-        //         break;
-        // }
-
-        skin_name = this._itemAnimConfig.skin[itemState];
+        this.skinName = skin_name = this._itemAnimConfig.skin[this._itemCfg.symbol > 0 ? 0 : 1];  
+               
         if (!ske_data) return;
-        this.ske.setAnimationCacheMode(cache_mode);
+        // this.ske.setAnimationCacheMode(cache_mode);
         if (this.ske.skeletonData != ske_data) {
             this.ske.skeletonData = ske_data;
         }
         if (skin_name) {
-            this.ske.setSkin(skin_name);
+            this.ske.setSkin(skin_name.toString());
         } else {
             this.ske.defaultSkin = null;
         }
-        this.ske.setToSetupPose();
+        
     }
 
     setItemState(state: E_ANIM_STATE = E_ANIM_STATE.idle) {
@@ -292,7 +272,7 @@ export default class ItemSymbol extends cc.Component {
             return;
         });
     }
-    playItemAnimPromise(state: E_ANIM_STATE = E_ANIM_STATE.idle): Promise<any> {
+    playItemAnimPromise(state: E_ANIM_STATE = E_ANIM_STATE.idle, pos: any = null): Promise<any> {
         return new Promise((resolve: Function) => {
             let anim_cfg = {name: null, loop: null};
             if (state == E_ANIM_STATE.idle){
@@ -302,6 +282,7 @@ export default class ItemSymbol extends cc.Component {
                 }
             }
             else if (state == E_ANIM_STATE.win) {
+                
                 if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
                     anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_scatter);
                     anim_cfg.loop = false;
@@ -315,6 +296,10 @@ export default class ItemSymbol extends cc.Component {
                     anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_white_chess);
                     anim_cfg.loop = false;
                 }
+                
+                cc.log("item: " + this.itemCfg.symbol + " anim: " + anim_cfg.name);
+                cc.log("At Pos: ", pos);
+                cc.log("this.ske skin name: ", this.skinName);
                 // anim_cfg = this._itemAnimConfig?.action[0] ? this._itemAnimConfig.action[0] : null;
             }
             else if (state == E_ANIM_STATE.appear) {

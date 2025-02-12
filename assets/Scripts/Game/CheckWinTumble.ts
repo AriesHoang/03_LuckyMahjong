@@ -160,7 +160,7 @@ export default class CheckWinTumble extends cc.Component {
                             .then(() => {
                                 
                             })
-                            .then(symbol.playItemAnimPromise.bind(symbol, E_ANIM_STATE.win));
+                            .then(symbol.playItemAnimPromise.bind(symbol, E_ANIM_STATE.win, {x: colIndex, y: rowIndex}));
                         prom_arr.push(prom_chain);
                     }
                 });

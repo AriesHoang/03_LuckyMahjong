@@ -282,9 +282,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "849262fb-ce4a-4c49-b6f5-5e31ad1cea07"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 1,
     "_fillType": 0,
@@ -296,9 +294,7 @@
     "_fillStart": 0,
     "_fillRange": 0,
     "_isTrimmedMode": true,
-    "_atlas": {
-      "__uuid__": "0203e631-4f06-41da-90a6-9a2b185447b9"
-    },
+    "_atlas": null,
     "_id": ""
   },
   {
@@ -390,10 +386,10 @@
       }
     ],
     "paused": false,
-    "defaultSkin": "Chess6",
-    "defaultAnimation": "Idle",
-    "_preCacheMode": 0,
-    "_cacheMode": 0,
+    "defaultSkin": "default",
+    "defaultAnimation": "",
+    "_preCacheMode": 2,
+    "_cacheMode": 2,
     "loop": false,
     "premultipliedAlpha": true,
     "timeScale": 1,
@@ -402,7 +398,7 @@
     "_frameCache": null,
     "_curFrame": null,
     "_skeletonCache": null,
-    "_animationName": "Idle",
+    "_animationName": "Win_gold_chess",
     "_animationQueue": [],
     "_headAniInfo": null,
     "_playTimes": 1,
@@ -410,7 +406,7 @@
     "_N$skeletonData": {
       "__uuid__": "38d65800-f8de-44b4-9615-452fbf4ae0f5"
     },
-    "_N$_defaultCacheMode": 0,
+    "_N$_defaultCacheMode": 2,
     "_N$debugSlots": false,
     "_N$debugBones": false,
     "_N$debugMesh": false,
@@ -1008,7 +1004,7 @@
     "defaultSkin": "default",
     "defaultAnimation": "animation",
     "_preCacheMode": 0,
-    "_cacheMode": 0,
+    "_cacheMode": 2,
     "loop": true,
     "premultipliedAlpha": true,
     "timeScale": 1,
@@ -1023,7 +1019,7 @@
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": null,
-    "_N$_defaultCacheMode": 0,
+    "_N$_defaultCacheMode": 2,
     "_N$debugSlots": false,
     "_N$debugBones": false,
     "_N$debugMesh": false,
