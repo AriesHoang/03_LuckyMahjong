@@ -61,8 +61,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 82.5,
-      "height": 65
+      "width": 91,
+      "height": 100
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -211,7 +211,7 @@
       "__id__": 1
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 6
@@ -230,8 +230,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 63,
-      "height": 68
+      "width": 96,
+      "height": 116
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -282,7 +282,9 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": null,
+    "_spriteFrame": {
+      "__uuid__": "849262fb-ce4a-4c49-b6f5-5e31ad1cea07"
+    },
     "_type": 0,
     "_sizeMode": 1,
     "_fillType": 0,
@@ -294,7 +296,9 @@
     "_fillStart": 0,
     "_fillRange": 0,
     "_isTrimmedMode": true,
-    "_atlas": null,
+    "_atlas": {
+      "__uuid__": "0203e631-4f06-41da-90a6-9a2b185447b9"
+    },
     "_id": ""
   },
   {
@@ -335,8 +339,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 73.25,
-      "height": 57.57
+      "width": 152,
+      "height": 153.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -386,8 +390,8 @@
       }
     ],
     "paused": false,
-    "defaultSkin": "default",
-    "defaultAnimation": "",
+    "defaultSkin": "Chess6",
+    "defaultAnimation": "Idle",
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": false,
@@ -398,13 +402,13 @@
     "_frameCache": null,
     "_curFrame": null,
     "_skeletonCache": null,
-    "_animationName": "L2",
+    "_animationName": "Idle",
     "_animationQueue": [],
     "_headAniInfo": null,
     "_playTimes": 1,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "23b99513-295b-4af2-a255-a2b154665b55"
+      "__uuid__": "38d65800-f8de-44b4-9615-452fbf4ae0f5"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
@@ -1050,13 +1054,13 @@
       "__uuid__": "2ca7795d-602b-4b62-b3be-4f7d4b8a9df4"
     },
     "symbolAnim": {
-      "__uuid__": "23b99513-295b-4af2-a255-a2b154665b55"
+      "__uuid__": "38d65800-f8de-44b4-9615-452fbf4ae0f5"
     },
     "itemAtlas": {
-      "__uuid__": "751a14e5-d4c8-447d-b523-2972cd1e8cad"
+      "__uuid__": "0203e631-4f06-41da-90a6-9a2b185447b9"
     },
     "itemBlurAtlas": {
-      "__uuid__": "cb0102af-5bed-4c8d-aa22-305ef47d93db"
+      "__uuid__": "2ccfe1a0-e653-4462-ad8b-9538a2b06eca"
     },
     "mainSkeleton": {
       "__id__": 8

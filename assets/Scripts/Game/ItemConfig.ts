@@ -7,17 +7,19 @@ export type ItemConfig = {
 
 
 export enum E_SYMBOL {
-    H1 = 9,
-    H2 = 8,
-    H3 = 7,
-    H4 = 6,
-    L1 = 5,
-    L2 = 4,
-    L3 = 3,
-    L4 = 2,
-    L5 = 1,
-    SCATTER = 10,
-    MULTIPLIER = 11,
+    H1 = 11,
+    H2 = 10,
+    H3 = 9,
+    H4 = 8,
+    H5 = 7,
+    L1 = 6,
+    L2 = 5,
+    L3 = 4,
+    L4 = 3,
+    L5 = 2,
+    L6 = 1,
+    SCATTER = 12,
+    WILD = 13,
     SYMBOL_NUM
 }
 export const ITEMRED={
@@ -36,19 +38,19 @@ export const  ITEMGREEN= {
 
 
 export const E_SYMBOL_Atlas = {
-    1: "1",
-    2: "2",
-    3: "3",
-    4: "4",
-    5: "5",
-    6: "6",
-    7: "7",
-    8: "8",
-    9: "9",
-    10: "10",
-    11: "11",
-    12: "0_1",
-    13: "Jackpot"
+    1: "12",
+    2: "11",
+    3: "10",
+    4: "9",
+    5: "8",
+    6: "7",
+    7: "6",
+    8: "5",
+    9: "4",
+    10: "3",
+    11: "2",
+    12: "1",
+    13: "0"
 }
 
 export enum E_SYMBOL_TYPE {

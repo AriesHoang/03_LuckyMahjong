@@ -89,7 +89,10 @@ export class BaseBoardMode extends cc.Component {
         for (let ci = 0; ci < this._reelNum; ++ci) {
             let reelNode = this.spinReels[ci];
             let reel = reelNode.getComponent(SpinReel);
-            reel.setReelSize(this._rowNum, Cfg.columnHeight / Cfg.slotSize.y * this._rowNum, false);
+            let rowNum = this._rowNum;
+            //========= Custom Reel size for this game
+            if(ci == 0 || ci == this._reelNum - 1) rowNum = 3
+            reel.setReelSize(rowNum, Cfg.columnHeight / Cfg.slotSize.y * rowNum, false);
             reel.setHasSpinData(false);
             if (ci == 0) {
                 this.reelSpinDelay[ci] = 0;

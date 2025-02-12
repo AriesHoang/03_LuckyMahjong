@@ -9,7 +9,7 @@ import BoardData from "../Data/GamePlay/BoardData";
 import RootData from "../Manager/RootData";
 import BoardUI, { ActionCheckWin } from "./BoardUI";
 import GameController from "./GameController";
-import { ITEMGREEN, ITEMPURPLE, ITEMRED } from "./ItemConfig";
+import { E_SYMBOL, ITEMGREEN, ITEMPURPLE, ITEMRED } from "./ItemConfig";
 import ItemSymbol, { E_ANIM_STATE } from "./ItemSymbol";
 import CharacterAinmationState from "./CharacterAinmationState";
 import MultiplierInfo from "./MultiplierInfo";
@@ -43,6 +43,9 @@ export default class CheckWinTumble extends cc.Component {
 
 
     boardData: BoardData = null;
+    reelsData: any = null;
+
+    rowWinLine = [[],[],[],[],[]]
 
     protected onEnable(): void {
         GameController.OnInitialized.add(this.OnGameControllerInitialized.bind(this));
@@ -77,10 +80,12 @@ export default class CheckWinTumble extends cc.Component {
 
         let totalWinFreeSpin = spinData.totalWinFreeSpin;
         let tumbleData = spinData.base.tumbles;
+        this.reelsData = spinData.base.reels;
         
         if(spinData.freeGame?.rounds.length > 0){
             tumbleData = spinData.freeGame.rounds[spinData.freeGame.rounds.length - 1].tumbles;
             totalWinFreeSpin = (spinData.winRate - spinData.base.scatterWinRate) * spinData.baseAmount;
+            this.reelsData = spinData.freeGame.rounds[spinData.freeGame.rounds.length - 1].reels;
         }
 
         const tumble_num = tumbleData.length;
@@ -92,7 +97,7 @@ export default class CheckWinTumble extends cc.Component {
             // const cascade_data = tumbleData[i + 1];
             let isLastTumble = (i == tumble_num - 1);
             let win_tumble = tumble_data.winRate * spinData.baseAmount;
-            totalWinTumble += win_tumble;
+            totalWinTumble += win_tumble;            
             await this.checkTumbleWinPromise(tumble_data, i, win_tumble)
             await this.checkTumbleCascadePromise(tumble_data, i, isLastTumble, totalWinTumble, totalWinFreeSpin);
         }
@@ -110,11 +115,13 @@ export default class CheckWinTumble extends cc.Component {
 
         let win_pos_set: Set<number> = new Set();
      
-        data.winRows.forEach((row, colIndex) => {
-            row.forEach((value) => {
-                if (!Utils.isEmpty(value)) {
-                    win_pos_set.add(value + colIndex * Cfg.slotSize.y);
-                }
+        data.winLines.forEach((lineData) => {
+            lineData.ways.forEach((row, colIndex) => {
+                row.forEach((rowIndex) => {
+                    if (!Utils.isEmpty(rowIndex)) {                        
+                        win_pos_set.add(rowIndex + colIndex * this.reelsData[colIndex].length);
+                    }
+                });
             });
         });
         cc.log("win_pos_set: ",win_pos_set);
@@ -125,27 +132,40 @@ export default class CheckWinTumble extends cc.Component {
         
 
         SoundController.inst.MainAudio.playAudio(AudioPlayId.sfx_TumbleEffect);
-
-        data.winRows.forEach((row, colIndex) => {  
-            row.forEach((rowIndex) => {
-                if (!Utils.isEmpty(rowIndex)) {            
-                    const symbol = this.boardUI.getItemAt(colIndex, rowIndex);        
-                    this.boardData.itemTypeGrid[colIndex][rowIndex] = {
-                        symbol: null,
-                        value: null,
-                        type: null,
-                        size: null
-                    };
-
-                    const prom_chain: Promise<any> = Promise.resolve()
-                        .then(() => {
-                            
-                        })
-                        .then(symbol.playItemAnimPromise.bind(symbol, E_ANIM_STATE.win));
-                    prom_arr.push(prom_chain);
-                }
+        this.rowWinLine = [[],[],[],[],[]];
+        data.winLines.forEach((lineData) => {
+            
+            lineData.ways.forEach((row, colIndex) => {
+                row.forEach((rowIndex) => {
+                    if (!Utils.isEmpty(rowIndex)) {            
+                        const symbol = this.boardUI.getItemAt(colIndex, rowIndex);    
+                        if (symbol.itemCfg.symbol < 0 ){
+                            this.boardData.itemTypeGrid[colIndex][rowIndex] = {
+                                symbol: E_SYMBOL.WILD,
+                                value: 0,
+                                type: 0,
+                                size: 1
+                            };
+                        }else{
+                            this.boardData.itemTypeGrid[colIndex][rowIndex] = {
+                                symbol: null,
+                                value: null,
+                                type: null,
+                                size: null
+                            };
+                            this.rowWinLine[colIndex].push(rowIndex)
+                        }
+                        
+                        const prom_chain: Promise<any> = Promise.resolve()
+                            .then(() => {
+                                
+                            })
+                            .then(symbol.playItemAnimPromise.bind(symbol, E_ANIM_STATE.win));
+                        prom_arr.push(prom_chain);
+                    }
+                });
             });
-        });
+        });     
 
         return Promise.all(prom_arr)
             .then(() => {
@@ -182,7 +202,12 @@ export default class CheckWinTumble extends cc.Component {
 
     checkTumbleCascadePromise(data, tumbleID: number, isLastTumble, totalWin, totalWinFreeSpin): Promise<any> {
         return new Promise((resolve:Function, reject) => {
-            this.boardData.nextTumpleProcess(data);
+            let dataTumble = {
+                winRows: this.rowWinLine,
+                addedSymbols: data.addedSymbols
+            }
+            cc.log("checkTumbleCascadePromise: ",dataTumble);
+            this.boardData.nextTumpleProcess(dataTumble);
 
             let spinReels = this.boardUI.getBoardReels();
             for (let ci = 0; ci < spinReels.length; ++ci) {

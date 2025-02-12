@@ -2,6 +2,7 @@ import BoardData from "../Data/GamePlay/BoardData";
 import { Cfg } from "../Manager/Config";
 import RootData from "../Manager/RootData";
 import Utils from "../Utils/Utils";
+import ActionSpinReel from "./ActionSpinReel";
 import ItemBigSymbol from "./ItemBigSymbol";
 import { E_SYMBOL, ItemConfig } from "./ItemConfig";
 import ItemSymbol from "./ItemSymbol";
@@ -62,7 +63,8 @@ export default class SpinReelNormal extends SpinReel {
             this.itemList.push(item);
             index += classifiedItem.size;
         }
-        // this.getComponent(cc.Layout).updateLayout();
+        this.node.setContentSize(Cfg.itemSize.x, Cfg.itemSize.y * this.slotSize); 
+        this.node.getComponent(ActionSpinReel).updateDisplayHeight(Cfg.itemSize.y * this.slotSize);
     }
 
    
@@ -122,13 +124,13 @@ export default class SpinReelNormal extends SpinReel {
                 let config = type;
                 item = this.createItem();
                 item.node.setContentSize(this.itemSize.x, this.itemSize.y * type.size)
-                if(config.symbol == E_SYMBOL.MULTIPLIER){
-                    let boardData = RootData.instance.FindComponent(BoardData);
-                    if(boardData.indexMultiplier < boardData.multiplierValue.length){
-                        config.value = boardData.multiplierValue[boardData.indexMultiplier];
-                        boardData.indexMultiplier++;
-                    }
-                }
+                // if(config.symbol == E_SYMBOL.MULTIPLIER){
+                //     let boardData = RootData.instance.FindComponent(BoardData);
+                //     if(boardData.indexMultiplier < boardData.multiplierValue.length){
+                //         config.value = boardData.multiplierValue[boardData.indexMultiplier];
+                //         boardData.indexMultiplier++;
+                //     }
+                // }
                 item.init(config)
                 // item.onAppearPromise();
 

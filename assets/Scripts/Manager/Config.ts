@@ -11,10 +11,11 @@ export enum supportedTextLanguage {
 
 export const Cfg = {
 	gameName: "Lucky Mahjong",
-	itemSize: cc.v2(84, 95),
+	itemSize: cc.v2(91, 100),
 	slotSize: cc.v2(5, 5),
+	slotSizeRow: [3,5,5,5,3],
 	items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-	columnHeight: 525,
+	columnHeight: 500,
 	wildItemID: 0,
 	timeShakeItems: 1.2,
 	baseBetValue: 20,

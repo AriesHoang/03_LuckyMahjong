@@ -203,18 +203,33 @@ export default class BoardData extends GameData {
             let arrInReel = [];
             for(let j = 0; j < Cfg.slotSize.y; j++){
                 let itemId = Utils.randomArr(Cfg.items)
+                if((i == 0 || i == Cfg.slotSize.x - 1) && j > 2){}
+                // if((i == 0 || i == Cfg.slotSize.x - 1) && (j == 0 || j == Cfg.slotSize.y - 1)){
+                //     itemId = E_SYMBOL.EMPTY;
+                // }
+                else
                 arrInReel.push(itemId)
             }
             arrMatrix.push(arrInReel);
         }
 
-        let dataResult = this.processSymbolResult(arrMatrix);
+        let dataResult = this.processSymbolResult(arrMatrix, false);
         cc.log("genDefaultMatrix: ", dataResult);
         return dataResult;
     }
 
-    processSymbolResult(symbolArray){
+    processSymbolResult(symbolArray: number[][], bAddEmptySymbol: boolean = true): any {
+        // if(bAddEmptySymbol){
+        //     symbolArray.forEach((reel, index)=>{
+        //         if(index == 0 || index == symbolArray.length - 1){
+        //             reel.unshift(E_SYMBOL.EMPTY);
+        //             reel.push(E_SYMBOL.EMPTY);
+        //         }
+        //     })
+        // }
         this.currentReelData = Utils.cloneObject(symbolArray);
+        cc.log("processSymbolResult: ",symbolArray);
+        
         let arrReelSize = [];
         let arrReels = [];
         symbolArray.forEach((reel, index)=>{

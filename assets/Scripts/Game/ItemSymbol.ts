@@ -8,6 +8,10 @@ export enum E_ANIM_STATE {
     appear,
     collect
 }
+export enum E_ITEM_STATE {
+    NORMAL = 0,
+    GOLDEN = 1
+}
 
 export type AnimConfig = {
     name: string,
@@ -16,37 +20,49 @@ export type AnimConfig = {
 
 export type SymbolAnimConfig = {
     id: number,
+    skin?: string[],
     idle?: AnimConfig,
     appear?: AnimConfig,
     action?: AnimConfig[]
 }
 
+export enum E_ItemSpineAnim {
+    Idle,
+    Scatter_wait,
+    Win_gold_chess,
+    Win_white_chess,
+    Win_scatter,
+    Win_wild_chess
+}
+
 const SymbolList: SymbolAnimConfig[] = [
-    /*L5:       */{ id: E_SYMBOL.L5, idle: null, appear: {name: "appear_L5", loop: true}, action: [{name:"win_L5", loop: false}]},
-    /*L4:       */{ id: E_SYMBOL.L4, idle: null, appear: {name: "appear_L4", loop: true}, action: [{name:"win_L4", loop: false}]},
-    /*L3:       */{ id: E_SYMBOL.L3, idle: null, appear: {name: "appear_L3", loop: true}, action: [{name:"win_L3", loop: false}]},
-    /*L2:       */{ id: E_SYMBOL.L2, idle: null, appear: {name: "appear_L2", loop: true}, action: [{name:"win_L2", loop: false}]},
-    /*L1:       */{ id: E_SYMBOL.L1, idle: null, appear: {name: "appear_L1", loop: true}, action: [{name:"win_L1", loop: false}]},
-    /*H4:       */{ id: E_SYMBOL.H4, idle: null, appear: {name: "appear_H4", loop: true}, action: [{name:"win_H4", loop: false}]},
-    /*H3:       */{ id: E_SYMBOL.H3, idle: null, appear: {name: "appear_H3", loop: true}, action: [{name:"win_H3", loop: false}]},
-    /*H2:       */{ id: E_SYMBOL.H2, idle: null, appear: {name: "appear_H2", loop: true}, action: [{name:"win_H2", loop: false}]},
-    /*H1:       */{ id: E_SYMBOL.H1, idle: null, appear: {name: "appear_H1", loop: false}, action: [{name: "win_H1", loop: false}]},
-    /*SCATTER:       */{ id: E_SYMBOL.SCATTER, idle: {name: "idle_FS", loop: true}, appear: {name: "appear2_FS", loop: false}, action: [{name:"win_FS", loop: true}]},
-    /*MULTIPLIER:*/{ id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix2", loop: true}, appear: {name: "appear2_multix2", loop: false}, action: [{name:"win_multix2", loop: false}]}
+    /*L6:       */{ id: E_SYMBOL.L6, skin: ["Chess21", "Chess22"],  idle: null, appear: null, action: null},
+    /*L5:       */{ id: E_SYMBOL.L5, skin: ["Chess11", "Chess12"], idle: null, appear: null, action: null},
+    /*L4:       */{ id: E_SYMBOL.L4, skin: ["Chess7", "Chess8"], idle: null, appear: null, action: null},
+    /*L3:       */{ id: E_SYMBOL.L3, skin: ["Chess23", "Chess24"], idle: null, appear: null, action: null},
+    /*L2:       */{ id: E_SYMBOL.L2, skin: ["Chess9", "Chess10"], idle: null, appear: null, action: null},
+    /*L1:       */{ id: E_SYMBOL.L1, skin: ["Chess15", "Chess16"], idle: null, appear: null, action: null},
+    /*H5:       */{ id: E_SYMBOL.H5, skin: ["Chess17", "Chess18"], idle: null, appear: null, action: null},
+    /*H4:       */{ id: E_SYMBOL.H4, skin: ["Chess13", "Chess14"], idle: null, appear: null, action: null},
+    /*H3:       */{ id: E_SYMBOL.H3, skin: ["Chess3", "Chess4"], idle: null, appear: null, action: null},
+    /*H2:       */{ id: E_SYMBOL.H2, skin: ["Chess1", "Chess2"], idle: null, appear: null, action: null},
+    /*H1:       */{ id: E_SYMBOL.H1, skin: ["Chess5", "Chess6"], idle: null, appear: null, action: null},
+    /*SCATTER:       */{ id: E_SYMBOL.SCATTER, skin: ["Chess20"], idle: null, appear: null, action: null},
+    /*WILD:*/{ id: E_SYMBOL.WILD, skin: ["Chess19"], idle: null, appear: null, action: null}
 ]
 
-const MultiAnimConfig: SymbolAnimConfig[] = [
-    { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix2", loop: true}, appear: {name: "appear2_multix2", loop: false}, action: [{name:"win_multix2", loop: false}]},
-    { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix3", loop: true}, appear: {name: "appear2_multix3", loop: false}, action: [{name:"win_multix3", loop: false}]},
-    { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix4", loop: true}, appear: {name: "appear2_multix4", loop: false}, action: [{name:"win_multix4", loop: false}]},
-    { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix5", loop: true}, appear: {name: "appear2_multix5", loop: false}, action: [{name:"win_multix5", loop: false}]},
-    { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix6", loop: true}, appear: {name: "appear2_multix6", loop: false}, action: [{name:"win_multix6", loop: false}]},
-    { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix7", loop: true}, appear: {name: "appear2_multix7", loop: false}, action: [{name:"win_multix7", loop: false}]},
-    { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix8", loop: true}, appear: {name: "appear2_multix8", loop: false}, action: [{name:"win_multix8", loop: false}]},
-    { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix9", loop: true}, appear: {name: "appear2_multix9", loop: false}, action: [{name:"win_multix9", loop: false}]},
-    { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix10", loop: true}, appear: {name: "appear2_multix10", loop: false}, action: [{name:"win_multix10", loop: false}]},
+// const MultiAnimConfig: SymbolAnimConfig[] = [
+//     { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix2", loop: true}, appear: {name: "appear2_multix2", loop: false}, action: [{name:"win_multix2", loop: false}]},
+//     { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix3", loop: true}, appear: {name: "appear2_multix3", loop: false}, action: [{name:"win_multix3", loop: false}]},
+//     { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix4", loop: true}, appear: {name: "appear2_multix4", loop: false}, action: [{name:"win_multix4", loop: false}]},
+//     { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix5", loop: true}, appear: {name: "appear2_multix5", loop: false}, action: [{name:"win_multix5", loop: false}]},
+//     { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix6", loop: true}, appear: {name: "appear2_multix6", loop: false}, action: [{name:"win_multix6", loop: false}]},
+//     { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix7", loop: true}, appear: {name: "appear2_multix7", loop: false}, action: [{name:"win_multix7", loop: false}]},
+//     { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix8", loop: true}, appear: {name: "appear2_multix8", loop: false}, action: [{name:"win_multix8", loop: false}]},
+//     { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix9", loop: true}, appear: {name: "appear2_multix9", loop: false}, action: [{name:"win_multix9", loop: false}]},
+//     { id: E_SYMBOL.MULTIPLIER, idle: {name: "idle_multix10", loop: true}, appear: {name: "appear2_multix10", loop: false}, action: [{name:"win_multix10", loop: false}]},
 
-]
+// ]
 
 
 
@@ -94,7 +110,8 @@ export default class ItemSymbol extends cc.Component {
     }
     public set itemCfg(itemCfg: ItemConfig) {
         this._itemCfg = itemCfg;
-        this._itemAnimConfig = (itemCfg.symbol - 1 >= 0 && itemCfg.symbol - 1 < SymbolList.length ? SymbolList[itemCfg.symbol - 1] : null);
+        // (itemCfg.symbol - 1 >= 0 && itemCfg.symbol - 1 < SymbolList.length) ? SymbolList[itemCfg.symbol - 1] : null
+        this._itemAnimConfig =  SymbolList[Math.abs(itemCfg.symbol - 1)];
     }
     protected static _itemPool: cc.NodePool = null;
 
@@ -135,6 +152,7 @@ export default class ItemSymbol extends cc.Component {
 
     public init(itemCfg: ItemConfig = null): void {
         // cc.log("initSymbol: ", itemCfg);
+        this.node.name = "Item_" + itemCfg.symbol;
         this.ske = this.mainSkeleton.getComponent(sp.Skeleton);
         this.coinAmountLabel = this.node.getChildByName("coinAmountLabel").getComponent(cc.Label);
         this.static_image = this.node.getChildByName("static_image").getComponent(cc.Sprite);
@@ -145,12 +163,11 @@ export default class ItemSymbol extends cc.Component {
         if (itemCfg != null) {
             this.itemCfg = itemCfg;
         }
+
         this.initSkeletonData();
         this.setItemStaticImage();
         this.setItemState();
-
-        this.customConfigItem();
-
+        this.customConfigItem();    
     }
 
     customConfigItem() {
@@ -159,44 +176,44 @@ export default class ItemSymbol extends cc.Component {
         this.static_image.node.scale = 1;
         this.mainSkeleton.scale = 1;
 
-        // switch (this.itemCfg.symbol) {
-        //     case E_SYMBOL.SCATTER:
-        //         this.static_image.node.scale = 0.9;
-        //         this.mainSkeleton.scale = 0.9;
-        //         break
-        //     case E_SYMBOL.H3:
-        //         break;
-        // }
+        switch (this.itemCfg.symbol) {
+            case E_SYMBOL.SCATTER:
+                this.static_image.node.y = 3.5;
+                this.mainSkeleton.y = 3.5;
+                break;
+        }
     }
 
-    initSkeletonData() {
+    initSkeletonData(itemState: E_ITEM_STATE = E_ITEM_STATE.NORMAL) {
         this.coinAmountLabel.node.active = (this.itemCfg.type == E_SYMBOL_TYPE.MONEY_CREDIT_BLOCK);
 
-        let ske_data: sp.SkeletonData;
+        let ske_data: sp.SkeletonData = this.symbolAnim;;
         let skin_name: string = null;
         let cache_mode = sp.Skeleton.AnimationCacheMode.REALTIME;
 
-        switch (this.itemCfg.symbol) {
-            case E_SYMBOL.H1:
-            case E_SYMBOL.H2:
-            case E_SYMBOL.H3:
-            case E_SYMBOL.H4:
-            case E_SYMBOL.L1:
-            case E_SYMBOL.L2:
-            case E_SYMBOL.L3:
-            case E_SYMBOL.L4:
-            case E_SYMBOL.L5:
-                ske_data = this.symbolAnim;
-                break;
-            case E_SYMBOL.SCATTER:
-                ske_data = this.specialAnim;
-                break;
-            case E_SYMBOL.MULTIPLIER:
-                ske_data = this.specialAnim;
-                break;
-            default:
-                break;
-        }
+        // switch (this.itemCfg.symbol) {
+        //     case E_SYMBOL.H1:                
+        //     case E_SYMBOL.H2:
+        //     case E_SYMBOL.H3:
+        //     case E_SYMBOL.H4:
+        //     case E_SYMBOL.L1:
+        //     case E_SYMBOL.L2:
+        //     case E_SYMBOL.L3:
+        //     case E_SYMBOL.L4:
+        //     case E_SYMBOL.L5:
+        //         ske_data = this.symbolAnim;
+        //         break;
+        //     case E_SYMBOL.SCATTER:
+        //         ske_data = this.specialAnim;
+        //         break;
+        //     // case E_SYMBOL.MULTIPLIER:
+        //     //     ske_data = this.specialAnim;
+        //     //     break;
+        //     default:
+        //         break;
+        // }
+
+        skin_name = this._itemAnimConfig.skin[itemState];
         if (!ske_data) return;
         this.ske.setAnimationCacheMode(cache_mode);
         if (this.ske.skeletonData != ske_data) {
@@ -211,26 +228,47 @@ export default class ItemSymbol extends cc.Component {
     }
 
     setItemState(state: E_ANIM_STATE = E_ANIM_STATE.idle) {
-        let anim_cfg: AnimConfig;
-        if (state == E_ANIM_STATE.idle) anim_cfg = this._itemAnimConfig.idle;
-        else if (state == E_ANIM_STATE.win) anim_cfg = this._itemAnimConfig.action[0] ? this._itemAnimConfig.action[0] : null;
-
-        if (state == E_ANIM_STATE.win) {
-            this.hightlight_ske.node.active = true;
-            this.hightlight_ske.setAnimation(0, "animation", false);
-        } else {
-            this.hightlight_ske.node.active = false;
+        // if(this.itemCfg.symbol == E_SYMBOL.EMPTY) return;
+        let anim_cfg = {name: null, loop: null};
+        if (state == E_ANIM_STATE.idle){
+            if (this.itemCfg.symbol == E_SYMBOL.SCATTER || this.itemCfg.symbol == E_SYMBOL.WILD) {
+                anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Idle);
+                anim_cfg.loop = true;
+            }
         }
+        else if (state == E_ANIM_STATE.win) {
+            if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
+                anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_scatter);
+                anim_cfg.loop = false;
+            }else if(this.itemCfg.symbol == E_SYMBOL.WILD){
+                anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_wild_chess);
+                anim_cfg.loop = false;
+            }else if(this.itemCfg.symbol < 0){
+                anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_gold_chess);
+                anim_cfg.loop = false;
+            }else{
+                anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_white_chess);
+                anim_cfg.loop = false;
+            }
+            // anim_cfg = this._itemAnimConfig?.action[0] ? this._itemAnimConfig.action[0] : null;
+        }
+
+        // if (state == E_ANIM_STATE.win) {
+        //     this.hightlight_ske.node.active = true;
+        //     this.hightlight_ske.setAnimation(0, "animation", false);
+        // } else {
+        //     this.hightlight_ske.node.active = false;
+        // }
 
         if (anim_cfg && anim_cfg.name != undefined && anim_cfg.name != null) {
             this.ske.node.active = true;
             this.static_image.node.active = false;
             this.ske.setAnimation(0, anim_cfg.name, (anim_cfg.loop != undefined && anim_cfg.loop != null) ? anim_cfg.loop : false);
-            this.ske.setCompleteListener((trackEntry) => {
-                if (trackEntry['animation']['name'] == anim_cfg.name && state == E_ANIM_STATE.win) {
-                    this.hightlight_ske.node.active = false;
-                }
-            });
+            // this.ske.setCompleteListener((trackEntry) => {
+            //     if (trackEntry['animation']['name'] == anim_cfg.name && state == E_ANIM_STATE.win) {
+            //         this.hightlight_ske.node.active = false;
+            //     }
+            // });
 
         } else {
             //no need to use animation, use static image here
@@ -242,20 +280,10 @@ export default class ItemSymbol extends cc.Component {
 
     setItemStaticImage(isBlur: boolean = false) {
 
-        let sf_name: string = this.itemCfg.symbol.toString();
+        let sf_name: string = Math.abs(this.itemCfg.symbol).toString();
         sf_name = E_SYMBOL_Atlas[sf_name];
-        // if (isBlur) sf_name += "_blur"        
-
-        if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
-            // cc.log('Set Scatter static image');
-        }else if(this._itemCfg.symbol == E_SYMBOL.MULTIPLIER){
-            cc.log("setItemStaticImage: ", this._itemCfg)
-            let valueMulti = this._itemCfg.value > 0 ? this._itemCfg.value : 2;
-            sf_name += "_" + valueMulti;
-            this._itemAnimConfig = MultiAnimConfig[valueMulti - 2];
-        }
-
-        this.static_image.spriteFrame = (isBlur ? this.itemBlurAtlas : this.itemAtlas)?.getSpriteFrame(sf_name);
+        
+        this.static_image.spriteFrame = (isBlur ? this.itemBlurAtlas : this.itemAtlas)?.getSpriteFrame(this.itemCfg.symbol < 0 ? (sf_name + "_g") : sf_name);
     }
 
     playWaitScatterAnimPromise(): Promise<any> {
@@ -266,25 +294,42 @@ export default class ItemSymbol extends cc.Component {
     }
     playItemAnimPromise(state: E_ANIM_STATE = E_ANIM_STATE.idle): Promise<any> {
         return new Promise((resolve: Function) => {
-            let anim_cfg: AnimConfig;
-            if (state == E_ANIM_STATE.idle) anim_cfg = this._itemAnimConfig.idle;
+            let anim_cfg = {name: null, loop: null};
+            if (state == E_ANIM_STATE.idle){
+                if (this.itemCfg.symbol == E_SYMBOL.SCATTER || this.itemCfg.symbol == E_SYMBOL.WILD) {
+                    anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Idle);
+                    anim_cfg.loop = true;
+                }
+            }
             else if (state == E_ANIM_STATE.win) {
-                anim_cfg = this._itemAnimConfig?.action[0] ? this._itemAnimConfig.action[0] : null;
+                if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
+                    anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_scatter);
+                    anim_cfg.loop = false;
+                }else if(this.itemCfg.symbol == E_SYMBOL.WILD){
+                    anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_wild_chess);
+                    anim_cfg.loop = false;
+                }else if(this.itemCfg.symbol < 0){
+                    anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_gold_chess);
+                    anim_cfg.loop = false;
+                }else{
+                    anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_white_chess);
+                    anim_cfg.loop = false;
+                }
+                // anim_cfg = this._itemAnimConfig?.action[0] ? this._itemAnimConfig.action[0] : null;
             }
             else if (state == E_ANIM_STATE.appear) {
-                // if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
-                //     anim_cfg = this._itemAnimConfig?.action[1] ? this._itemAnimConfig.action[1] : null;
-                // } else {
-                    anim_cfg = this._itemAnimConfig?.action[0] ? this._itemAnimConfig.action[0] : null;
-                // }
+                if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
+                    anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Scatter_wait);
+                    anim_cfg.loop = true;
+                }
             }
-            else if (state == E_ANIM_STATE.collect) anim_cfg = this._itemAnimConfig?.action[0] ? this._itemAnimConfig.action[0] : null;
+            // else if (state == E_ANIM_STATE.collect) anim_cfg = this._itemAnimConfig?.action[0] ? this._itemAnimConfig.action[0] : null;
 
             if (state == E_ANIM_STATE.win) {
-                this.scheduleOnce(() => {
-                    this.hightlight_ske.node.active = true;
-                    this.hightlight_ske.setAnimation(0, "animation", false);
-                }, 0.2)
+                // this.scheduleOnce(() => {
+                //     this.hightlight_ske.node.active = true;
+                //     this.hightlight_ske.setAnimation(0, "animation", false);
+                // }, 0.2)
 
 
             } else {
@@ -324,21 +369,21 @@ export default class ItemSymbol extends cc.Component {
         });
     }
 
-    onAppearPromise(playWinAnim = false): Promise<any> {
+    onAppearPromise(playWinAnim = false): Promise<any> {        
         let prom_chain: Promise<any> = Promise.resolve();
         if(!playWinAnim) return prom_chain;
 
         if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
             SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxScatterAppear);
-        } else if (this.itemCfg.symbol == E_SYMBOL.MULTIPLIER) {
-            SoundController.inst.MainAudio.playAudio(AudioPlayId.sfx_WildExpand);
+        } else if (this.itemCfg.symbol == E_SYMBOL.WILD) {
+            // SoundController.inst.MainAudio.playAudio(AudioPlayId.sfx_WildExpand);
         } 
     
-        if (this.itemCfg.symbol == E_SYMBOL.SCATTER || this.itemCfg.symbol == E_SYMBOL.MULTIPLIER) {
+        if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
             prom_chain = prom_chain.then(() => {
                 //dont wait for appear anim to resolve
-                this.playItemAnimPromise(E_ANIM_STATE.appear).then(() => {
-                    this.playItemAnimPromise(E_ANIM_STATE.idle);
+                this.playItemAnimPromise(E_ANIM_STATE.win).then(() => {
+                    this.playItemAnimPromise(E_ANIM_STATE.appear);
                 });
             });
         }

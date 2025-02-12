@@ -99,6 +99,7 @@ export default class SpinReel extends cc.Component {
 
             this.itemList.push(item);
         }
+        this.node.setContentSize(Cfg.itemSize.x, Cfg.itemSize.y * this.slotSize);
     }
 
     setSlotSizeAndItemSize(itemSize: cc.Vec2, slotSize: number) {
@@ -321,13 +322,13 @@ export default class SpinReel extends cc.Component {
             
 
             new_item.node.setContentSize(this.itemSize.x, this.itemSize.y * itemCfg.size)
-            if(itemCfg.symbol == E_SYMBOL.MULTIPLIER){
-                let boardData = RootData.instance.FindComponent(BoardData);
-                if(boardData.indexMultiplier < boardData.multiplierValue.length){
-                    itemCfg.value = boardData.multiplierValue[boardData.indexMultiplier];
-                    boardData.indexMultiplier++;
-                }
-            }
+            // if(itemCfg.symbol == E_SYMBOL.MULTIPLIER){
+            //     let boardData = RootData.instance.FindComponent(BoardData);
+            //     if(boardData.indexMultiplier < boardData.multiplierValue.length){
+            //         itemCfg.value = boardData.multiplierValue[boardData.indexMultiplier];
+            //         boardData.indexMultiplier++;
+            //     }
+            // }
             new_item.init(itemCfg);
             this.addNewItemToCascade(new_item);
             listItem2.push(new_item);
@@ -418,11 +419,11 @@ export default class SpinReel extends cc.Component {
             //then items at bottom
             let zOrder = index;
             let id = item.itemCfg.symbol;
-            if(id == E_SYMBOL.SCATTER) zOrder += 120;
-            if (id <= 6 ) {
+            // if(id == E_SYMBOL.SCATTER) zOrder += 120;
+            // if (id <= 6 ) {
              
-                zOrder += 100;
-            }
+            //     zOrder += 100;
+            // }
             item.node.zIndex = zOrder;
         });
     }

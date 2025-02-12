@@ -20,7 +20,7 @@ export default class CheatPayoutSymbol extends cc.Component {
     @property(cc.SpriteAtlas)
     itemAtlas: cc.SpriteAtlas = null;
 
-    private currentNumber: E_SYMBOL = 0;
+    private currentNumber: E_SYMBOL = E_SYMBOL.H1;
 
 
     // LIFE-CYCLE CALLBACKS:
@@ -42,7 +42,7 @@ export default class CheatPayoutSymbol extends cc.Component {
         const len = Object.keys(E_SYMBOL).length;
         this.currentNumber++;
         if (this.currentNumber >= len - 1)
-            this.currentNumber = 0;
+            this.currentNumber = E_SYMBOL.H1;
 
         this.icon.spriteFrame = this.itemAtlas.getSpriteFrame((E_SYMBOL_Atlas[this.currentNumber]).toString());
     }

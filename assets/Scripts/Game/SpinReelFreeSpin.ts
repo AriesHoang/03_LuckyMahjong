@@ -58,13 +58,13 @@ export default class SpinReelFreeSpin extends SpinReelNormal {
 
                 item = this.createItem();
                 item.node.setContentSize(this.itemSize.x, this.itemSize.y * type.size)
-                if(config.symbol == E_SYMBOL.MULTIPLIER){
-                    let boardData = RootData.instance.FindComponent(BoardData);
-                    if(boardData.indexMultiplier < boardData.multiplierValue.length){
-                        config.value = boardData.multiplierValue[boardData.indexMultiplier];
-                        boardData.indexMultiplier++;
-                    }                        
-                }
+                // if(config.symbol == E_SYMBOL.MULTIPLIER){
+                //     let boardData = RootData.instance.FindComponent(BoardData);
+                //     if(boardData.indexMultiplier < boardData.multiplierValue.length){
+                //         config.value = boardData.multiplierValue[boardData.indexMultiplier];
+                //         boardData.indexMultiplier++;
+                //     }                        
+                // }
                 item.init(config)
 
                 for (let index = 0; index < this.mapKeysItem.length; index++) {

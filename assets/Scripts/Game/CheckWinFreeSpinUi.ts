@@ -516,16 +516,19 @@ export default class CheckWinFreeSpinUi extends cc.Component {
 
 
         let prom_chain: Promise<any> = Promise.resolve();
+
+        return prom_chain;
+        
         let multi_pos_list: cc.Vec3[] = [];
         let totalMultiplier = spin_data.baseMultiplier;
         if(spin_data.xMultipliers.length > 0){
             let spinReels = this.boardUi.getBoardReels();
             for (let ci = 0; ci < spinReels.length; ++ci) { 
                 this.boardData.itemTypeGrid[ci].forEach((item, index) => {
-                    if (item.symbol == E_SYMBOL.MULTIPLIER) {
-                        const symbol = this.boardUi.getItemAt(ci, index);
-                        multi_pos_list.push(symbol.node.parent.convertToWorldSpaceAR(symbol.node.position));
-                    }
+                    // if (item.symbol == E_SYMBOL.MULTIPLIER) {
+                    //     const symbol = this.boardUi.getItemAt(ci, index);
+                    //     multi_pos_list.push(symbol.node.parent.convertToWorldSpaceAR(symbol.node.position));
+                    // }
                 })
             }
             if(multi_pos_list.length > 0){

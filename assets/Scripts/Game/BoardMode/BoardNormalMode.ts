@@ -71,7 +71,7 @@ export default class BoardNormalMode extends BaseBoardMode implements IBoardMode
             let reel = SpinReel.create(this.reelPrefab);
 
             this.spinBoardContent.addChild(reel.node, 1, "reel" + ci);
-            reel.init(ci, itemTypeGrid[ci]);
+            reel.init(ci, itemTypeGrid[ci], null, itemTypeGrid[ci].length);
             this.spinReels[ci] = reel;
         }
         this.spinBoardContent.getComponent(cc.Layout).updateLayout();

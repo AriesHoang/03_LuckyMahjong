@@ -86,6 +86,9 @@ export default class ActionSpinReel extends cc.Component {
     protected start() {
         this._displayHeight = this.node.height;
     }
+    updateDisplayHeight(height){
+        this._displayHeight = height;
+    }
 
     getTopItem(): ItemSymbol {
         return this.itemList.length > 0 ? this.itemList[0] : null;
