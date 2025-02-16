@@ -187,15 +187,15 @@ export default class ItemSymbol extends cc.Component {
 
     initSkeletonData(itemState: E_ITEM_STATE = E_ITEM_STATE.NORMAL) {
         this.coinAmountLabel.node.active = (this.itemCfg.type == E_SYMBOL_TYPE.MONEY_CREDIT_BLOCK);
-        this.ske.setToSetupPose();
+        
         let ske_data: sp.SkeletonData = this.symbolAnim;;
         let skin_name: string = null;
-        // let cache_mode = sp.Skeleton.AnimationCacheMode.PRIVATE_CACHE;
+        let cache_mode = sp.Skeleton.AnimationCacheMode.REALTIME;
 
         this.skinName = skin_name = this._itemAnimConfig.skin[this._itemCfg.symbol > 0 ? 0 : 1];  
                
         if (!ske_data) return;
-        // this.ske.setAnimationCacheMode(cache_mode);
+        this.ske.setAnimationCacheMode(cache_mode);
         if (this.ske.skeletonData != ske_data) {
             this.ske.skeletonData = ske_data;
         }
@@ -204,7 +204,7 @@ export default class ItemSymbol extends cc.Component {
         } else {
             this.ske.defaultSkin = null;
         }
-        
+        this.ske.setToSetupPose();
     }
 
     setItemState(state: E_ANIM_STATE = E_ANIM_STATE.idle) {
@@ -272,7 +272,7 @@ export default class ItemSymbol extends cc.Component {
             return;
         });
     }
-    playItemAnimPromise(state: E_ANIM_STATE = E_ANIM_STATE.idle, pos: any = null): Promise<any> {
+    playItemAnimPromise(state: E_ANIM_STATE = E_ANIM_STATE.idle, pos: any = null, showStaticItem:boolean = false): Promise<any> {
         return new Promise((resolve: Function) => {
             let anim_cfg = {name: null, loop: null};
             if (state == E_ANIM_STATE.idle){
@@ -322,24 +322,38 @@ export default class ItemSymbol extends cc.Component {
             }
             if (anim_cfg && anim_cfg.name != undefined && anim_cfg.name != null) {
                 this.ske.node.active = true;
-                this.static_image.node.active = false;
+                setTimeout(() => {
+                    this.static_image.node.active = false;
+                },300);
+                
                 this.ske.setAnimation(0, anim_cfg.name, (anim_cfg.loop != undefined && anim_cfg.loop != null) ? anim_cfg.loop : false);
                 this.ske.setCompleteListener((trackEntry) => {
+                    cc.log("Symbol At Pos: ", pos);
+                    cc.log(this.itemCfg.symbol +  " - complete: " + this.skinName + " - anim: " + anim_cfg.name);
                     if (trackEntry['animation']['name'] == anim_cfg.name) {
+                        let iTimeout = 1;
+                        if(showStaticItem){
+                            this.setItemStaticImage();
+                            this.ske.node.active = false;
+                            this.static_image.node.active = true;
+                            iTimeout = 300;
+                        }
                         // if (state == E_ANIM_STATE.win) {
                         //     this.hightlight_ske.node.active = false;
                         // };
-                        // resolve();
+                        setTimeout(() => {
+                            resolve();
+                        }, iTimeout);
                     }
                 });
-                this.hightlight_ske.setCompleteListener((trackEntry) => {
-                    if (trackEntry['animation']['name'] == "animation") {
-                        // if (state == E_ANIM_STATE.win) {
-                        //     this.hightlight_ske.node.active = false;
-                        // };
-                        resolve();
-                    }
-                });
+                // this.hightlight_ske.setCompleteListener((trackEntry) => {
+                //     if (trackEntry['animation']['name'] == "animation") {
+                //         // if (state == E_ANIM_STATE.win) {
+                //         //     this.hightlight_ske.node.active = false;
+                //         // };
+                //         resolve();
+                //     }
+                // });
             }
             else {
                 //no need to use animation, use static image here

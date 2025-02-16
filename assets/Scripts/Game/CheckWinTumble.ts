@@ -113,18 +113,18 @@ export default class CheckWinTumble extends cc.Component {
         //show symbol win anim
         // this.bonus_win += data.totalWin;
 
-        let win_pos_set: Set<number> = new Set();
+        // let win_pos_set: Set<number> = new Set();
      
-        data.winLines.forEach((lineData) => {
-            lineData.ways.forEach((row, colIndex) => {
-                row.forEach((rowIndex) => {
-                    if (!Utils.isEmpty(rowIndex)) {                        
-                        win_pos_set.add(rowIndex + colIndex * this.reelsData[colIndex].length);
-                    }
-                });
-            });
-        });
-        cc.log("win_pos_set: ",win_pos_set);
+        // data.winLines.forEach((lineData) => {
+        //     lineData.ways.forEach((row, colIndex) => {
+        //         row.forEach((rowIndex) => {
+        //             if (!Utils.isEmpty(rowIndex)) {                        
+        //                 win_pos_set.add(rowIndex + colIndex * this.reelsData[colIndex].length);
+        //             }
+        //         });
+        //     });
+        // });
+        // cc.log("win_pos_set: ",win_pos_set);
         // if (win_pos_set.size > 0) {
             // prom_arr.push(this.showWinLayerPromise());
             clientEvent.dispatchEvent(EventName.ShowWinInfo, "info_bar_win_01", total_win2, true);
@@ -137,15 +137,20 @@ export default class CheckWinTumble extends cc.Component {
             
             lineData.ways.forEach((row, colIndex) => {
                 row.forEach((rowIndex) => {
-                    if (!Utils.isEmpty(rowIndex)) {            
+                    if (!Utils.isEmpty(rowIndex) && this.rowWinLine[colIndex].indexOf(rowIndex) == -1) {            
                         const symbol = this.boardUI.getItemAt(colIndex, rowIndex);    
+                        let showStaticItem = false;
                         if (symbol.itemCfg.symbol < 0 ){
-                            this.boardData.itemTypeGrid[colIndex][rowIndex] = {
+                            let itemConfig = {
                                 symbol: E_SYMBOL.WILD,
                                 value: 0,
                                 type: 0,
                                 size: 1
                             };
+                            this.boardData.itemTypeGrid[colIndex][rowIndex] = itemConfig;
+                            symbol.itemCfg = itemConfig; 
+                            symbol.initSkeletonData();
+                            showStaticItem = true;                           
                         }else{
                             this.boardData.itemTypeGrid[colIndex][rowIndex] = {
                                 symbol: null,
@@ -160,7 +165,7 @@ export default class CheckWinTumble extends cc.Component {
                             .then(() => {
                                 
                             })
-                            .then(symbol.playItemAnimPromise.bind(symbol, E_ANIM_STATE.win, {x: colIndex, y: rowIndex}));
+                            .then(symbol.playItemAnimPromise.bind(symbol, E_ANIM_STATE.win, {x: colIndex, y: rowIndex}, showStaticItem));
                         prom_arr.push(prom_chain);
                     }
                 });
