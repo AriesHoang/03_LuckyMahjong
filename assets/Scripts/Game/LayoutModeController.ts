@@ -68,8 +68,9 @@ export default class LayoutModeController extends cc.Component {
 
         if (this._layoutMode == E_LAYOUT_MODE.FREESPIN) {
             this.resetBonusWin();
-
         }
+
+        clientEvent.dispatchEvent(EventName.InitDefaultMulti, this._layoutMode);
     }
 
     private idleShuffledID: number = 0;

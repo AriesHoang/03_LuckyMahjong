@@ -191,11 +191,10 @@ export default class BoardUI extends cc.Component {
 
         this.currentMode = this.mapModes.get(this.boardMode);
         this.currentMode.active(mode);
-
     }
 
     initBoard() {
-        this.currentMode.initBoard();
+        this.currentMode.initBoard();        
     }
 
     onBoardInit(data: any) {

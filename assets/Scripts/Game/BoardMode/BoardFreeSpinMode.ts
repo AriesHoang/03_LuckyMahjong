@@ -6,7 +6,7 @@ import RootData from "../../Manager/RootData";
 import Utils from "../../Utils/Utils";
 import BoardUI, { ActionCheckWin, E_BOARD_STATE } from "../BoardUI";
 import ItemSymbol from "../ItemSymbol";
-import MultiplierInfo from "../MultiplierInfo";
+
 import SpinReel from "../SpinReel";
 import StickyLayer from "../StickyLayer";
 import { BaseBoardMode, IBoardMode } from "./IBoardMode";

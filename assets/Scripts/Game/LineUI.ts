@@ -355,7 +355,7 @@ export default class lineUI extends cc.Component {
     }
 
     showWinItemsPromise(posList: number[]): Promise<any> {
-        // cc.log("showWinItemsPromise: ", posList);
+        cc.log("showWinItemsPromise: ", posList);
         for (let index = 0; index < this.itemsCache.length; index++) {
             let parent = this.itemsCache[index].parent;
             const element = this.itemsCache[index].item;

@@ -270,6 +270,7 @@ export default class GameController extends cc.Component {
         //this is one tumble, might contain many cascades (until there is no win/match lines)
         // this.spinData = data;
 
+        clientEvent.dispatchEvent(EventName.ResetValuetMulti);
         data = {
             "bet": {
                 "id": 230817106000,
@@ -370,300 +371,300 @@ export default class GameController extends cc.Component {
                                 "multiplier": 1,
                                 "winRate": 0.35
                             }
-                            // , {
-                            //     "winLines": [
-                            //         {
-                            //             "symbol": 2,
-                            //             "ways": [
-                            //                 [
-                            //                     0
-                            //                 ],
-                            //                 [
-                            //                     0
-                            //                 ],
-                            //                 [
-                            //                     0,
-                            //                     1,
-                            //                     4
-                            //                 ],
-                            //                 [
-                            //                     1
-                            //                 ],
-                            //                 [
-                            //                     1
-                            //                 ]
-                            //             ],
-                            //             "baseRate": 0.5,
-                            //             "winRate": 1.5
-                            //         },
-                            //         {
-                            //             "symbol": 9,
-                            //             "ways": [
-                            //                 [
-                            //                     2
-                            //                 ],
-                            //                 [
-                            //                     1,
-                            //                     2
-                            //                 ],
-                            //                 [
-                            //                     4
-                            //                 ],
-                            //                 [
-                            //                     2
-                            //                 ],
-                            //                 [
-                            //                     0
-                            //                 ]
-                            //             ],
-                            //             "baseRate": 2,
-                            //             "winRate": 4
-                            //         }
-                            //     ],
-                            //     "addedSymbols": [
-                            //         [
-                            //             10,
-                            //             3
-                            //         ],
-                            //         [
-                            //             1,
-                            //             -1
-                            //         ],
-                            //         [
-                            //             -6,
-                            //             1,
-                            //             8
-                            //         ],
-                            //         [
-                            //             1,
-                            //             6
-                            //         ],
-                            //         [
-                            //             6,
-                            //             11
-                            //         ]
-                            //     ],
-                            //     "multiplier": 2,
-                            //     "winRate": 5.5
-                            // },
-                            // {
-                            //     "winLines": [
-                            //         {
-                            //             "symbol": 3,
-                            //             "ways": [
-                            //                 [
-                            //                     1
-                            //                 ],
-                            //                 [
-                            //                     2
-                            //                 ],
-                            //                 [
-                            //                     4
-                            //                 ]
-                            //             ],
-                            //             "baseRate": 0.15,
-                            //             "winRate": 0.15
-                            //         },
-                            //         {
-                            //             "symbol": 6,
-                            //             "ways": [
-                            //                 [
-                            //                     2
-                            //                 ],
-                            //                 [
-                            //                     2
-                            //                 ],
-                            //                 [
-                            //                     0
-                            //                 ],
-                            //                 [
-                            //                     1,
-                            //                     2
-                            //                 ],
-                            //                 [
-                            //                     0
-                            //                 ]
-                            //             ],
-                            //             "baseRate": 1.05,
-                            //             "winRate": 2.1
-                            //         }
-                            //     ],
-                            //     "addedSymbols": [
-                            //         [
-                            //             2,
-                            //             1
-                            //         ],
-                            //         [
-                            //             8
-                            //         ],
-                            //         [
-                            //             7
-                            //         ],
-                            //         [
-                            //             7,
-                            //             7
-                            //         ],
-                            //         [
-                            //             9
-                            //         ]
-                            //     ],
-                            //     "multiplier": 3,
-                            //     "winRate": 2.25
-                            // },
-                            // {
-                            //     "winLines": [
-                            //         {
-                            //             "symbol": 1,
-                            //             "ways": [
-                            //                 [
-                            //                     1
-                            //                 ],
-                            //                 [
-                            //                     1,
-                            //                     2
-                            //                 ],
-                            //                 [
-                            //                     1,
-                            //                     2
-                            //                 ],
-                            //                 [
-                            //                     2
-                            //                 ]
-                            //             ],
-                            //             "baseRate": 0.5,
-                            //             "winRate": 2
-                            //         }
-                            //     ],
-                            //     "addedSymbols": [
-                            //         [
-                            //             8
-                            //         ],
-                            //         [
-                            //             8
-                            //         ],
-                            //         [
-                            //             3,
-                            //             7
-                            //         ],
-                            //         [
-                            //             6
-                            //         ],
-                            //         []
-                            //     ],
-                            //     "multiplier": 5,
-                            //     "winRate": 2
-                            // },
-                            // {
-                            //     "winLines": [
-                            //         {
-                            //             "symbol": 8,
-                            //             "ways": [
-                            //                 [
-                            //                     0
-                            //                 ],
-                            //                 [
-                            //                     0,
-                            //                     1,
-                            //                     2
-                            //                 ],
-                            //                 [
-                            //                     3
-                            //                 ]
-                            //             ],
-                            //             "baseRate": 1.5,
-                            //             "winRate": 4.5
-                            //         }
-                            //     ],
-                            //     "addedSymbols": [
-                            //         [
-                            //             3
-                            //         ],
-                            //         [
-                            //             -3,
-                            //             2,
-                            //             -5
-                            //         ],
-                            //         [
-                            //             3
-                            //         ],
-                            //         [],
-                            //         []
-                            //     ],
-                            //     "multiplier": 10,
-                            //     "winRate": 4.5
-                            // },
-                            // {
-                            //     "winLines": [
-                            //         {
-                            //             "symbol": 3,
-                            //             "ways": [
-                            //                 [
-                            //                     0
-                            //                 ],
-                            //                 [
-                            //                     0
-                            //                 ],
-                            //                 [
-                            //                     0,
-                            //                     1
-                            //                 ]
-                            //             ],
-                            //             "baseRate": 0.5,
-                            //             "winRate": 1
-                            //         }
-                            //     ],
-                            //     "addedSymbols": [
-                            //         [
-                            //             10
-                            //         ],
-                            //         [],
-                            //         [
-                            //             2,
-                            //             -3
-                            //         ],
-                            //         [],
-                            //         []
-                            //     ],
-                            //     "multiplier": 10,
-                            //     "winRate": 1
-                            // },
-                            // {
-                            //     "winLines": [
-                            //         {
-                            //             "symbol": 2,
-                            //             "ways": [
-                            //                 [
-                            //                     1
-                            //                 ],
-                            //                 [
-                            //                     0,
-                            //                     1
-                            //                 ],
-                            //                 [
-                            //                     0
-                            //                 ]
-                            //             ],
-                            //             "baseRate": 0.5,
-                            //             "winRate": 1
-                            //         }
-                            //     ],
-                            //     "addedSymbols": [
-                            //         [
-                            //             6
-                            //         ],
-                            //         [
-                            //             -11,
-                            //             3
-                            //         ],
-                            //         [
-                            //             10
-                            //         ],
-                            //         [],
-                            //         []
-                            //     ],
-                            //     "multiplier": 10,
-                            //     "winRate": 1
-                            // }
+                            , {
+                                "winLines": [
+                                    {
+                                        "symbol": 2,
+                                        "ways": [
+                                            [
+                                                0
+                                            ],
+                                            [
+                                                0
+                                            ],
+                                            [
+                                                0,
+                                                1,
+                                                4
+                                            ],
+                                            [
+                                                1
+                                            ],
+                                            [
+                                                1
+                                            ]
+                                        ],
+                                        "baseRate": 0.5,
+                                        "winRate": 1.5
+                                    },
+                                    {
+                                        "symbol": 9,
+                                        "ways": [
+                                            [
+                                                2
+                                            ],
+                                            [
+                                                1,
+                                                2
+                                            ],
+                                            [
+                                                4
+                                            ],
+                                            [
+                                                2
+                                            ],
+                                            [
+                                                0
+                                            ]
+                                        ],
+                                        "baseRate": 2,
+                                        "winRate": 4
+                                    }
+                                ],
+                                "addedSymbols": [
+                                    [
+                                        10,
+                                        3
+                                    ],
+                                    [
+                                        1,
+                                        -1
+                                    ],
+                                    [
+                                        -6,
+                                        1,
+                                        8
+                                    ],
+                                    [
+                                        1,
+                                        6
+                                    ],
+                                    [
+                                        6,
+                                        11
+                                    ]
+                                ],
+                                "multiplier": 2,
+                                "winRate": 5.5
+                            },
+                            {
+                                "winLines": [
+                                    {
+                                        "symbol": 3,
+                                        "ways": [
+                                            [
+                                                1
+                                            ],
+                                            [
+                                                2
+                                            ],
+                                            [
+                                                4
+                                            ]
+                                        ],
+                                        "baseRate": 0.15,
+                                        "winRate": 0.15
+                                    },
+                                    {
+                                        "symbol": 6,
+                                        "ways": [
+                                            [
+                                                2
+                                            ],
+                                            [
+                                                2
+                                            ],
+                                            [
+                                                0
+                                            ],
+                                            [
+                                                1,
+                                                2
+                                            ],
+                                            [
+                                                0
+                                            ]
+                                        ],
+                                        "baseRate": 1.05,
+                                        "winRate": 2.1
+                                    }
+                                ],
+                                "addedSymbols": [
+                                    [
+                                        2,
+                                        1
+                                    ],
+                                    [
+                                        8
+                                    ],
+                                    [
+                                        7
+                                    ],
+                                    [
+                                        7,
+                                        7
+                                    ],
+                                    [
+                                        9
+                                    ]
+                                ],
+                                "multiplier": 3,
+                                "winRate": 2.25
+                            },
+                            {
+                                "winLines": [
+                                    {
+                                        "symbol": 1,
+                                        "ways": [
+                                            [
+                                                1
+                                            ],
+                                            [
+                                                1,
+                                                2
+                                            ],
+                                            [
+                                                1,
+                                                2
+                                            ],
+                                            [
+                                                2
+                                            ]
+                                        ],
+                                        "baseRate": 0.5,
+                                        "winRate": 2
+                                    }
+                                ],
+                                "addedSymbols": [
+                                    [
+                                        8
+                                    ],
+                                    [
+                                        8
+                                    ],
+                                    [
+                                        3,
+                                        7
+                                    ],
+                                    [
+                                        6
+                                    ],
+                                    []
+                                ],
+                                "multiplier": 5,
+                                "winRate": 2
+                            },
+                            {
+                                "winLines": [
+                                    {
+                                        "symbol": 8,
+                                        "ways": [
+                                            [
+                                                0
+                                            ],
+                                            [
+                                                0,
+                                                1,
+                                                2
+                                            ],
+                                            [
+                                                3
+                                            ]
+                                        ],
+                                        "baseRate": 1.5,
+                                        "winRate": 4.5
+                                    }
+                                ],
+                                "addedSymbols": [
+                                    [
+                                        3
+                                    ],
+                                    [
+                                        -3,
+                                        2,
+                                        -5
+                                    ],
+                                    [
+                                        3
+                                    ],
+                                    [],
+                                    []
+                                ],
+                                "multiplier": 10,
+                                "winRate": 4.5
+                            },
+                            {
+                                "winLines": [
+                                    {
+                                        "symbol": 3,
+                                        "ways": [
+                                            [
+                                                0
+                                            ],
+                                            [
+                                                0
+                                            ],
+                                            [
+                                                0,
+                                                1
+                                            ]
+                                        ],
+                                        "baseRate": 0.5,
+                                        "winRate": 1
+                                    }
+                                ],
+                                "addedSymbols": [
+                                    [
+                                        10
+                                    ],
+                                    [],
+                                    [
+                                        2,
+                                        -3
+                                    ],
+                                    [],
+                                    []
+                                ],
+                                "multiplier": 10,
+                                "winRate": 1
+                            },
+                            {
+                                "winLines": [
+                                    {
+                                        "symbol": 2,
+                                        "ways": [
+                                            [
+                                                1
+                                            ],
+                                            [
+                                                0,
+                                                1
+                                            ],
+                                            [
+                                                0
+                                            ]
+                                        ],
+                                        "baseRate": 0.5,
+                                        "winRate": 1
+                                    }
+                                ],
+                                "addedSymbols": [
+                                    [
+                                        6
+                                    ],
+                                    [
+                                        -11,
+                                        3
+                                    ],
+                                    [
+                                        10
+                                    ],
+                                    [],
+                                    []
+                                ],
+                                "multiplier": 10,
+                                "winRate": 1
+                            }
                         ],
                         "scatterWinRate": 0
                     },

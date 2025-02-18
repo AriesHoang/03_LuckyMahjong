@@ -24,7 +24,7 @@ import FreespinOutro from "../Popup/FreespinOutro/FreespinOutro";
 import StickyLayer from "./StickyLayer";
 import ElectricHeartEffect from "./ElectricHeartEffect ";
 import LineWinData, { HeartItemWin } from "../Data/GamePlay/LineWinData";
-import MultiplierInfo from "./MultiplierInfo";
+// import MultiplierInfo from "./MultiplierInfo";
 import FreespinGamble, { E_WHEEL_ACTION, WEDGE_ANGLE } from "../Popup/FreespinGamble/FreespinGamble";
 
 import BGMainGameAnimState from "./BGMainGameAnimState";
@@ -46,8 +46,8 @@ export default class CheckWinFreeSpinUi extends cc.Component {
     @property(cc.Node) payLines: cc.Node = null;
     @property(lineUI) lineUi: lineUI = null;
 
-    @property(MultiplierInfo)
-    multiplierInfo: MultiplierInfo = null;
+    // @property(MultiplierInfo)
+    // multiplierInfo: MultiplierInfo = null;
 
     // @property(CharacterAinmationState)
     // bugAinmationState: CharacterAinmationState = null;
@@ -76,8 +76,8 @@ export default class CheckWinFreeSpinUi extends cc.Component {
     initialize() {
 
 
-        let actionCheckMultiply = new ActionCheckWin(2, this.checkMultiplyPromise.bind(this));
-        GameController.addActionCheckWin(actionCheckMultiply);
+        // let actionCheckMultiply = new ActionCheckWin(2, this.checkMultiplyPromise.bind(this));
+        // GameController.addActionCheckWin(actionCheckMultiply);
 
         // let actionWinMiniGame = new ActionCheckWin(3, this.checkWinMiniGamePromise.bind(this));
         // GameController.addActionCheckWin(actionWinMiniGame);
@@ -138,7 +138,7 @@ export default class CheckWinFreeSpinUi extends cc.Component {
                     })
                    
                 }else{
-                    clientEvent.dispatchEvent(EventName.InitDefaultMulti, 1);
+                    // clientEvent.dispatchEvent(EventName.InitDefaultMulti, E_BOARD_MODE.FREESPIN);
                     clientEvent.dispatchEvent(EventName.ShowFreeSpinInfo, this.boardData.freespinNum);
                     // this.lineUi.stopAllItemsWinAnim();
                     let data = {
@@ -495,63 +495,63 @@ export default class CheckWinFreeSpinUi extends cc.Component {
     //     })
     // }
 
-    checkMultiplyPromise(): Promise<any> {
-        const resultData = this.boardData.spinData;
-        let spin_data = resultData.base;
+    // checkMultiplyPromise(): Promise<any> {
+    //     const resultData = this.boardData.spinData;
+    //     let spin_data = resultData.base;
 
-        const baseAmount = resultData.baseAmount;
+    //     const baseAmount = resultData.baseAmount;
 
-        if(resultData.freeGame?.rounds.length > 0){
-            spin_data = resultData.freeGame.rounds[resultData.freeGame.rounds.length - 1];
-        }
+    //     if(resultData.freeGame?.rounds.length > 0){
+    //         spin_data = resultData.freeGame.rounds[resultData.freeGame.rounds.length - 1];
+    //     }
 
-        // const total_win = spin_data.winRate * spin_data.baseAmount;
-        let total_win = 0;
+    //     // const total_win = spin_data.winRate * spin_data.baseAmount;
+    //     let total_win = 0;
 
-        spin_data.tumbles.forEach((tumble) => {
-            total_win += tumble.winRate * baseAmount;
-        });
-
-
+    //     spin_data.tumbles.forEach((tumble) => {
+    //         total_win += tumble.winRate * baseAmount;
+    //     });
 
 
-        let prom_chain: Promise<any> = Promise.resolve();
 
-        return prom_chain;
+
+    //     let prom_chain: Promise<any> = Promise.resolve();
+
+    //     return prom_chain;
         
-        let multi_pos_list: cc.Vec3[] = [];
-        let totalMultiplier = spin_data.baseMultiplier;
-        if(spin_data.xMultipliers.length > 0){
-            let spinReels = this.boardUi.getBoardReels();
-            for (let ci = 0; ci < spinReels.length; ++ci) { 
-                this.boardData.itemTypeGrid[ci].forEach((item, index) => {
-                    // if (item.symbol == E_SYMBOL.MULTIPLIER) {
-                    //     const symbol = this.boardUi.getItemAt(ci, index);
-                    //     multi_pos_list.push(symbol.node.parent.convertToWorldSpaceAR(symbol.node.position));
-                    // }
-                })
-            }
-            if(multi_pos_list.length > 0){
-                const winMulti = spin_data.xMultipliers.reduce((a, b) => a + b, 0);
-                totalMultiplier += winMulti;
-                prom_chain = prom_chain.then(() => new Promise((resolve: Function) => {                
-                    this.multiplierInfo.showMultiplyWinPromise(multi_pos_list, totalMultiplier, total_win).then(() => {
-                        // clientEvent.dispatchEvent(EventName.ShowWinInfo, "info_bar_win_02", total_win, false);
-                        resolve();
-                    });
-                }));      
-            }
-        }
+    //     let multi_pos_list: cc.Vec3[] = [];
+    //     let totalMultiplier = spin_data.baseMultiplier;
+    //     if(spin_data.xMultipliers.length > 0){
+    //         let spinReels = this.boardUi.getBoardReels();
+    //         for (let ci = 0; ci < spinReels.length; ++ci) { 
+    //             this.boardData.itemTypeGrid[ci].forEach((item, index) => {
+    //                 // if (item.symbol == E_SYMBOL.MULTIPLIER) {
+    //                 //     const symbol = this.boardUi.getItemAt(ci, index);
+    //                 //     multi_pos_list.push(symbol.node.parent.convertToWorldSpaceAR(symbol.node.position));
+    //                 // }
+    //             })
+    //         }
+    //         if(multi_pos_list.length > 0){
+    //             const winMulti = spin_data.xMultipliers.reduce((a, b) => a + b, 0);
+    //             totalMultiplier += winMulti;
+    //             prom_chain = prom_chain.then(() => new Promise((resolve: Function) => {                
+    //                 // this.multiplierInfo.showMultiplyWinPromise(multi_pos_list, totalMultiplier, total_win).then(() => {
+    //                     // clientEvent.dispatchEvent(EventName.ShowWinInfo, "info_bar_win_02", total_win, false);
+    //                     resolve();
+    //                 // });
+    //             }));      
+    //         }
+    //     }
 
-        if(total_win > 0 && totalMultiplier > 1){
-            prom_chain = prom_chain.then(()=> new Promise((resolve: Function) => {
-                this.multiplierInfo.checkShowMultiplyWinPromise(total_win*totalMultiplier).then(() => {                    
-                    resolve();
-                });
-            }));
-        }
+    //     if(total_win > 0 && totalMultiplier > 1){
+    //         prom_chain = prom_chain.then(()=> new Promise((resolve: Function) => {
+    //             // this.multiplierInfo.checkShowMultiplyWinPromise(total_win*totalMultiplier).then(() => {                    
+    //                 resolve();
+    //             // });
+    //         }));
+    //     }
     
-        return prom_chain;
-    }
+    //     return prom_chain;
+    // }
 
 }

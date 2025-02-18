@@ -172,8 +172,8 @@ export default class ItemSymbol extends cc.Component {
     }
 
     customConfigItem() {
-        this.static_image.node.y = 0;
-        this.ske.node.y = 0;
+        this.static_image.node.y = -5;
+        this.ske.node.y = -5;
         this.static_image.node.scale = 1;
         this.mainSkeleton.scale = 1;
 
@@ -205,6 +205,7 @@ export default class ItemSymbol extends cc.Component {
             this.ske.defaultSkin = null;
         }
         this.ske.setToSetupPose();
+        this.ske.node.active = false;
     }
 
     setItemState(state: E_ANIM_STATE = E_ANIM_STATE.idle) {
@@ -272,9 +273,9 @@ export default class ItemSymbol extends cc.Component {
             return;
         });
     }
-    playItemAnimPromise(state: E_ANIM_STATE = E_ANIM_STATE.idle, pos: any = null, showStaticItem:boolean = false): Promise<any> {
+    playItemAnimPromise(state: E_ANIM_STATE = E_ANIM_STATE.idle, itemConfig: any = null, showStaticItem:boolean = false): Promise<any> {
         return new Promise((resolve: Function) => {
-            let anim_cfg = {name: null, loop: null};
+            let anim_cfg = {name: null, loop: null};        
             if (state == E_ANIM_STATE.idle){
                 if (this.itemCfg.symbol == E_SYMBOL.SCATTER || this.itemCfg.symbol == E_SYMBOL.WILD) {
                     anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Idle);
@@ -295,21 +296,19 @@ export default class ItemSymbol extends cc.Component {
                 }else{
                     anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_white_chess);
                     anim_cfg.loop = false;
-                }
-                
-                cc.log("item: " + this.itemCfg.symbol + " anim: " + anim_cfg.name);
-                cc.log("At Pos: ", pos);
-                cc.log("this.ske skin name: ", this.skinName);
+                }                            
                 // anim_cfg = this._itemAnimConfig?.action[0] ? this._itemAnimConfig.action[0] : null;
             }
             else if (state == E_ANIM_STATE.appear) {
                 if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
                     anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Scatter_wait);
                     anim_cfg.loop = true;
+                }else if (this.itemCfg.symbol == E_SYMBOL.WILD) {
+                    anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_gold_chess);
+                    anim_cfg.loop = false;
                 }
             }
-            // else if (state == E_ANIM_STATE.collect) anim_cfg = this._itemAnimConfig?.action[0] ? this._itemAnimConfig.action[0] : null;
-
+            // else if (state == E_ANIM_STATE.collect) anim_cfg = this._itemAnimConfig?.action[0] ? this._itemAnimConfig.action[0] : null;            
             if (state == E_ANIM_STATE.win) {
                 // this.scheduleOnce(() => {
                 //     this.hightlight_ske.node.active = true;
@@ -321,19 +320,21 @@ export default class ItemSymbol extends cc.Component {
                 this.hightlight_ske.node.active = false;
             }
             if (anim_cfg && anim_cfg.name != undefined && anim_cfg.name != null) {
+                // cc.log("item: " + this.itemCfg.symbol + " anim: " + anim_cfg.name);            
+                // cc.log("this.ske skin name: ", this.skinName);
+
                 this.ske.node.active = true;
                 setTimeout(() => {
-                    this.static_image.node.active = false;
-                },300);
+                    this.static_image.node.active = false;                                            
+                },900);
                 
                 this.ske.setAnimation(0, anim_cfg.name, (anim_cfg.loop != undefined && anim_cfg.loop != null) ? anim_cfg.loop : false);
-                this.ske.setCompleteListener((trackEntry) => {
-                    cc.log("Symbol At Pos: ", pos);
+                this.ske.setCompleteListener((trackEntry) => {                    
                     cc.log(this.itemCfg.symbol +  " - complete: " + this.skinName + " - anim: " + anim_cfg.name);
                     if (trackEntry['animation']['name'] == anim_cfg.name) {
                         let iTimeout = 1;
-                        if(showStaticItem){
-                            this.setItemStaticImage();
+                        if(showStaticItem && itemConfig){
+                            this.init(itemConfig);
                             this.ske.node.active = false;
                             this.static_image.node.active = true;
                             iTimeout = 300;
@@ -346,14 +347,6 @@ export default class ItemSymbol extends cc.Component {
                         }, iTimeout);
                     }
                 });
-                // this.hightlight_ske.setCompleteListener((trackEntry) => {
-                //     if (trackEntry['animation']['name'] == "animation") {
-                //         // if (state == E_ANIM_STATE.win) {
-                //         //     this.hightlight_ske.node.active = false;
-                //         // };
-                //         resolve();
-                //     }
-                // });
             }
             else {
                 //no need to use animation, use static image here

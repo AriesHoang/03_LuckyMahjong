@@ -189,7 +189,7 @@ export default class BoardData extends GameData {
             cc.tween(this)
                 .delay(.1)
                 .call(() => {
-                    clientEvent.dispatchEvent(EventName.InitDefaultMulti, currentMultiplier);
+                    // clientEvent.dispatchEvent(EventName.InitDefaultMulti, currentMultiplier);
                     clientEvent.dispatchEvent(EventName.UpdateBonusWin, totalWinFreeGame, false);
                 })
                 .start();
@@ -277,7 +277,7 @@ export default class BoardData extends GameData {
       ): number[][] {
         return reels.map((reel, reelIndex) => {
           const indicesToRemove = winRows[reelIndex];
-          const symbolsToAdd = addedSymbols[reelIndex]?.slice().reverse() || [];
+          const symbolsToAdd = addedSymbols[reelIndex];
 
           // Xóa các phần tử theo chỉ số
           const filteredReel = indicesToRemove && indicesToRemove.length > 0

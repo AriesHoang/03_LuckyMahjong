@@ -56,6 +56,7 @@ export const EventName = {
     StickSymbol: "StickSymbol",
     OnWinTumble: "OnWinTumble",
     InitDefaultMulti: "InitDefaultMulti",
+    ResetValuetMulti: "ResetValuetMulti",
 
     //
     PlayerNotEnoughBalance: "PlayerNotEnoughBalance",

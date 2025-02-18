@@ -140,17 +140,18 @@ export default class CheckWinTumble extends cc.Component {
                     if (!Utils.isEmpty(rowIndex) && this.rowWinLine[colIndex].indexOf(rowIndex) == -1) {            
                         const symbol = this.boardUI.getItemAt(colIndex, rowIndex);    
                         let showStaticItem = false;
+                        let animState = E_ANIM_STATE.win;
+                        let itemConfig = null
                         if (symbol.itemCfg.symbol < 0 ){
-                            let itemConfig = {
+                            itemConfig = {
                                 symbol: E_SYMBOL.WILD,
                                 value: 0,
                                 type: 0,
                                 size: 1
                             };
-                            this.boardData.itemTypeGrid[colIndex][rowIndex] = itemConfig;
-                            symbol.itemCfg = itemConfig; 
-                            symbol.initSkeletonData();
-                            showStaticItem = true;                           
+                            this.boardData.itemTypeGrid[colIndex][rowIndex] = itemConfig;                            
+                            showStaticItem = true;     
+                            animState = E_ANIM_STATE.appear;                      
                         }else{
                             this.boardData.itemTypeGrid[colIndex][rowIndex] = {
                                 symbol: null,
@@ -165,7 +166,7 @@ export default class CheckWinTumble extends cc.Component {
                             .then(() => {
                                 
                             })
-                            .then(symbol.playItemAnimPromise.bind(symbol, E_ANIM_STATE.win, {x: colIndex, y: rowIndex}, showStaticItem));
+                            .then(symbol.playItemAnimPromise.bind(symbol, E_ANIM_STATE.win, itemConfig, showStaticItem));
                         prom_arr.push(prom_chain);
                     }
                 });
@@ -206,7 +207,7 @@ export default class CheckWinTumble extends cc.Component {
 
 
     checkTumbleCascadePromise(data, tumbleID: number, isLastTumble, totalWin, totalWinFreeSpin): Promise<any> {
-        return new Promise((resolve:Function, reject) => {
+        return new Promise(async (resolve:Function, reject) => {
             let dataTumble = {
                 winRows: this.rowWinLine,
                 addedSymbols: data.addedSymbols
@@ -220,17 +221,19 @@ export default class CheckWinTumble extends cc.Component {
                 this.prom_arr.push(reel.cascadeItemsPromise(this.boardData.itemTypeGrid[ci]));
             }
             SoundController.inst.MainAudio.playAudio(AudioPlayId.sfx_Cascade);
+
             
+
             Promise.all(this.prom_arr).then( async ()=>{
                 RootData.instance.gamePlayData.setProfitAmount((this.curSpinProfit));
-                // await this.multiplierInfo.checkDefaut();
+                this.multiplierInfo.activeMultiplier(data.multiplier);
                 if (isLastTumble && totalWin > 0) {
                     let animationCanBePlayed = this.boardData.spinData.winRate > 0;
                     clientEvent.dispatchEvent(EventName.ShowWinInfo, "info_bar_win_02", totalWin, animationCanBePlayed);                           
                     setTimeout(() => {
                         resolve();
                     }, 1000);
-                }else{
+                }else{                  
                     resolve();
                 }
             });

@@ -10,7 +10,6 @@ import SoundController from "../../Manager/SoundController";
 import { AudioPlayId } from "../../Core/audio/AudioPlayId";
 import { AudioPlay } from "../../Core/audio/AudioPlayer";
 import { ITEMGREEN, ITEMPURPLE, ITEMRED, ItemConfig } from "../ItemConfig";
-import MultiplierInfo from "../MultiplierInfo";
 
 export interface IBoardMode {
     active(any?)
@@ -35,8 +34,7 @@ export interface IBoardMode {
 const { ccclass, property } = cc._decorator;
 @ccclass
 export class BaseBoardMode extends cc.Component {
-    @property(MultiplierInfo)
-    multiplierInfo: MultiplierInfo = null;
+
     boardUi: BoardUI = null;
 
     protected reelSpinSoundID: AudioPlay = null;
