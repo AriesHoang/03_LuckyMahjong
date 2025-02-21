@@ -29,9 +29,9 @@ type WinConfig = {
     env?: string
 };
 const SpecialWinConfig: WinConfig[] = [
-    /* bigwin   */{ text: 'special_win_03', start: ['start_bigwin'], loop: ['loop_bigwin'], end: ['end_bigwin']},
-    /* megawin  */{ text: 'special_win_02', start: ['start_megawin'], loop: ['loop_megawin'], end: ['end_megawin'] },
-    /* superwin */{ text: 'special_win_01', start: ['start_supermegawin'], loop: ['loop_supermegawin'], end: ['end_supermegawin'] }
+    /* bigwin   */{ text: 'special_win_03', start: ['bigwin'], loop: ['loop_bigwin'], end: ['end_bigwin'] },
+    /* megawin  */{ text: 'special_win_02', start: ['megawin'], loop: ['loop_megawin'], end: ['end_megawin'] },
+    /* superwin */{ text: 'special_win_01', start: ['superwin'], loop: ['loop_supermegawin'], end: ['end_supermegawin'] }
 ];
 const TimeSoundWin = {
     0: 5.8,
@@ -44,7 +44,7 @@ const option_list: string[] = ["big-win", "mega-win", "super-mega-win"];
 const KeyTitle: string[] = ["megaWin", "megaWin", "superMegaWin"];
 const TEXT_EVENT_NAME: string = "text";
 
-const LOOP_DURATION: number = 6;
+const LOOP_DURATION: number = 5;
 const AUTO_DISMISS_DELAY: number = 5;
 
 
@@ -53,8 +53,9 @@ export default class BigWin extends cc.Component {
 
     @property(NumberLabel)
     winAmountLabel: NumberLabel = null;
-    // @property(NumberLabel)
-    // winAmountLabelShadow: NumberLabel = null;
+
+    @property([cc.Node])
+    arrWinTitles: cc.Node[] = [];
 
     private _currentSoundIDArr: AudioPlay[] = [];
     private _isFadingOut: boolean = false;
@@ -72,7 +73,7 @@ export default class BigWin extends cc.Component {
 
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
+    onLoad() {
     }
 
     start() {
@@ -97,7 +98,7 @@ export default class BigWin extends cc.Component {
             this.winId = option_list.indexOf(winTitle);
             let timeSound = TimeSoundWin[this.winId];
 
-            this.setTitleText(0);
+            this.setTitleText(this.winId);
             this.winAmountLabel.string = Utils.getCurrencyStr();
             // this.winAmountLabelShadow.string = Utils.getCurrencyStr();
             this.winAmountLabel.node.active = false;
@@ -106,7 +107,7 @@ export default class BigWin extends cc.Component {
             // this.winAmountLabelShadow.node.scale = 1;
             this.node.active = true;
             this.node.opacity = 0;
-            let main_ske = this.node.getChildByName("main_skeleton").getComponent(sp.Skeleton);
+            let main_ske = this.node.getChildByName("winscene").getComponent(sp.Skeleton);
             main_ske.setToSetupPose();
             main_ske.node.active = false;
             cc.Tween.stopAllByTarget(this.node);
@@ -114,12 +115,11 @@ export default class BigWin extends cc.Component {
                 .to(this.DELAY_INTRO, { opacity: 255 })// intro duration 0.5
                 .call(() => {
                     this._onCloseCB = resolve;
-
-                    this.setTitleText(0);   //always start from smallest one
+                    
                     this.winAmountLabel.node.active = true;
                     // this.winAmountLabelShadow.node.active = true;
                     // this.winAmountLabelShadow.playAnim(timeSound, Utils.getCurrencyStr().length,false,0,winAmount, ()=>{return;});
-                    this.winAmountLabel.playAnim(timeSound, Utils.getCurrencyStr().length, false, 0, winAmount,
+                    this.winAmountLabel.playAnim(7, Utils.getCurrencyStr().length, false, 0, winAmount,
                         null,
                         () => {
 
@@ -129,6 +129,19 @@ export default class BigWin extends cc.Component {
                             //     .to(.1, { scale: 1.4 }, { easing: "bounceOut" })
                             //     .to(.1, { scale: 1 }, { easing: "bounceIn" })
                             //     .start();
+
+                            if (this.winAmountLabel.getIsPlayingAnim()) {
+                                this.winAmountLabel.finishAnim();
+                                // this.winAmountLabelShadow.finishAnim();
+                            }
+                            cc.Tween.stopAllByTarget(this.node);
+                            this.node.stopAllActions();
+                            cc.tween(this.node)
+                                .delay(AUTO_DISMISS_DELAY)
+                                .call(() => {
+                                    this.onCloseSpecialWin(winTitle);
+                                })
+                                .start();
 
                             //stop loop sfx, keep the coin rain
                             let win_sfx_id = this._currentSoundIDArr.shift();
@@ -142,26 +155,31 @@ export default class BigWin extends cc.Component {
                                 SoundController.inst.MainAudio.fadeInMusic(.5);
                                 SoundController.inst.MainAudio.resumeMusic();
                             }, 3);
+
+
                         });
 
-                    let promises_chain: Promise<any> = Promise.resolve();
-                    for (let i = 0; i <= this.winId; i++) {
-                        promises_chain = promises_chain.then(this.showWinAnimPromise.bind(this, i));
-                    }
-                    promises_chain = promises_chain.then(() => {
-                        if (this.winAmountLabel.getIsPlayingAnim()) {
-                            this.winAmountLabel.finishAnim();
-                            // this.winAmountLabelShadow.finishAnim();
-                        }
-                        cc.Tween.stopAllByTarget(this.node);
-                        this.node.stopAllActions();
-                        cc.tween(this.node)
-                            .delay(AUTO_DISMISS_DELAY)
-                            .call(() => {
-                                this.onCloseSpecialWin(winTitle);
-                            })
-                            .start();
-                    })
+                    main_ske.node.active = true;
+                    main_ske.setAnimation(0, SpecialWinConfig[this.winId].start[0], true);
+
+                    // let promises_chain: Promise<any> = Promise.resolve();
+                    // // for (let i = 0; i <= this.winId; i++) {
+                    // //     promises_chain = promises_chain.then(this.showWinAnimPromise.bind(this, i));
+                    // // }
+                    // promises_chain = promises_chain.then(() => {
+                    //     if (this.winAmountLabel.getIsPlayingAnim()) {
+                    //         this.winAmountLabel.finishAnim();
+                    //         // this.winAmountLabelShadow.finishAnim();
+                    //     }
+                    //     cc.Tween.stopAllByTarget(this.node);
+                    //     this.node.stopAllActions();
+                    //     cc.tween(this.node)
+                    //         .delay(AUTO_DISMISS_DELAY)
+                    //         .call(() => {
+                    //             this.onCloseSpecialWin(winTitle);
+                    //         })
+                    //         .start();
+                    // })
 
                     this.node.on(cc.Node.EventType.TOUCH_END, function () {
                         this._isSkipAnim = true;
@@ -182,16 +200,16 @@ export default class BigWin extends cc.Component {
                 resolve();
                 return;
             }
-            if(winTitle > 0){
+            if (winTitle > 0) {
                 SoundController.inst.MainAudio.fadeOutSFX(this._currentSoundIDArr.shift());
                 this._currentSoundIDArr.push(SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxAllSpecialWin));
             }
-                
-            let main_ske = this.node.getChildByName("main_skeleton").getComponent(sp.Skeleton);
+
+            let main_ske = this.node.getChildByName("winscene").getComponent(sp.Skeleton);
             const winCfg: WinConfig = SpecialWinConfig[winTitle];
+
             main_ske.node.active = true;
-            main_ske.setAnimation(0, winCfg.start[0], false);
-            main_ske.addAnimation(0, winCfg.loop[0], true);
+            main_ske.setAnimation(0, winCfg.start[0], true);
             main_ske.setEventListener((trackEntry, event) => {
                 if (trackEntry['animation']['name'] == winCfg.start[0] && event.data.name == TEXT_EVENT_NAME) {
                     this.setTitleText(winTitle);
@@ -200,26 +218,8 @@ export default class BigWin extends cc.Component {
             main_ske.setCompleteListener((trackEntry) => {
                 if (trackEntry['animation']['name'] == winCfg.start[0]) {
                     cc.Tween.stopAllByTarget(this.node);
-
-                    let durationAnim = LOOP_DURATION;
-                    if(this.winId == 0){
-                        durationAnim = 5.8;
-                    }else if(this.winId == 1){
-                        if(winTitle == 0)
-                            durationAnim = 4.5;
-                        else if(winTitle == 1)
-                            durationAnim = 7.8;
-                    }else{
-                        if(winTitle == 0)
-                            durationAnim = 4.5;
-                        else if(winTitle == 1)
-                            durationAnim = 5;
-                        else
-                            durationAnim = 8.3;
-                    }
-
                     cc.tween(this.node)
-                        .delay(durationAnim)
+                        .delay(LOOP_DURATION)
                         .call(() => {
                             resolve();
                         })
@@ -232,14 +232,14 @@ export default class BigWin extends cc.Component {
     onCloseSpecialWin(winTitle: string) {
         const winID = option_list.indexOf(winTitle);
         const winCfg: WinConfig = SpecialWinConfig[winID];
-        let main_ske = this.node.getChildByName("main_skeleton").getComponent(sp.Skeleton);
+        let main_ske = this.node.getChildByName("winscene").getComponent(sp.Skeleton);
         if (!this.node.active || this._isFadingOut)
             return;
         if (this.winAmountLabel.getIsPlayingAnim()) {
             //stop progressive animation and skip to result animation
             this.winAmountLabel.finishAnim();
             // this.winAmountLabelShadow.finishAnim();
-            main_ske.setAnimation(0, winCfg.loop[0], true);
+            main_ske.setAnimation(0, winCfg.start[0], true);
             this.setTitleText(winID);
 
             //auto dismiss
@@ -264,33 +264,59 @@ export default class BigWin extends cc.Component {
         //     // .to(.1, { scale: 1.4 }, { easing: "bounceOut" })
         //     .to(0.5, { scale: 0 })
         //     .start();
-        main_ske.setAnimation(0, winCfg.end[0], false);
-        main_ske.setCompleteListener((trackEntry) => {
-            if (trackEntry['animation']['name'] == winCfg.end[0]) {
-                cc.tween(this.node)
-                    .to(.4, { opacity: 0 })
-                    .call(() => {
-                        this.stopAllCurrentSFXs();
-                        this.node.active = false;
-                        this.node.opacity = 255;
-                        this._isFadingOut = false;
 
-                        if (this._onCloseCB) {
-                            this._onCloseCB();
-                        }
-                    })
-                    .start();
 
-                // //fade out coin rain SFX
-                // SoundController.inst.fadeOutSFX(this._currentSoundIDArr.shift());
+        cc.tween(this.node)
+            .to(.4, { opacity: 0 })
+            .call(() => {
                 this.stopAllCurrentSFXs();
-                this.unscheduleAllCallbacks();
-                if (!SoundController.inst.MainAudio.isMusicPlaying()) {
-                    SoundController.inst.MainAudio.fadeInMusic(.5);
+                this.node.active = false;
+                this.node.opacity = 255;
+                this._isFadingOut = false;
+
+                if (this._onCloseCB) {
+                    this._onCloseCB();
                 }
-                SoundController.inst.MainAudio.resumeMusic();
-            }
-        });
+            })
+            .start();
+
+        // //fade out coin rain SFX
+        // SoundController.inst.fadeOutSFX(this._currentSoundIDArr.shift());
+        this.stopAllCurrentSFXs();
+        this.unscheduleAllCallbacks();
+        if (!SoundController.inst.MainAudio.isMusicPlaying()) {
+            SoundController.inst.MainAudio.fadeInMusic(.5);
+        }
+        SoundController.inst.MainAudio.resumeMusic();
+
+
+        // main_ske.setAnimation(0, winCfg.end[0], false);        
+        // main_ske.setCompleteListener((trackEntry) => {
+        //     if (trackEntry['animation']['name'] == winCfg.end[0]) {
+        //         cc.tween(this.node)
+        //             .to(.4, { opacity: 0 })
+        //             .call(() => {
+        //                 this.stopAllCurrentSFXs();
+        //                 this.node.active = false;
+        //                 this.node.opacity = 255;
+        //                 this._isFadingOut = false;
+
+        //                 if (this._onCloseCB) {
+        //                     this._onCloseCB();
+        //                 }
+        //             })
+        //             .start();
+
+        //         // //fade out coin rain SFX
+        //         // SoundController.inst.fadeOutSFX(this._currentSoundIDArr.shift());
+        //         this.stopAllCurrentSFXs();
+        //         this.unscheduleAllCallbacks();
+        //         if (!SoundController.inst.MainAudio.isMusicPlaying()) {
+        //             SoundController.inst.MainAudio.fadeInMusic(.5);
+        //         }
+        //         SoundController.inst.MainAudio.resumeMusic();
+        //     }
+        // });
     }
 
     stopAllCurrentSFXs() {
@@ -301,8 +327,22 @@ export default class BigWin extends cc.Component {
     }
 
     setTitleText(winID: number) {
-        const winCfg: WinConfig = SpecialWinConfig[winID];
-        const id = KeyTitle[winID];
-        // this.loadBigWintitle.setKey(id); 
+        
+        this.arrWinTitles.forEach((node, index) => {
+            node.active = index == winID;
+        });
+        switch (winID) {
+            case E_SPECIAL_WIN_TYPE.bigwin:
+                this.winAmountLabel.node.parent.y = 250;
+                break;
+            case E_SPECIAL_WIN_TYPE.megawin:
+                this.winAmountLabel.node.parent.y = 250;
+                break;
+            case E_SPECIAL_WIN_TYPE.supermegawin:
+                this.winAmountLabel.node.parent.y = 275;
+                break;
+            default:
+                break;
+            }
     }
 }

@@ -360,8 +360,11 @@ export default class CheckWinFreeSpinUi extends cc.Component {
 
             if(this.boardData.spinData.freeGame?.rounds.length > 0){
                 let dataRound = this.boardData.spinData.freeGame?.rounds[this.boardData.spinData.freeGame?.rounds.length - 1];
-                totalWin = dataRound.winRate*this.boardData.spinData.baseAmount;
-                currentWinRate = dataRound.winRate;
+                currentWinRate = 0;
+                dataRound.tumbles.forEach((tumble) => {
+                    currentWinRate += tumble.winRate;
+                });
+                totalWin = currentWinRate*this.boardData.spinData.baseAmount;                
                 let totalWinFreeSpin = (this.boardData.spinData.winRate -  this.boardData.spinData.base.scatterWinRate) * this.boardData.spinData.baseAmount;
                 clientEvent.dispatchEvent(EventName.UpdateBonusWin, totalWinFreeSpin);   
             }

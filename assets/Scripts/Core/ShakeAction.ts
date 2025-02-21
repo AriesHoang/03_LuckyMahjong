@@ -68,7 +68,8 @@ export default class ShakeAction extends cc.ActionInterval {
 
     stop() {
         if (this.getTarget()) {
-            this.getTarget().setPosition(this.initialX, this.initialY);
+            // this.getTarget().setPosition(this.initialX, this.initialY);
+            this.getTarget().setPosition(0, 0);
 
             // for (let index = 0; index < this.nodes.length; index++) {
             //     const element = this.posNodes[index];

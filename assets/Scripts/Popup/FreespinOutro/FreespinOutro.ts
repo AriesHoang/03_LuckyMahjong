@@ -28,8 +28,6 @@ export default class FreespinOutro extends cc.Component {
 
     @property(NumberLabel)
     winAmountLabel: NumberLabel = null;
-    @property(NumberLabel)
-    winAmountLabelShadow: NumberLabel = null;
 
     @property(sp.Skeleton)
     skeOutro: sp.Skeleton = null;
@@ -42,15 +40,15 @@ export default class FreespinOutro extends cc.Component {
     // onLoad () {}
 
     start() {
-        this.skeOutro.setCompleteListener((trackEntry) => {
-            if (trackEntry['animation']['name'] == "end") {
-                this.onHide();
-            }
-            if (trackEntry['animation']['name'] == "start") {
-                this.onShow();
-                this.setupAutoDismission();
-            }
-        });
+        // this.skeOutro.setCompleteListener((trackEntry) => {
+        //     if (trackEntry['animation']['name'] == "end") {
+        //         this.onHide();
+        //     }
+        //     if (trackEntry['animation']['name'] == "start") {
+        //         this.onShow();
+        //         this.setupAutoDismission();
+        //     }
+        // });
 
     }
 
@@ -70,102 +68,126 @@ export default class FreespinOutro extends cc.Component {
             this._onShowCB = onShow;
             this._onCloseCB = resolve;
             this._winAmount = totalWinData.totalWinFreeSpin;
-            this.btnCollect.active = false;
+            // this.btnCollect.active = false;
             // this.node.opacity = 0;
-           
+
             cc.Tween.stopAllByTarget(this.node);
             this.winAmountLabel.string = Utils.getCurrencyStr();
-            this.winAmountLabelShadow.string = Utils.getCurrencyStr();
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 SoundController.inst.MainAudio.pauseMusic();
                 const intro_sfx = SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxTotalWinFreespinMain);
                 this.currentSoundIDArr.push(intro_sfx);
             }, 300);
 
-            
-
-            if (!this.animationCanBePlayed) {
-                this.onShow();
-                this.node.active = true;
-                this.node.opacity = 255;
-                this.winAmountLabel.node.active = true;
-                this.winAmountLabel.node.scale = 1;
-                this.winAmountLabel.node.opacity = 255;
-                this.winAmountLabel.playAnim(0, this.winAmountLabel.string.length, false, this._winAmount, this._winAmount);
-                this.winAmountLabelShadow.playAnim(0, this.winAmountLabel.string.length, false, this._winAmount, this._winAmount);
-                this.winAmountLabel.finishAnim();
-                this.winAmountLabelShadow.finishAnim();
-                this.skeOutro.setAnimation(0, "loop", false);                
-
-                setTimeout(() => {
-                    this.skeOutro.clearTracks();
-                }, 50);
-                this.onShow();
-                cc.Tween.stopAllByTarget(this.node);
-                cc.tween(this.node)
-                    .to(0.4, { opacity: 255 })
-                    .call(() => {
-                        this.btnCollect.active = true;
-                        this.btnCollect.getComponent(cc.Button).interactable = true;
-                        this.setupAutoDismission();
-                    })
-                    .start();
-                return;
-            }
-            let tween_obj = {};
-            cc.Tween.stopAllByTarget(tween_obj);
-            cc.tween(tween_obj)
-                .delay(0.4)
+            this.onShow();
+            this.node.active = true;
+            this.node.opacity = 0;
+            this.skeOutro.setAnimation(0, "animation", true);
+            cc.Tween.stopAllByTarget(this.node);
+            cc.tween(this.node)
+                .to(0.4, { opacity: 255 })
                 .call(() => {
-                    this.node.active = true;
-                    // SoundController.inst.MainAudio.stopAudioPlay(intro_sfx);
-
-                    this.skeOutro.setAnimation(0, "start", false);
-                    this.skeOutro.addAnimation(0, "loop", true);
-                    this.playWinAmountAnim();
-                    this.btnCollect.getComponent(cc.Button).interactable = true;
-
-                    // this.currentSoundIDArr.push(SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxTotalWinFreespinMain));
+                    if(!this.animationCanBePlayed){
+                        this.winAmountLabel.playAnim(0, this.winAmountLabel.string.length, false, this._winAmount, this._winAmount);
+                        this.winAmountLabel.finishAnim();
+                        this.setupAutoDismission();
+                    }else{
+                        this.playWinAmountAnim();
+                    }                    
                 })
                 .start();
+
+
+            // if (!this.animationCanBePlayed) {
+            //     this.onShow();
+            //     this.node.active = true;
+            //     this.node.opacity = 0;
+            //     this.winAmountLabel.node.active = true;
+            //     this.winAmountLabel.node.scale = 1;
+            //     this.winAmountLabel.node.opacity = 255;
+            //     this.winAmountLabel.playAnim(0, this.winAmountLabel.string.length, false, this._winAmount, this._winAmount);
+            //     this.winAmountLabel.finishAnim();
+            //     this.skeOutro.setAnimation(0, "animation", true);
+
+            //     // setTimeout(() => {
+            //     //     this.skeOutro.clearTracks();
+            //     // }, 50);
+            //     // this.onShow();
+            //     cc.Tween.stopAllByTarget(this.node);
+            //     cc.tween(this.node)
+            //         .to(0.4, { opacity: 255 })
+            //         .call(() => {
+            //             // this.btnCollect.active = true;
+            //             // this.btnCollect.getComponent(cc.Button).interactable = true;
+            //             this.setupAutoDismission();
+            //         })
+            //         .start();
+            //     return;
+            // }
+            // let tween_obj = {};
+            // cc.Tween.stopAllByTarget(tween_obj);
+            // cc.tween(tween_obj)
+            //     .delay(0.4)
+            //     .call(() => {
+            //         this.node.active = true;
+            //         // SoundController.inst.MainAudio.stopAudioPlay(intro_sfx);
+
+            //         this.skeOutro.setAnimation(0, "animation", true);
+            //         // this.skeOutro.addAnimation(0, "loop", true);
+            //         this.playWinAmountAnim();
+            //         // this.btnCollect.getComponent(cc.Button).interactable = true;
+
+            //         // this.currentSoundIDArr.push(SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxTotalWinFreespinMain));
+            //     })
+            //     .start();
 
             // this.node.getComponent(cc.Animation).play("start");
         });
     }
 
-   async onCloseTotalWinFreespin()  {
-        SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxCollectBtn);
-        this.btnCollect.getComponent(cc.Button).interactable = false;
-        if (this.animationCanBePlayed){
-            this.skeOutro.setAnimation(0, "end", false);
-            await Utils.delayTime(0.3);
-            if (this._onCloseCB) this._onCloseCB();
+    async onCloseTotalWinFreespin() {
+        if (!this.node.active || this._isFadingOut)
+            return;
+
+        this._isFadingOut = true;
+        cc.Tween.stopAllByTarget(this.node);
+        this.node.stopAllActions();
+
+        
+        if (this.winAmountLabel.getIsPlayingAnim()) {
+            this.winAmountLabel.finishAnim();
+            // this.btnCollect.active = true;
+            // return;
         }
-        else{
-            if (this._onCloseCB) this._onCloseCB();
-            this.onHide();
-        }
-           
+        cc.tween(this.node)
+            .delay(2)
+            // .to(.2, { opacity: 0 })
+            .call(() => {
+                SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxCollectBtn);
+                this.btnCollect.getComponent(cc.Button).interactable = false;
 
-        PopupController.instance.showPrTrainsitionEffect().then(() => {
-            cc.log("onCloseTotalWinFreespin");
-            if (!this.node.active || this._isFadingOut)
-                return;
-            if (this.winAmountLabel.getIsPlayingAnim()) {
-                this.winAmountLabel.finishAnim();
-                this.winAmountLabelShadow.finishAnim();
-                this.btnCollect.active = true;
-                return;
-            }
-            this._isFadingOut = true;
-            cc.Tween.stopAllByTarget(this.node);
-            this.node.stopAllActions();
+                let data = {
+                    callFunc: () => {
+                        if (this.animationCanBePlayed) {
+                            // this.skeOutro.setAnimation(0, "end", false);
+                            if (this._onCloseCB) this._onCloseCB();
+                            this.onHide();
+                        }
+                        else {
+                            if (this._onCloseCB) this._onCloseCB();
+                            this.onHide();
+                        }
+                    }
+                }
 
-          
+                PopupController.instance.showPrTrainsitionEffect(data).then(() => {
+                    cc.log("onCloseTotalWinFreespin");
+                    
+                })
+            })
+            .start();
 
-         
-        })
 
     }
 
@@ -177,11 +199,9 @@ export default class FreespinOutro extends cc.Component {
     playWinAmountAnim() {
         let timeDuration = 0;
         if (this._winAmount != 0)
-            timeDuration = NUMBER_INCREMENT_DURATION;        
+            timeDuration = NUMBER_INCREMENT_DURATION;
 
         this.winAmountLabel.string = Utils.getCurrencyStr();
-        this.winAmountLabelShadow.string = Utils.getCurrencyStr();
-        this.winAmountLabelShadow.playAnim(timeDuration, this.winAmountLabel.string.length, false, 0, this._winAmount, ()=>{return;})
         this.winAmountLabel.playAnim(timeDuration, this.winAmountLabel.string.length, false, 0, this._winAmount,
             null,
             () => {
@@ -196,6 +216,7 @@ export default class FreespinOutro extends cc.Component {
                 SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxTotalWinFreespinEnd);
                 this.btnCollect.active = true;
                 const btn_appear_sfx_delay = 0;
+                this.setupAutoDismission();
                 cc.tween({})
                     .delay(btn_appear_sfx_delay)
                     .call(() => {
@@ -208,9 +229,9 @@ export default class FreespinOutro extends cc.Component {
                 return;
             if (this.winAmountLabel.getIsPlayingAnim()) {
                 this.winAmountLabel.finishAnim();
-                this.winAmountLabelShadow.finishAnim();
                 this.btnCollect.active = true;
                 this.node.off(cc.Node.EventType.TOUCH_END);
+                this.onCloseTotalWinFreespin();
                 return;
             }
         }, this);

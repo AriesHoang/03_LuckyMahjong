@@ -192,7 +192,6 @@
     "imageRequired": false,
     "spriteAtlas": null,
     "imageNameInAtlas": [],
-    "updateTextAutomatically": true,
     "keyText": "info_bar_freespin_02",
     "_id": ""
   },
@@ -202,7 +201,7 @@
     "richTextComponent": {
       "__id__": 3
     },
-    "language": 0,
+    "isUseFont": false,
     "font": {
       "__uuid__": "d292ad63-86f2-4d77-acbe-967de1a96632"
     },
@@ -212,33 +211,34 @@
     "lineHeight": 50,
     "fontColor": {
       "__type__": "cc.Color",
-      "r": 135,
-      "g": 220,
-      "b": 255,
+      "r": 255,
+      "g": 242,
+      "b": 111,
       "a": 255
     },
     "enableOutline": true,
     "outlineColor": {
       "__type__": "cc.Color",
-      "r": 47,
-      "g": 38,
-      "b": 105,
+      "r": 255,
+      "g": 77,
+      "b": 77,
       "a": 255
     },
     "outlineWidth": 3,
-    "enableShadow": false,
+    "enableShadow": true,
     "shadowColor": {
       "__type__": "cc.Color",
-      "r": 236,
-      "g": 163,
-      "b": 200,
+      "r": 94,
+      "g": 4,
+      "b": 0,
       "a": 255
     },
     "shadowOffset": {
       "__type__": "cc.Vec2",
       "x": 0,
       "y": -3
-    }
+    },
+    "isUpperCase": false
   },
   {
     "__type__": "cc.Layout",

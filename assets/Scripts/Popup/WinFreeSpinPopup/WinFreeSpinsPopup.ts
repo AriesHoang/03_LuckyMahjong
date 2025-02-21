@@ -72,25 +72,25 @@ export default class WinFreeSpinsPopup extends BasePopup {
         this.node.opacity = 0;
         this.startButton.active = false;
 
-        this.skeIntro.node.active = false;
-        this.skeIntro.setAnimation(0, "start", false);
+        this.skeIntro.node.active = true;
+        this.skeIntro.setAnimation(0, "animation", true);
 
         cc.Tween.stopAllByTarget(this.node);
         cc.tween(this.node)
-            .to(1, { opacity: 255 })
+            .to(.5, { opacity: 255 })
             .call(() => {
                 this.startButton.active = true;
                 if (onShow) onShow();
                 //show text anims
             })
-            .delay(.6)
+            // .delay(.6)
             .call(() => {
                 this.startButton.getComponent(cc.Button).interactable = true;
                 // this.startButton.active = true;
 
-                this.skeIntro.node.active = true;
-                this.skeIntro.setAnimation(0, "start", false);
-                this.skeIntro.addAnimation(0, "loop", true);
+                // this.skeIntro.node.active = true;
+                // this.skeIntro.setAnimation(0, "start", false);
+                // this.skeIntro.addAnimation(0, "loop", true);
                 if (onShow) {
                     onShow();
                 }
@@ -124,14 +124,14 @@ export default class WinFreeSpinsPopup extends BasePopup {
 
         SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxStartBtn);
         this.startButton.active = false;
-        this.skeIntro.setAnimation(0, "end", false);
-        this.skeIntro.setCompleteListener((trackEntry) => {
-            if (trackEntry['animation']['name'] == "end") {
-                cc.Tween.stopAllByTarget(this.node);
-                this.node.stopAllActions();
-                cc.tween(this.node)
-                    .to(.2, { opacity: 0 })
-                    .call(() => {
+        cc.Tween.stopAllByTarget(this.node);
+        this.node.stopAllActions();
+        cc.tween(this.node)
+            .delay(2)
+            .call(() => {
+                this.isClosing = false;
+                let data = {
+                    callFunc: () => {
                         this.node.active = false;
                         this.node.opacity = 255;
                         SoundController.inst.MainAudio.fadeOutMusic(0.3);
@@ -144,14 +144,17 @@ export default class WinFreeSpinsPopup extends BasePopup {
                             .start();
 
                         if (this.closeCallback) this.closeCallback();
-                        this.isClosing = false;
+                    }
+                }
 
-                    })
-                    .start();
+                PopupController.instance.showPrTrainsitionEffect(data).then(() => {
 
-                cc.Tween.stopAllByTarget(SoundController.inst.node);
-            }
-        });
+                })
+
+            })
+            .start();
+
+        cc.Tween.stopAllByTarget(SoundController.inst.node);
     }
 
 

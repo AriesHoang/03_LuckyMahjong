@@ -55,15 +55,17 @@ export default class MultiplierInfo extends cc.Component {
         });
     }
     activeMultiplier(multi: number) {
-        if(multi != 1){
+        if((this.multiBarNormalNode.active && multi != 1) || (this.multiBarFreeSpinNode.active && multi != 3)){
             let nodeActive = this.currentMultiNode.getChildByName("x" + multi + "Bar").children[0].getChildByName("active number light");
-            nodeActive.active = true;
+            if(nodeActive){
+                nodeActive.active = true;
             
-            let particleNode = nodeActive.getChildByName("particle");
-            if(particleNode){
-                particleNode.active = true;
-                particleNode.getComponent(cc.ParticleSystem).resetSystem();
-            }
+                let particleNode = nodeActive.getChildByName("particle");
+                if(particleNode){
+                    particleNode.active = true;
+                    particleNode.getComponent(cc.ParticleSystem).resetSystem();
+                }
+            }           
         }
     }
 

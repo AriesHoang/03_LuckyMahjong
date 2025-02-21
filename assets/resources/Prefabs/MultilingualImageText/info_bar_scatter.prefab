@@ -194,7 +194,7 @@
       "__uuid__": "751a14e5-d4c8-447d-b523-2972cd1e8cad"
     },
     "imageNameInAtlas": [
-      "10"
+      "1"
     ],
     "keyText": "info_bar_scatter",
     "_id": ""
@@ -215,26 +215,26 @@
     "lineHeight": 50,
     "fontColor": {
       "__type__": "cc.Color",
-      "r": 135,
-      "g": 220,
-      "b": 255,
+      "r": 255,
+      "g": 242,
+      "b": 111,
       "a": 255
     },
     "enableOutline": true,
     "outlineColor": {
       "__type__": "cc.Color",
-      "r": 47,
-      "g": 38,
-      "b": 105,
+      "r": 255,
+      "g": 77,
+      "b": 77,
       "a": 255
     },
     "outlineWidth": 3,
-    "enableShadow": false,
+    "enableShadow": true,
     "shadowColor": {
       "__type__": "cc.Color",
-      "r": 236,
-      "g": 163,
-      "b": 200,
+      "r": 94,
+      "g": 4,
+      "b": 0,
       "a": 255
     },
     "shadowOffset": {

@@ -133,7 +133,7 @@ export default class InfoBarController extends cc.Component {
 
         if(animationCanBePlayed){
             this.skeleton.node.active = true;
-            this.skeleton.setAnimation(0, "animation", false);
+            this.skeleton.setAnimation(0, "Board_FreeSpin", false);
         }
 
     }

@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "W+Q55C3fSULAWx9ejuR8RG5P0tI",
+	"hash": "tl2+E8IeC1qWDy7DVV/GaTX01wc",
 	"spine": "3.8.84",
 	"x": -76,
 	"y": -76,
@@ -20,7 +20,7 @@
 	{ "name": "normal_chess", "parent": "FX" },
 	{ "name": "particle", "parent": "FX" },
 	{ "name": "txt", "parent": "chess", "x": -0.96, "y": -7.95 },
-	{ "name": "win_wildchess", "parent": "chess", "y": -3 },
+	{ "name": "win_wildchess", "parent": "chess" },
 	{ "name": "scatter_lightwait", "parent": "chess", "scaleX": 1.5, "scaleY": 1.5 },
 	{ "name": "scatter_lightwait2", "parent": "chess", "scaleX": 1.5, "scaleY": 1.5 },
 	{ "name": "scatter_symbol_out", "parent": "chess_in" },
@@ -166,7 +166,8 @@
 		"name": "Chess1",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessw", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/1", "x": -2.25, "y": -0.25, "width": 52, "height": 78 }
@@ -177,21 +178,14 @@
 		"name": "Chess2",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessg2", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/1", "x": -2.25, "y": -0.25, "width": 52, "height": 78 }
 			},
 			"txt": {
-				"txt_wild": {
-					"name": "symbol3/txt_wild",
-					"x": 0.5,
-					"y": -4.5,
-					"scaleX": 0.9,
-					"scaleY": 0.9,
-					"width": 105,
-					"height": 45
-				}
+				"txt_wild": { "name": "symbol3/txt_wild", "x": 0.5, "y": -4.5, "width": 105, "height": 45 }
 			},
 			"win_wildchess": {
 				"win_wildchess": { "name": "symbol3/symbol_wild", "y": 10, "width": 92, "height": 99 }
@@ -202,7 +196,8 @@
 		"name": "Chess3",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessw", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/2", "x": -2.25, "y": -0.25, "width": 49, "height": 78 }
@@ -213,21 +208,14 @@
 		"name": "Chess4",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessg2", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/2", "x": -2.25, "y": -0.25, "width": 49, "height": 78 }
 			},
 			"txt": {
-				"txt_wild": {
-					"name": "symbol3/txt_wild",
-					"x": 0.5,
-					"y": -4.5,
-					"scaleX": 0.9,
-					"scaleY": 0.9,
-					"width": 105,
-					"height": 45
-				}
+				"txt_wild": { "name": "symbol3/txt_wild", "x": 0.5, "y": -4.5, "width": 105, "height": 45 }
 			},
 			"win_wildchess": {
 				"win_wildchess": { "name": "symbol3/symbol_wild", "y": 10, "width": 92, "height": 99 }
@@ -238,7 +226,8 @@
 		"name": "Chess5",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessw", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/3", "x": -2.25, "y": -0.25, "width": 71, "height": 71 }
@@ -249,21 +238,14 @@
 		"name": "Chess6",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessg", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/3", "x": -2.25, "y": -0.25, "width": 71, "height": 71 }
 			},
 			"txt": {
-				"txt_wild": {
-					"name": "symbol3/txt_wild",
-					"x": 0.5,
-					"y": -4.5,
-					"scaleX": 0.9,
-					"scaleY": 0.9,
-					"width": 105,
-					"height": 45
-				}
+				"txt_wild": { "name": "symbol3/txt_wild", "x": 0.5, "y": -4.5, "width": 105, "height": 45 }
 			},
 			"win_wildchess": {
 				"win_wildchess": { "name": "symbol3/symbol_wild", "y": 10, "width": 92, "height": 99 }
@@ -274,7 +256,8 @@
 		"name": "Chess7",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessw", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/4", "x": -2.25, "y": -0.25, "width": 64, "height": 80 }
@@ -285,21 +268,14 @@
 		"name": "Chess8",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessg", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/4", "x": -2.25, "y": -0.25, "width": 64, "height": 80 }
 			},
 			"txt": {
-				"txt_wild": {
-					"name": "symbol3/txt_wild",
-					"x": 0.5,
-					"y": -4.5,
-					"scaleX": 0.9,
-					"scaleY": 0.9,
-					"width": 105,
-					"height": 45
-				}
+				"txt_wild": { "name": "symbol3/txt_wild", "x": 0.5, "y": -4.5, "width": 105, "height": 45 }
 			},
 			"win_wildchess": {
 				"win_wildchess": { "name": "symbol3/symbol_wild", "y": 10, "width": 92, "height": 99 }
@@ -310,7 +286,8 @@
 		"name": "Chess9",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessw", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/5", "x": -2.25, "y": -0.25, "width": 56, "height": 78 }
@@ -321,21 +298,14 @@
 		"name": "Chess10",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessg", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/5", "x": -2.25, "y": -0.25, "width": 56, "height": 78 }
 			},
 			"txt": {
-				"txt_wild": {
-					"name": "symbol3/txt_wild",
-					"x": 0.5,
-					"y": -4.5,
-					"scaleX": 0.9,
-					"scaleY": 0.9,
-					"width": 105,
-					"height": 45
-				}
+				"txt_wild": { "name": "symbol3/txt_wild", "x": 0.5, "y": -4.5, "width": 105, "height": 45 }
 			},
 			"win_wildchess": {
 				"win_wildchess": { "name": "symbol3/symbol_wild", "y": 10, "width": 92, "height": 99 }
@@ -346,7 +316,8 @@
 		"name": "Chess11",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessw", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/6", "x": -2.25, "y": -0.25, "width": 62, "height": 62 }
@@ -357,21 +328,14 @@
 		"name": "Chess12",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessg", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/6", "x": -2.25, "y": -0.25, "width": 62, "height": 62 }
 			},
 			"txt": {
-				"txt_wild": {
-					"name": "symbol3/txt_wild",
-					"x": 0.5,
-					"y": -4.5,
-					"scaleX": 0.9,
-					"scaleY": 0.9,
-					"width": 105,
-					"height": 45
-				}
+				"txt_wild": { "name": "symbol3/txt_wild", "x": 0.5, "y": -4.5, "width": 105, "height": 45 }
 			},
 			"win_wildchess": {
 				"win_wildchess": { "name": "symbol3/symbol_wild", "y": 10, "width": 92, "height": 99 }
@@ -382,7 +346,8 @@
 		"name": "Chess13",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessw", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/7", "x": -2.25, "y": -0.25, "width": 59, "height": 77 }
@@ -393,21 +358,14 @@
 		"name": "Chess14",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessg", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/7", "x": -2.25, "y": -0.25, "width": 59, "height": 77 }
 			},
 			"txt": {
-				"txt_wild": {
-					"name": "symbol3/txt_wild",
-					"x": 0.5,
-					"y": -4.5,
-					"scaleX": 0.9,
-					"scaleY": 0.9,
-					"width": 105,
-					"height": 45
-				}
+				"txt_wild": { "name": "symbol3/txt_wild", "x": 0.5, "y": -4.5, "width": 105, "height": 45 }
 			},
 			"win_wildchess": {
 				"win_wildchess": { "name": "symbol3/symbol_wild", "y": 10, "width": 92, "height": 99 }
@@ -418,7 +376,8 @@
 		"name": "Chess15",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessw", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/8", "x": -2.25, "y": -0.25, "width": 48, "height": 76 }
@@ -429,21 +388,14 @@
 		"name": "Chess16",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessg", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/8", "x": -2.25, "y": -0.25, "width": 48, "height": 76 }
 			},
 			"txt": {
-				"txt_wild": {
-					"name": "symbol3/txt_wild",
-					"x": 0.5,
-					"y": -4.5,
-					"scaleX": 0.9,
-					"scaleY": 0.9,
-					"width": 105,
-					"height": 45
-				}
+				"txt_wild": { "name": "symbol3/txt_wild", "x": 0.5, "y": -4.5, "width": 105, "height": 45 }
 			},
 			"win_wildchess": {
 				"win_wildchess": { "name": "symbol3/symbol_wild", "y": 10, "width": 92, "height": 99 }
@@ -454,7 +406,8 @@
 		"name": "Chess17",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessw", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/9", "x": -2.25, "y": -0.25, "width": 64, "height": 62 }
@@ -465,21 +418,14 @@
 		"name": "Chess18",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessg", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/9", "x": -2.25, "y": -0.25, "width": 64, "height": 62 }
 			},
 			"txt": {
-				"txt_wild": {
-					"name": "symbol3/txt_wild",
-					"x": 0.5,
-					"y": -4.5,
-					"scaleX": 0.9,
-					"scaleY": 0.9,
-					"width": 105,
-					"height": 45
-				}
+				"txt_wild": { "name": "symbol3/txt_wild", "x": 0.5, "y": -4.5, "width": 105, "height": 45 }
 			},
 			"win_wildchess": {
 				"win_wildchess": { "name": "symbol3/symbol_wild", "y": 10, "width": 92, "height": 99 }
@@ -490,32 +436,17 @@
 		"name": "Chess19",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessg2", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessg2", "width": 94, "height": 114 }
 			},
 			"text": {
-				"text": { "name": "symbol3/symbol_wild", "x": -1.99, "y": -2.7, "width": 92, "height": 99 }
+				"text": { "name": "symbol3/symbol_wild", "x": -1.99, "y": 0.3, "width": 92, "height": 99 }
 			},
 			"txt": {
-				"txt_wild": {
-					"name": "symbol3/txt_wild",
-					"x": 0.5,
-					"y": -4.5,
-					"scaleX": 0.9,
-					"scaleY": 0.9,
-					"width": 105,
-					"height": 45
-				}
+				"txt_wild": { "name": "symbol3/txt_wild", "x": 0.5, "y": -4.5, "width": 105, "height": 45 }
 			},
 			"txt_wild_scatter": {
-				"txt_wild": {
-					"name": "symbol3/txt_wild",
-					"x": 0.5,
-					"y": -4.5,
-					"scaleX": 0.9,
-					"scaleY": 0.9,
-					"width": 105,
-					"height": 45
-				}
+				"txt_wild": { "name": "symbol3/txt_wild", "x": 0.5, "y": -4.5, "width": 105, "height": 45 }
 			},
 			"win_wildchess": {
 				"win_wildchess": { "name": "symbol3/symbol_wild", "x": 0.26, "y": 10.55, "width": 92, "height": 99 }
@@ -526,7 +457,8 @@
 		"name": "Chess20",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessg", "width": 94, "height": 114 }
 			},
 			"s_wait": {
 				"s_wait": { "x": 0.5, "y": 0.5, "width": 145, "height": 145 }
@@ -558,7 +490,8 @@
 		"name": "Chess21",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessw", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/10", "x": -2.25, "y": -0.25, "width": 46, "height": 78 }
@@ -569,21 +502,14 @@
 		"name": "Chess22",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessg", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/10", "x": -2.25, "y": -0.25, "width": 46, "height": 78 }
 			},
 			"txt": {
-				"txt_wild": {
-					"name": "symbol3/txt_wild",
-					"x": 0.5,
-					"y": -4.5,
-					"scaleX": 0.9,
-					"scaleY": 0.9,
-					"width": 105,
-					"height": 45
-				}
+				"txt_wild": { "name": "symbol3/txt_wild", "x": 0.5, "y": -4.5, "width": 105, "height": 45 }
 			},
 			"win_wildchess": {
 				"win_wildchess": { "name": "symbol3/symbol_wild", "y": 10, "width": 92, "height": 99 }
@@ -594,7 +520,8 @@
 		"name": "Chess23",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessw", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessw", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/11", "x": -2.25, "y": -0.25, "width": 44, "height": 80 }
@@ -605,21 +532,14 @@
 		"name": "Chess24",
 		"attachments": {
 			"chess": {
-				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 }
+				"chessw": { "name": "symbol3/chessg", "width": 94, "height": 114 },
+				"chessw2": { "name": "symbol3/chessg", "width": 94, "height": 114 }
 			},
 			"text": {
 				"text": { "name": "symbol3/11", "x": -2.25, "y": -0.25, "width": 44, "height": 80 }
 			},
 			"txt": {
-				"txt_wild": {
-					"name": "symbol3/txt_wild",
-					"x": 0.5,
-					"y": -4.5,
-					"scaleX": 0.9,
-					"scaleY": 0.9,
-					"width": 105,
-					"height": 45
-				}
+				"txt_wild": { "name": "symbol3/txt_wild", "x": 0.5, "y": -4.5, "width": 105, "height": 45 }
 			},
 			"win_wildchess": {
 				"win_wildchess": { "name": "symbol3/symbol_wild", "y": 10, "width": 92, "height": 99 }
@@ -757,7 +677,7 @@
 			"chess": {
 				"attachment": [
 					{ "time": 0.8333, "name": null },
-					{ "time": 1.2667, "name": "chessw" }
+					{ "time": 1.2667, "name": "chessw2" }
 				]
 			},
 			"coin_effect1/1": {

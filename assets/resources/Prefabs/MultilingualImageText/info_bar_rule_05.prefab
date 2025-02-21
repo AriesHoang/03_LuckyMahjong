@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "info_bar_rule_04",
+    "_name": "info_bar_rule_01",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -48,7 +48,7 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0,
+      "x": 0.5,
       "y": 0.5
     },
     "_trs": {
@@ -189,10 +189,14 @@
         "__id__": 6
       }
     ],
-    "imageRequired": false,
-    "spriteAtlas": null,
-    "imageNameInAtlas": [],
-    "keyText": "info_bar_rule_05",
+    "imageRequired": true,
+    "spriteAtlas": {
+      "__uuid__": "03d7f463-0720-47d9-9738-08aba72957b0"
+    },
+    "imageNameInAtlas": [
+      "0"
+    ],
+    "keyText": "info_bar_rule_03",
     "_id": ""
   },
   {

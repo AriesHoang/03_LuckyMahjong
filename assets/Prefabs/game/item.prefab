@@ -282,9 +282,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "74a3e6ef-f6e6-4101-934f-a086fbcdddd5"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 1,
     "_fillType": 0,
@@ -296,9 +294,7 @@
     "_fillStart": 0,
     "_fillRange": 0,
     "_isTrimmedMode": true,
-    "_atlas": {
-      "__uuid__": "0203e631-4f06-41da-90a6-9a2b185447b9"
-    },
+    "_atlas": null,
     "_id": ""
   },
   {
@@ -1057,10 +1053,10 @@
       "__uuid__": "38d65800-f8de-44b4-9615-452fbf4ae0f5"
     },
     "itemAtlas": {
-      "__uuid__": "0203e631-4f06-41da-90a6-9a2b185447b9"
+      "__uuid__": "03d7f463-0720-47d9-9738-08aba72957b0"
     },
     "itemBlurAtlas": {
-      "__uuid__": "2ccfe1a0-e653-4462-ad8b-9538a2b06eca"
+      "__uuid__": "eb582ca8-10b1-4b9e-946a-0a791d24e9c4"
     },
     "mainSkeleton": {
       "__id__": 8
