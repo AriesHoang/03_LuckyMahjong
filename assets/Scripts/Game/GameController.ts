@@ -103,7 +103,7 @@ export default class GameController extends cc.Component {
             SoundController.inst.MainAudio.playAudio(AudioPlayId.bgmMain, true);
           
           }  
-          SoundController.inst.MainAudio.playSFXAmbience();
+        //   SoundController.inst.MainAudio.playSFXAmbience();
     }
 
     public initialize(): void {

@@ -6,20 +6,15 @@ import RootData from "../../Manager/RootData";
 import PaytableItem from "../../PaytableItem";
 import Utils from "../../Utils/Utils";
 import PayLineItem from "./PlayLineItem";
-import {Cfg} from "../../Manager/Config";
+import { Cfg } from "../../Manager/Config";
 
 export const PAYTABLECONFIG = [
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 25, 60, 120],
-    [0, 0, 0, 20, 40, 80],
-    [0, 0, 0, 15, 30, 60],
-    [0, 0, 0, 10, 20, 40],
-    [0, 0, 0, 8, 15, 30],
-    [0, 0, 0, 5, 10, 25],
-    [0, 0, 0, 4, 8, 20],
-    [0, 0, 0, 4, 8, 15],
-    [0, 0, 0, 2, 5, 10],
-    [0, 0, 0, 2, 5, 10],
+    [],
+    [],
+    [],
+    [0, 5, 6, 4, 4, 3, 3, 2, 2, 2, 1, 1, 1],
+    [0, 25, 10, 6, 6, 5, 5, 3, 3, 3, 2, 2, 2],
+    [0, 100, 40, 20, 20, 10, 10, 7, 7, 7, 5, 5, 5]
 ]
 const { ccclass, property } = cc._decorator;
 @ccclass("PaytableInfo")
@@ -97,12 +92,12 @@ export default class PayTable extends cc.Component {
 
     init() {
         let _this = this;
-        for (let i = 0; i < LINECONFIG.posArr.length; i++) {
-            let dataPayline = LINECONFIG.posArr[i];
-            let itemPayline = cc.instantiate(this.itemPayLine);
-            itemPayline.parent = this.nodePayLines;
-            itemPayline.getComponent(PayLineItem).initPayLine(i + 1, dataPayline);
-        }
+        // for (let i = 0; i < LINECONFIG.posArr.length; i++) {
+        //     let dataPayline = LINECONFIG.posArr[i];
+        //     let itemPayline = cc.instantiate(this.itemPayLine);
+        //     itemPayline.parent = this.nodePayLines;
+        //     itemPayline.getComponent(PayLineItem).initPayLine(i + 1, dataPayline);
+        // }
     }
 
     showPromise(): Promise<any> {
@@ -138,11 +133,16 @@ export default class PayTable extends cc.Component {
         let data = PAYTABLECONFIG;
         let bet_amount = RootData.instance.gamePlayData.getCurBet() / Cfg.baseBetValue;
         this.allPaytableInfo.forEach((element, index) => {
+            // let total_bet = (element.symbolType == E_SYMBOL.SCATTER) ? bet_amount * HUDManager.inst.betOptionDialog.curBetLine : bet_amount;
             let str = "";
-            let payData = data[index];
-            for(let i = payData.length - 1; i > 2; i--){
-                if(payData[i] > 0){
-                    str += i + "X = " + Utils.getCurrencyStr() + (CurrencyConverter.getCreditString(payData[i] * bet_amount)) + "\n";
+            for (let i = data.length - 1; i >= 0; i--) {
+                if (data[i].length > 0) {
+                    let multiplier = data[i][13 - element.symbolType];
+                    if (multiplier > 0) str += i + "X = " + Cfg.currency+" " + (CurrencyConverter.getCreditString(multiplier * bet_amount)) + "\n";
+
+                    //if scatter pays
+                    // if (element.symbolType == E_SYMBOL.SCATTER && RootData.instance.gamePlayData.configData.config.scPay)
+                    //     str = i + "X = " + Utils.getCurrencyStr() + (CurrencyConverter.getCreditString(RootData.instance.gamePlayData.configData.config.scPay * total_bet)) + "\n";
                 }
             }
             if (this.allPaytableItem.length != this.allPaytableInfo.length) {

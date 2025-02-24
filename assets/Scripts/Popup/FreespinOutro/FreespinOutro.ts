@@ -76,7 +76,7 @@ export default class FreespinOutro extends cc.Component {
 
             setTimeout(() => {
                 SoundController.inst.MainAudio.pauseMusic();
-                const intro_sfx = SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxTotalWinFreespinMain);
+                const intro_sfx = SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxTotalWinFreespin);
                 this.currentSoundIDArr.push(intro_sfx);
             }, 300);
 
@@ -88,13 +88,13 @@ export default class FreespinOutro extends cc.Component {
             cc.tween(this.node)
                 .to(0.4, { opacity: 255 })
                 .call(() => {
-                    if(!this.animationCanBePlayed){
+                    if (!this.animationCanBePlayed) {
                         this.winAmountLabel.playAnim(0, this.winAmountLabel.string.length, false, this._winAmount, this._winAmount);
                         this.winAmountLabel.finishAnim();
                         this.setupAutoDismission();
-                    }else{
+                    } else {
                         this.playWinAmountAnim();
-                    }                    
+                    }
                 })
                 .start();
 
@@ -154,7 +154,7 @@ export default class FreespinOutro extends cc.Component {
         cc.Tween.stopAllByTarget(this.node);
         this.node.stopAllActions();
 
-        
+
         if (this.winAmountLabel.getIsPlayingAnim()) {
             this.winAmountLabel.finishAnim();
             // this.btnCollect.active = true;
@@ -168,22 +168,34 @@ export default class FreespinOutro extends cc.Component {
                 this.btnCollect.getComponent(cc.Button).interactable = false;
 
                 let data = {
-                    callFunc: () => {
-                        if (this.animationCanBePlayed) {
-                            // this.skeOutro.setAnimation(0, "end", false);
-                            if (this._onCloseCB) this._onCloseCB();
-                            this.onHide();
-                        }
-                        else {
-                            if (this._onCloseCB) this._onCloseCB();
-                            this.onHide();
-                        }
-                    }
+                    // callFunc: () => {
+                    //     if (this.animationCanBePlayed) {
+                    //         // this.skeOutro.setAnimation(0, "end", false);
+                    //         if (this._onCloseCB) this._onCloseCB();
+                    //         this.onHide();
+                    //     }
+                    //     else {
+                    //         if (this._onCloseCB) this._onCloseCB();
+                    //         this.onHide();
+                    //     }
+                    // }
                 }
+                setTimeout(() => {
+                    if (this.animationCanBePlayed) {
+                        // this.skeOutro.setAnimation(0, "end", false);
+                        if (this._onCloseCB) this._onCloseCB();
+                        this.onHide();
+                    }
+                    else {
+                        if (this._onCloseCB) this._onCloseCB();
+                        this.onHide();
+                    }
+                }, 1000)
+
 
                 PopupController.instance.showPrTrainsitionEffect(data).then(() => {
                     cc.log("onCloseTotalWinFreespin");
-                    
+
                 })
             })
             .start();
@@ -213,7 +225,7 @@ export default class FreespinOutro extends cc.Component {
                     SoundController.inst.MainAudio.stopAudioPlay(sfxID);
                 });
                 this.currentSoundIDArr = [];
-                SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxTotalWinFreespinEnd);
+                SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxWinEnd);
                 this.btnCollect.active = true;
                 const btn_appear_sfx_delay = 0;
                 this.setupAutoDismission();

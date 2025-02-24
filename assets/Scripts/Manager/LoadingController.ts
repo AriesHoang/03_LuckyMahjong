@@ -148,11 +148,11 @@ export default class LoadingController extends cc.Component {
         SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxButtonTap);
         setTimeout(()=>{
             cc.director.loadScene(GameConstant.SCENE.GAME_SCENE);
-        }, 250)
+        }, 1000)
 
         let data = {};
         data["callFunc"] = ()=>{
-
+            
         }
         PopupController.instance.showPrTrainsitionEffect(data).then(() => {
 

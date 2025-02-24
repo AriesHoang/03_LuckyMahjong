@@ -87,6 +87,11 @@
      "AUTO_SPIN_NUM": "Number of Auto Spins",
      "AUTO_SPIN_START": "Start Auto Spin",
 
+     "SYMBOL_PAYOUT_VALUE": "SYMBOL PAYOUT VALUE",
+
+     "SCATTER_SYMBOL": "Scatter Symbol",
+     "WILD_SYMBOL": "Wild Symbol",
+
      "PAYTABLE_SYMBOL_INFO_1": "Wild symbol substitutes for all symbols except Scatter symbol.",
      "PAYTABLE_SYMBOL_INFO_2": "Wild symbols appear on reels 2, 3, and 4 only.",
      "PAYTABLE_SYMBOL_INFO_3": "Gold Plated symbols appear on reels 2, 3, and 4 only.",

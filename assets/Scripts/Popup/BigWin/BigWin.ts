@@ -45,6 +45,7 @@ const KeyTitle: string[] = ["megaWin", "megaWin", "superMegaWin"];
 const TEXT_EVENT_NAME: string = "text";
 
 const LOOP_DURATION: number = 5;
+const BIGWIN_MAIN_DURATION: number = 7;
 const AUTO_DISMISS_DELAY: number = 5;
 
 
@@ -119,7 +120,7 @@ export default class BigWin extends cc.Component {
                     this.winAmountLabel.node.active = true;
                     // this.winAmountLabelShadow.node.active = true;
                     // this.winAmountLabelShadow.playAnim(timeSound, Utils.getCurrencyStr().length,false,0,winAmount, ()=>{return;});
-                    this.winAmountLabel.playAnim(7, Utils.getCurrencyStr().length, false, 0, winAmount,
+                    this.winAmountLabel.playAnim(BIGWIN_MAIN_DURATION, Utils.getCurrencyStr().length, false, 0, winAmount,
                         null,
                         () => {
 
@@ -147,7 +148,7 @@ export default class BigWin extends cc.Component {
                             let win_sfx_id = this._currentSoundIDArr.shift();
                             SoundController.inst.MainAudio.stopAudioPlay(win_sfx_id);
 
-                            let end_sfx: AudioPlay = SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxAllSpecialWinEnd);
+                            let end_sfx: AudioPlay = SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxWinEnd);
                             if (!Utils.isEmpty(end_sfx)) this._currentSoundIDArr.push(end_sfx);
 
                             //resume/play music when close (to check for game mode)
@@ -190,44 +191,47 @@ export default class BigWin extends cc.Component {
                     SoundController.inst.MainAudio.pauseMusic();
                 })
                 .start();
-            this._currentSoundIDArr.push(SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxAllSpecialWin));
+
+            //play sound
+            let win_sfx = this.winId == 0 ? AudioPlayId.sfxBigWin : this.winId == 1 ? AudioPlayId.sfxMegaWin : AudioPlayId.sfxSuperWin;
+            this._currentSoundIDArr.push(SoundController.inst.MainAudio.playAudio(win_sfx));
         });
     }
 
-    showWinAnimPromise(winTitle: number): Promise<any> {
-        return new Promise((resolve: Function) => {
-            if (!this.node.active || this._isFadingOut || this._isSkipAnim) {
-                resolve();
-                return;
-            }
-            if (winTitle > 0) {
-                SoundController.inst.MainAudio.fadeOutSFX(this._currentSoundIDArr.shift());
-                this._currentSoundIDArr.push(SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxAllSpecialWin));
-            }
+    // showWinAnimPromise(winTitle: number): Promise<any> {
+    //     return new Promise((resolve: Function) => {
+    //         if (!this.node.active || this._isFadingOut || this._isSkipAnim) {
+    //             resolve();
+    //             return;
+    //         }
+    //         if (winTitle > 0) {
+    //             SoundController.inst.MainAudio.fadeOutSFX(this._currentSoundIDArr.shift());
+    //             this._currentSoundIDArr.push(SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxAllSpecialWin));
+    //         }
 
-            let main_ske = this.node.getChildByName("winscene").getComponent(sp.Skeleton);
-            const winCfg: WinConfig = SpecialWinConfig[winTitle];
+    //         let main_ske = this.node.getChildByName("winscene").getComponent(sp.Skeleton);
+    //         const winCfg: WinConfig = SpecialWinConfig[winTitle];
 
-            main_ske.node.active = true;
-            main_ske.setAnimation(0, winCfg.start[0], true);
-            main_ske.setEventListener((trackEntry, event) => {
-                if (trackEntry['animation']['name'] == winCfg.start[0] && event.data.name == TEXT_EVENT_NAME) {
-                    this.setTitleText(winTitle);
-                }
-            });
-            main_ske.setCompleteListener((trackEntry) => {
-                if (trackEntry['animation']['name'] == winCfg.start[0]) {
-                    cc.Tween.stopAllByTarget(this.node);
-                    cc.tween(this.node)
-                        .delay(LOOP_DURATION)
-                        .call(() => {
-                            resolve();
-                        })
-                        .start();
-                }
-            });
-        });
-    }
+    //         main_ske.node.active = true;
+    //         main_ske.setAnimation(0, winCfg.start[0], true);
+    //         main_ske.setEventListener((trackEntry, event) => {
+    //             if (trackEntry['animation']['name'] == winCfg.start[0] && event.data.name == TEXT_EVENT_NAME) {
+    //                 this.setTitleText(winTitle);
+    //             }
+    //         });
+    //         main_ske.setCompleteListener((trackEntry) => {
+    //             if (trackEntry['animation']['name'] == winCfg.start[0]) {
+    //                 cc.Tween.stopAllByTarget(this.node);
+    //                 cc.tween(this.node)
+    //                     .delay(LOOP_DURATION)
+    //                     .call(() => {
+    //                         resolve();
+    //                     })
+    //                     .start();
+    //             }
+    //         });
+    //     });
+    // }
 
     onCloseSpecialWin(winTitle: string) {
         const winID = option_list.indexOf(winTitle);

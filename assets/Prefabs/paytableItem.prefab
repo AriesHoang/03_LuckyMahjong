@@ -1308,7 +1308,9 @@
     "icon": {
       "__id__": 4
     },
-    "itemAtlas": null,
+    "itemAtlas": {
+      "__uuid__": "03d7f463-0720-47d9-9738-08aba72957b0"
+    },
     "description": {
       "__id__": 17
     },

@@ -1,0 +1,90 @@
+
+skeleton.png
+size: 2024,788
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bg
+  rotate: true
+  xy: 2, 246
+  size: 540, 960
+  orig: 540, 960
+  offset: 0, 0
+  index: -1
+bg_white
+  rotate: true
+  xy: 2, 24
+  size: 220, 391
+  orig: 220, 391
+  offset: 0, 0
+  index: -1
+light/light_00
+  rotate: true
+  xy: 395, 24
+  size: 220, 391
+  orig: 220, 391
+  offset: 0, 0
+  index: -1
+light/light_01
+  rotate: true
+  xy: 788, 24
+  size: 220, 391
+  orig: 220, 391
+  offset: 0, 0
+  index: -1
+light/light_02
+  rotate: false
+  xy: 964, 395
+  size: 220, 391
+  orig: 220, 391
+  offset: 0, 0
+  index: -1
+light/light_03
+  rotate: false
+  xy: 1181, 2
+  size: 220, 391
+  orig: 220, 391
+  offset: 0, 0
+  index: -1
+light/light_04
+  rotate: false
+  xy: 1186, 395
+  size: 220, 391
+  orig: 220, 391
+  offset: 0, 0
+  index: -1
+light/light_05
+  rotate: false
+  xy: 1403, 2
+  size: 220, 391
+  orig: 220, 391
+  offset: 0, 0
+  index: -1
+light/light_06
+  rotate: false
+  xy: 1408, 395
+  size: 220, 391
+  orig: 220, 391
+  offset: 0, 0
+  index: -1
+light/light_07
+  rotate: true
+  xy: 1630, 566
+  size: 220, 391
+  orig: 220, 391
+  offset: 0, 0
+  index: -1
+light/light_08
+  rotate: true
+  xy: 1630, 344
+  size: 220, 391
+  orig: 220, 391
+  offset: 0, 0
+  index: -1
+light/light_09
+  rotate: true
+  xy: 1625, 122
+  size: 220, 391
+  orig: 220, 391
+  offset: 0, 0
+  index: -1

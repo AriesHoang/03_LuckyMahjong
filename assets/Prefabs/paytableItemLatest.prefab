@@ -52,12 +52,12 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 380,
+      "width": 460,
       "height": 141
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0.44,
       "y": 0.5
     },
     "_trs": {
@@ -128,7 +128,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -135,
+        -147.4,
         0,
         0,
         0,
@@ -633,7 +633,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 250,
+      "width": 300,
       "height": 50
     },
     "_anchorPoint": {
@@ -645,7 +645,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -60,
+        -42.400000000000006,
         0,
         0,
         0,
@@ -697,7 +697,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 250,
+      "width": 300,
       "height": 20
     },
     "_anchorPoint": {
@@ -744,7 +744,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 250,
+      "width": 300,
       "height": 20
     },
     "_resize": 1,
@@ -895,7 +895,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 250,
+      "width": 300,
       "height": 50
     },
     "_resize": 1,
@@ -938,11 +938,11 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 380,
+      "width": 460,
       "height": 141
     },
     "_resize": 1,
-    "_N$layoutType": 0,
+    "_N$layoutType": 1,
     "_N$cellSize": {
       "__type__": "cc.Size",
       "width": 40,
@@ -953,7 +953,7 @@
     "_N$paddingRight": 0,
     "_N$paddingTop": 0,
     "_N$paddingBottom": 0,
-    "_N$spacingX": 20,
+    "_N$spacingX": 50,
     "_N$spacingY": 0,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,
@@ -974,7 +974,9 @@
     "icon": {
       "__id__": 4
     },
-    "itemAtlas": null,
+    "itemAtlas": {
+      "__uuid__": "03d7f463-0720-47d9-9738-08aba72957b0"
+    },
     "description": {
       "__id__": 17
     },

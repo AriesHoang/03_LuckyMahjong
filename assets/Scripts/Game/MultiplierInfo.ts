@@ -25,6 +25,10 @@ export default class MultiplierInfo extends cc.Component {
     @property(cc.Node)
     multiBarFreeSpinNode: cc.Node = null;
 
+    @property(sp.Skeleton)
+    dragonSpine: sp.Skeleton = null;
+
+
     currentMultiNode: cc.Node = null;
 
     protected onEnable(): void {
@@ -46,10 +50,21 @@ export default class MultiplierInfo extends cc.Component {
         this.resetMultiplier();
     }
 
-    resetMultiplier() {
+    resetMultiplier() {       
+        let isDragonFly = false;
         this.currentMultiNode.children.forEach((node, index) => {
             if (index != 0) {
                 let nodeActive = node.children[0].getChildByName("active number light");
+                if(!isDragonFly && nodeActive.active){
+                    this.dragonSpine.node.active = true;
+                    this.dragonSpine.setAnimation(0, "animation", false);
+                    this.dragonSpine.setCompleteListener((trackEntry) => {
+                        if (trackEntry.animation.name == "animation") {
+                            this.dragonSpine.node.active = false;
+                        }
+                    });
+                    isDragonFly = true;
+                }
                 nodeActive.active = false;
             }
         });

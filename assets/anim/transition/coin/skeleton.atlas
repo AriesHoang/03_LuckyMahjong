@@ -1,0 +1,188 @@
+
+skeleton.png
+size: 1756,96
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+money/money_00
+  rotate: false
+  xy: 2, 2
+  size: 91, 90
+  orig: 100, 100
+  offset: 6, 5
+  index: -1
+money/money_01
+  rotate: false
+  xy: 95, 2
+  size: 91, 90
+  orig: 100, 100
+  offset: 6, 5
+  index: -1
+money/money_02
+  rotate: false
+  xy: 373, 2
+  size: 89, 90
+  orig: 100, 100
+  offset: 7, 5
+  index: -1
+money/money_03
+  rotate: false
+  xy: 555, 2
+  size: 87, 90
+  orig: 100, 100
+  offset: 8, 5
+  index: -1
+money/money_04
+  rotate: false
+  xy: 733, 2
+  size: 84, 90
+  orig: 100, 100
+  offset: 9, 5
+  index: -1
+money/money_05
+  rotate: false
+  xy: 905, 2
+  size: 79, 90
+  orig: 100, 100
+  offset: 12, 5
+  index: -1
+money/money_06
+  rotate: false
+  xy: 1067, 2
+  size: 73, 90
+  orig: 100, 100
+  offset: 15, 5
+  index: -1
+money/money_07
+  rotate: false
+  xy: 1217, 2
+  size: 66, 90
+  orig: 100, 100
+  offset: 18, 5
+  index: -1
+money/money_08
+  rotate: false
+  xy: 1353, 2
+  size: 58, 90
+  orig: 100, 100
+  offset: 22, 5
+  index: -1
+money/money_09
+  rotate: false
+  xy: 1472, 2
+  size: 49, 90
+  orig: 100, 100
+  offset: 26, 5
+  index: -1
+money/money_10
+  rotate: false
+  xy: 1573, 2
+  size: 39, 90
+  orig: 100, 100
+  offset: 31, 5
+  index: -1
+money/money_11
+  rotate: false
+  xy: 1654, 2
+  size: 29, 90
+  orig: 100, 100
+  offset: 36, 5
+  index: -1
+money/money_12
+  rotate: false
+  xy: 1714, 2
+  size: 19, 90
+  orig: 100, 100
+  offset: 41, 5
+  index: -1
+money/money_13
+  rotate: false
+  xy: 1735, 2
+  size: 19, 90
+  orig: 100, 100
+  offset: 41, 5
+  index: -1
+money/money_14
+  rotate: false
+  xy: 1685, 2
+  size: 27, 90
+  orig: 100, 100
+  offset: 37, 5
+  index: -1
+money/money_15
+  rotate: false
+  xy: 1614, 2
+  size: 38, 90
+  orig: 100, 100
+  offset: 31, 5
+  index: -1
+money/money_16
+  rotate: false
+  xy: 1523, 2
+  size: 48, 90
+  orig: 100, 100
+  offset: 26, 5
+  index: -1
+money/money_17
+  rotate: false
+  xy: 1413, 2
+  size: 57, 90
+  orig: 100, 100
+  offset: 21, 5
+  index: -1
+money/money_18
+  rotate: false
+  xy: 1285, 2
+  size: 66, 90
+  orig: 100, 100
+  offset: 17, 5
+  index: -1
+money/money_19
+  rotate: false
+  xy: 1142, 2
+  size: 73, 90
+  orig: 100, 100
+  offset: 13, 5
+  index: -1
+money/money_20
+  rotate: false
+  xy: 986, 2
+  size: 79, 90
+  orig: 100, 100
+  offset: 10, 5
+  index: -1
+money/money_21
+  rotate: false
+  xy: 819, 2
+  size: 84, 90
+  orig: 100, 100
+  offset: 8, 5
+  index: -1
+money/money_22
+  rotate: false
+  xy: 644, 2
+  size: 87, 90
+  orig: 100, 100
+  offset: 6, 5
+  index: -1
+money/money_23
+  rotate: false
+  xy: 464, 2
+  size: 89, 90
+  orig: 100, 100
+  offset: 5, 5
+  index: -1
+money/money_24
+  rotate: false
+  xy: 188, 2
+  size: 91, 90
+  orig: 100, 100
+  offset: 4, 5
+  index: -1
+money/money_25
+  rotate: false
+  xy: 281, 2
+  size: 90, 90
+  orig: 100, 100
+  offset: 5, 5
+  index: -1

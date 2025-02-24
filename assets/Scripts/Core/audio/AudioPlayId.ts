@@ -4,12 +4,24 @@ export enum AudioPlayId {
     bgmMainFreespin,
     bgmGamble,
 
-    sfxAllSpecialWin,
-    sfxAllSpecialWinEnd,
+    // sfxAllSpecialWin,
+    // sfxAllSpecialWinEnd,
 
-    sfxTotalWinFreespinStart,
-    sfxTotalWinFreespinMain,
-    sfxTotalWinFreespinEnd,
+    sfxBigWin,
+    sfxMegaWin,
+    sfxSuperWin,
+
+    sfxTotalWinFreespin,
+
+    sfxWinEnd,
+
+    // sfxTotalWinFreespinStart,
+    // sfxTotalWinFreespinMain,
+    // sfxTotalWinFreespinEnd,
+    
+    sfxWinFreeSpinsPopupStart,
+
+
 
     sfxAmbience,
 
@@ -40,7 +52,7 @@ export enum AudioPlayId {
     sfxGambleSpinBtn,
 
     sfxExpandWall,
-    sfxWinFreeSpinsPopupStart,
+    
 
     sfxConfirmBuyFeature,
     sfxGambleWheelSpin,

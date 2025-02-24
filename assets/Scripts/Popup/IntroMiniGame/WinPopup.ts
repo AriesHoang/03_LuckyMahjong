@@ -89,7 +89,7 @@ export default class WinPopup extends BasePopup {
         // this.winAmountLabelClone.playAnim(duration, Utils.getCurrencyStr().length, false, 0, this.win_amount)
         this.winAmountLabel.playAnim(duration, Utils.getCurrencyStr().length, false, 0, this.win_amount,
             () => {
-                return SoundController.inst.MainAudio.playAudio(AudioPlayId.SFX_PrizeBannerCount, true);
+                // return SoundController.inst.MainAudio.playAudio(AudioPlayId.SFX_PrizeBannerCount, true);
             },
             () => {
 
@@ -112,7 +112,7 @@ export default class WinPopup extends BasePopup {
                 let win_sfx_id = this._currentSoundIDArr.shift();
                 SoundController.inst.MainAudio.stopAudioPlay(win_sfx_id);
 
-                let end_sfx: AudioPlay = SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxAllSpecialWinEnd);
+                let end_sfx: AudioPlay = SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxWinEnd);
                 if (!Utils.isEmpty(end_sfx)) this._currentSoundIDArr.push(end_sfx);
 
                 //resume/play music when close (to check for game mode)
