@@ -129,9 +129,9 @@ export default class CheckWinFreeSpinUi extends cc.Component {
                     let scatter_pos_arr = this.boardData.getPosScatter();
                     let prom_chain: Promise<any> = Promise.resolve();
 
-                    // if (scatter_pos_arr?.length > 0 && !this.boardData.isBuyFeature) {
-                    //     prom_chain = prom_chain.then(this.showWinScattersPromise.bind(this, scatter_pos_arr));
-                    // }
+                    if (scatter_pos_arr?.length > 0 && !this.boardData.isBuyFeature) {
+                        prom_chain = prom_chain.then(this.showWinScattersPromise.bind(this, scatter_pos_arr));
+                    }
                     prom_chain = prom_chain.then(() => {
                         // clientEvent.dispatchEvent(EventName.ShowFreeSpinInfo, this.boardData.freespinNum);
                         PopupController.instance.show(WinFreespinsInFreespinModePopup,data);

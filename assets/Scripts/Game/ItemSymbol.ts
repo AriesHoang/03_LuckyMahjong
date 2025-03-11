@@ -36,19 +36,19 @@ export enum E_ItemSpineAnim {
 }
 
 const SymbolList: SymbolAnimConfig[] = [
-    /*L6:       */{ id: E_SYMBOL.L6, skin: ["Chess21", "Chess22"],  idle: null, appear: null, action: null},
-    /*L5:       */{ id: E_SYMBOL.L5, skin: ["Chess11", "Chess12"], idle: null, appear: null, action: null},
-    /*L4:       */{ id: E_SYMBOL.L4, skin: ["Chess7", "Chess8"], idle: null, appear: null, action: null},
-    /*L3:       */{ id: E_SYMBOL.L3, skin: ["Chess23", "Chess24"], idle: null, appear: null, action: null},
-    /*L2:       */{ id: E_SYMBOL.L2, skin: ["Chess9", "Chess10"], idle: null, appear: null, action: null},
-    /*L1:       */{ id: E_SYMBOL.L1, skin: ["Chess15", "Chess16"], idle: null, appear: null, action: null},
-    /*H5:       */{ id: E_SYMBOL.H5, skin: ["Chess17", "Chess18"], idle: null, appear: null, action: null},
-    /*H4:       */{ id: E_SYMBOL.H4, skin: ["Chess13", "Chess14"], idle: null, appear: null, action: null},
-    /*H3:       */{ id: E_SYMBOL.H3, skin: ["Chess3", "Chess4"], idle: null, appear: null, action: null},
-    /*H2:       */{ id: E_SYMBOL.H2, skin: ["Chess1", "Chess2"], idle: null, appear: null, action: null},
-    /*H1:       */{ id: E_SYMBOL.H1, skin: ["Chess5", "Chess6"], idle: null, appear: null, action: null},
-    /*SCATTER:       */{ id: E_SYMBOL.SCATTER, skin: ["Chess20"], idle: null, appear: null, action: null},
-    /*WILD:*/{ id: E_SYMBOL.WILD, skin: ["Chess19"], idle: null, appear: null, action: null}
+    /*L6:       */{ id: E_SYMBOL.L6, skin: ["Chess21", "Chess22"], idle: null, appear: null, action: null },
+    /*L5:       */{ id: E_SYMBOL.L5, skin: ["Chess11", "Chess12"], idle: null, appear: null, action: null },
+    /*L4:       */{ id: E_SYMBOL.L4, skin: ["Chess7", "Chess8"], idle: null, appear: null, action: null },
+    /*L3:       */{ id: E_SYMBOL.L3, skin: ["Chess23", "Chess24"], idle: null, appear: null, action: null },
+    /*L2:       */{ id: E_SYMBOL.L2, skin: ["Chess9", "Chess10"], idle: null, appear: null, action: null },
+    /*L1:       */{ id: E_SYMBOL.L1, skin: ["Chess15", "Chess16"], idle: null, appear: null, action: null },
+    /*H5:       */{ id: E_SYMBOL.H5, skin: ["Chess17", "Chess18"], idle: null, appear: null, action: null },
+    /*H4:       */{ id: E_SYMBOL.H4, skin: ["Chess13", "Chess14"], idle: null, appear: null, action: null },
+    /*H3:       */{ id: E_SYMBOL.H3, skin: ["Chess3", "Chess4"], idle: null, appear: null, action: null },
+    /*H2:       */{ id: E_SYMBOL.H2, skin: ["Chess1", "Chess2"], idle: null, appear: null, action: null },
+    /*H1:       */{ id: E_SYMBOL.H1, skin: ["Chess5", "Chess6"], idle: null, appear: null, action: null },
+    /*SCATTER:       */{ id: E_SYMBOL.SCATTER, skin: ["Chess20"], idle: null, appear: null, action: null },
+    /*WILD:*/{ id: E_SYMBOL.WILD, skin: ["Chess19"], idle: null, appear: null, action: null }
 ]
 
 // const MultiAnimConfig: SymbolAnimConfig[] = [
@@ -76,7 +76,7 @@ export default class ItemSymbol extends cc.Component {
 
     @property(sp.SkeletonData)
     symbolAnim: sp.SkeletonData = null;
-    
+
     // @property(sp.SkeletonData)
     // scatterAnim: sp.SkeletonData = null;
     //
@@ -112,7 +112,7 @@ export default class ItemSymbol extends cc.Component {
     public set itemCfg(itemCfg: ItemConfig) {
         this._itemCfg = itemCfg;
         // (itemCfg.symbol - 1 >= 0 && itemCfg.symbol - 1 < SymbolList.length) ? SymbolList[itemCfg.symbol - 1] : null
-        this._itemAnimConfig =  SymbolList[Math.abs(itemCfg.symbol) - 1];
+        this._itemAnimConfig = SymbolList[Math.abs(itemCfg.symbol) - 1];
     }
     protected static _itemPool: cc.NodePool = null;
 
@@ -168,7 +168,7 @@ export default class ItemSymbol extends cc.Component {
         this.initSkeletonData();
         this.setItemStaticImage();
         this.setItemState();
-        this.customConfigItem();    
+        this.customConfigItem();
     }
 
     customConfigItem() {
@@ -187,13 +187,13 @@ export default class ItemSymbol extends cc.Component {
 
     initSkeletonData(itemState: E_ITEM_STATE = E_ITEM_STATE.NORMAL) {
         this.coinAmountLabel.node.active = (this.itemCfg.type == E_SYMBOL_TYPE.MONEY_CREDIT_BLOCK);
-        
+
         let ske_data: sp.SkeletonData = this.symbolAnim;;
         let skin_name: string = null;
         let cache_mode = sp.Skeleton.AnimationCacheMode.REALTIME;
 
-        this.skinName = skin_name = this._itemAnimConfig.skin[this._itemCfg.symbol > 0 ? 0 : 1];  
-               
+        this.skinName = skin_name = this._itemAnimConfig.skin[this._itemCfg.symbol > 0 ? 0 : 1];
+
         if (!ske_data) return;
         this.ske.setAnimationCacheMode(cache_mode);
         if (this.ske.skeletonData != ske_data) {
@@ -210,8 +210,8 @@ export default class ItemSymbol extends cc.Component {
 
     setItemState(state: E_ANIM_STATE = E_ANIM_STATE.idle) {
         // if(this.itemCfg.symbol == E_SYMBOL.EMPTY) return;
-        let anim_cfg = {name: null, loop: null};
-        if (state == E_ANIM_STATE.idle){
+        let anim_cfg = { name: null, loop: null };
+        if (state == E_ANIM_STATE.idle) {
             if (this.itemCfg.symbol == E_SYMBOL.SCATTER || this.itemCfg.symbol == E_SYMBOL.WILD) {
                 anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Idle);
                 anim_cfg.loop = true;
@@ -221,13 +221,13 @@ export default class ItemSymbol extends cc.Component {
             if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
                 anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_scatter);
                 anim_cfg.loop = false;
-            }else if(this.itemCfg.symbol == E_SYMBOL.WILD){
+            } else if (this.itemCfg.symbol == E_SYMBOL.WILD) {
                 anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_wild_chess);
                 anim_cfg.loop = false;
-            }else if(this.itemCfg.symbol < 0){
+            } else if (this.itemCfg.symbol < 0) {
                 anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_gold_chess);
                 anim_cfg.loop = false;
-            }else{
+            } else {
                 anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_white_chess);
                 anim_cfg.loop = false;
             }
@@ -263,7 +263,7 @@ export default class ItemSymbol extends cc.Component {
 
         let sf_name: string = Math.abs(this.itemCfg.symbol).toString();
         sf_name = E_SYMBOL_Atlas[sf_name];
-        
+
         this.static_image.spriteFrame = (isBlur ? this.itemBlurAtlas : this.itemAtlas)?.getSpriteFrame(this.itemCfg.symbol < 0 ? (sf_name + "_g") : sf_name);
     }
 
@@ -273,37 +273,37 @@ export default class ItemSymbol extends cc.Component {
             return;
         });
     }
-    playItemAnimPromise(state: E_ANIM_STATE = E_ANIM_STATE.idle, itemConfig: any = null, showStaticItem:boolean = false): Promise<any> {
+    playItemAnimPromise(state: E_ANIM_STATE = E_ANIM_STATE.idle, itemConfig: any = null, showStaticItem: boolean = false): Promise<any> {
         return new Promise((resolve: Function) => {
-            let anim_cfg = {name: null, loop: null};        
-            if (state == E_ANIM_STATE.idle){
+            let anim_cfg = { name: null, loop: null };
+            if (state == E_ANIM_STATE.idle) {
                 if (this.itemCfg.symbol == E_SYMBOL.SCATTER || this.itemCfg.symbol == E_SYMBOL.WILD) {
                     anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Idle);
                     anim_cfg.loop = true;
                 }
             }
             else if (state == E_ANIM_STATE.win) {
-                
+
                 if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
                     anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_scatter);
                     anim_cfg.loop = false;
-                }else if(this.itemCfg.symbol == E_SYMBOL.WILD){
+                } else if (this.itemCfg.symbol == E_SYMBOL.WILD) {
                     anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_wild_chess);
                     anim_cfg.loop = false;
-                }else if(this.itemCfg.symbol < 0){
+                } else if (this.itemCfg.symbol < 0) {
                     anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_gold_chess);
                     anim_cfg.loop = false;
-                }else{
+                } else {
                     anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_white_chess);
                     anim_cfg.loop = false;
-                }                            
+                }
                 // anim_cfg = this._itemAnimConfig?.action[0] ? this._itemAnimConfig.action[0] : null;
             }
             else if (state == E_ANIM_STATE.appear) {
                 if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
                     anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Scatter_wait);
                     anim_cfg.loop = true;
-                }else if (this.itemCfg.symbol == E_SYMBOL.WILD) {
+                } else if (this.itemCfg.symbol == E_SYMBOL.WILD) {
                     anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_gold_chess);
                     anim_cfg.loop = false;
                 }
@@ -325,15 +325,19 @@ export default class ItemSymbol extends cc.Component {
 
                 this.ske.node.active = true;
                 setTimeout(() => {
-                    this.static_image.node.active = false;                                            
-                },900);
-                
+                    this.static_image.node.active = false;
+                    if (this.itemCfg.symbol < 0 && state == E_ANIM_STATE.win) {
+                        SoundController.inst.MainAudio.playAudio(AudioPlayId.sfx_Wild);
+                    }
+                }, 900);
+
+
                 this.ske.setAnimation(0, anim_cfg.name, (anim_cfg.loop != undefined && anim_cfg.loop != null) ? anim_cfg.loop : false);
-                this.ske.setCompleteListener((trackEntry) => {                    
-                    cc.log(this.itemCfg.symbol +  " - complete: " + this.skinName + " - anim: " + anim_cfg.name);
+                this.ske.setCompleteListener((trackEntry) => {
+                    cc.log(this.itemCfg.symbol + " - complete: " + this.skinName + " - anim: " + anim_cfg.name);
                     if (trackEntry['animation']['name'] == anim_cfg.name) {
                         let iTimeout = 1;
-                        if(showStaticItem && itemConfig){
+                        if (showStaticItem && itemConfig) {
                             this.init(itemConfig);
                             this.ske.node.active = false;
                             this.static_image.node.active = true;
@@ -361,16 +365,17 @@ export default class ItemSymbol extends cc.Component {
         });
     }
 
-    onAppearPromise(playWinAnim = false): Promise<any> {        
+    onAppearPromise(playWinAnim = false): Promise<any> {
         let prom_chain: Promise<any> = Promise.resolve();
-        if(!playWinAnim) return prom_chain;
+
 
         if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
             SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxScatterAppear);
         } else if (this.itemCfg.symbol == E_SYMBOL.WILD) {
-            // SoundController.inst.MainAudio.playAudio(AudioPlayId.sfx_WildExpand);
-        } 
-    
+            SoundController.inst.MainAudio.playAudio(AudioPlayId.sfx_Wild);
+        }
+        if (!playWinAnim) return prom_chain;
+
         if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
             prom_chain = prom_chain.then(() => {
                 //dont wait for appear anim to resolve
@@ -379,7 +384,7 @@ export default class ItemSymbol extends cc.Component {
                 });
             });
         }
-        return prom_chain;              
+        return prom_chain;
     }
 
     stopAnimWin() {

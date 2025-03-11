@@ -129,31 +129,21 @@ export default class WinFreeSpinsPopup extends BasePopup {
         cc.tween(this.node)
             .delay(2)
             .call(() => {
+
+                this.node.active = false;
+                this.node.opacity = 255;
+                SoundController.inst.MainAudio.fadeOutMusic(0.3);
+                cc.tween(SoundController.inst.node)
+                    .call(() => {
+                        // SoundController.inst.playSFXWinFreeSpinsPopupStart();
+                        SoundController.inst.MainAudio.playAudio(AudioPlayId.bgmMainFreespin, true)
+                        SoundController.inst.MainAudio.fadeInMusic();
+                    })
+                    .start();
+
+                if (this.closeCallback) this.closeCallback();
+
                 this.isClosing = false;
-                let data = {
-                    callFunc: () => {
-
-                    }
-                }
-                setTimeout(() => {
-                    this.node.active = false;
-                    this.node.opacity = 255;
-                    SoundController.inst.MainAudio.fadeOutMusic(0.3);
-                    cc.tween(SoundController.inst.node)
-                        .call(() => {
-                            // SoundController.inst.playSFXWinFreeSpinsPopupStart();
-                            SoundController.inst.MainAudio.playAudio(AudioPlayId.bgmMainFreespin, true)
-                            SoundController.inst.MainAudio.fadeInMusic();
-                        })
-                        .start();
-
-                    if (this.closeCallback) this.closeCallback();
-                }, 1000)
-
-                PopupController.instance.showPrTrainsitionEffect(data).then(() => {
-
-                })
-
             })
             .start();
 

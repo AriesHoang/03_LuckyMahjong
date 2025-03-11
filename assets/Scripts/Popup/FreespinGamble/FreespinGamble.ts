@@ -260,7 +260,7 @@ export default class FreespinGamble extends BasePopup {
                         SoundController.inst.MainAudio.stopAudioPlay(this.wheelSpinSfx);
                         this.wheelSpinSfx = null;
                     }
-                    SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxGambleWheelSpinStop);
+                    // SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxGambleWheelSpinStop);
                     // this.collectButton.node.active = true;
                     // this.gambleChooseNode.active = true;
     
@@ -366,7 +366,6 @@ export default class FreespinGamble extends BasePopup {
         effect.node.active = true;
         effect?.setAnimation(0, "button_click", false);
         // SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxStartBtn);
-        SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxTransitionBlueSmoke);
         const result_prom = this.finishGamble();
         return Promise.all([result_prom]).then(() => {
             this.state = E_GAMBLE_STATE.IDLE;

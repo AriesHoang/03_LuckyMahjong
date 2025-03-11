@@ -315,7 +315,7 @@ export default class MenuButtons extends cc.Component {
     }
 
     onClickShowBuyFeature(event, dataCustomEvent) {
-        SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxBuyFeatureSelectBtn);
+        // SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxBuyFeatureSelectBtn);
         PopupController.instance.showPr(BuyFeature, dataCustomEvent);
     }
 

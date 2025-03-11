@@ -28,15 +28,20 @@ export default class TrainsitionEffectDynamic extends BasePopup {
             super.show();
             SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxTransitionBlueSmoke);
             this.ske.setAnimation(0, "light", false)
-            this.ske.setEventListener((trackEntry, event) => {
-                if (trackEntry['animation']['name'] == 'light') {
-                    if (event.data.name == "chuyen") {
-                        if(data?.callFunc)
-                            data.callFunc();
-                        resolve();
-                    }
-                }
-            });
+
+            setTimeout(()=>{
+                if(data?.callFunc)
+                    data.callFunc();
+                resolve();
+            }, 1000)
+
+            // this.ske.setEventListener((trackEntry, event) => {
+            //     if (trackEntry['animation']['name'] == 'light') {
+            //         if (event.data.name == "chuyen") {
+                        
+            //         }
+            //     }
+            // });
         })
 
 

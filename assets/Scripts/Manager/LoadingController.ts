@@ -32,7 +32,6 @@ export default class LoadingController extends cc.Component {
     @property(cc.Node)
     iconTemple: cc.Node = null;
 
-
     private gameSceneLoaded: boolean = false;
     private _isAuthorized: boolean = false;
     private _configLoaded: boolean = false;
@@ -62,16 +61,6 @@ export default class LoadingController extends cc.Component {
     start() {
         // clientEvent.on(EventName.UpdateRemoteConfig, this.updateAuthPollingInterval, this);
         this.LoadingSceneMain();
-        // let arrNewConfig = [];
-        // LINECONFIG.winLinesConfig.forEach((line)=>{
-        //     // cc.log("line",line);
-        //     let newline = line.map((num)=>{
-        //         return num - 1;
-        //     })
-        //     cc.log("newLine",newline);
-        //     arrNewConfig.push(newline)
-        // });
-        // cc.log("arrNewConfig: ", JSON.stringify(arrNewConfig));
     }
 
     // updateAuthPollingInterval(configJson: cc.JsonAsset) {
@@ -146,13 +135,13 @@ export default class LoadingController extends cc.Component {
 
     loadGameScene() {
         SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxButtonTap);
-        setTimeout(()=>{
-            cc.director.loadScene(GameConstant.SCENE.GAME_SCENE);
-        }, 1000)
+        // setTimeout(()=>{
+        //     cc.director.loadScene(GameConstant.SCENE.GAME_SCENE);
+        // }, 1000)
 
         let data = {};
         data["callFunc"] = ()=>{
-            
+            cc.director.loadScene(GameConstant.SCENE.GAME_SCENE);
         }
         PopupController.instance.showPrTrainsitionEffect(data).then(() => {
 

@@ -110,6 +110,8 @@ export default class InfoBarController extends cc.Component {
 
         if (description == "info_bar_win_02" && animationCanBePlayed){
             SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxInfobarTotalWin, false);
+        }else{
+            SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxWinLine, false);
         }
 
         let strPrefix = "WIN ";

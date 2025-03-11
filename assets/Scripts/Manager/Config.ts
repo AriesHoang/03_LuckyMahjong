@@ -66,8 +66,8 @@ export const Cfg = {
 	playAsDemo: false,
 	isDebug: true,
 	isDafa: false,
-	gameVersionStr: "V_1.0.1",
-	rtpValue: 94.76,
+	gameVersionStr: "V_1.0.0",
+	rtpValue: 96.43,
 	authPollingInterval: 30,
 	lastAuthPollMoment: null,
 };

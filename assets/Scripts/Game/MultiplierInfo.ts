@@ -57,6 +57,7 @@ export default class MultiplierInfo extends cc.Component {
                 let nodeActive = node.children[0].getChildByName("active number light");
                 if(!isDragonFly && nodeActive.active){
                     this.dragonSpine.node.active = true;
+                    SoundController.inst.MainAudio.playAudio(AudioPlayId.sfxDragonRoar);
                     this.dragonSpine.setAnimation(0, "animation", false);
                     this.dragonSpine.setCompleteListener((trackEntry) => {
                         if (trackEntry.animation.name == "animation") {
@@ -74,7 +75,8 @@ export default class MultiplierInfo extends cc.Component {
             let nodeActive = this.currentMultiNode.getChildByName("x" + multi + "Bar").children[0].getChildByName("active number light");
             if(nodeActive){
                 nodeActive.active = true;
-            
+                
+                SoundController.inst.MainAudio.playAudio(AudioPlayId["sfxMultix" + multi]);
                 let particleNode = nodeActive.getChildByName("particle");
                 if(particleNode){
                     particleNode.active = true;

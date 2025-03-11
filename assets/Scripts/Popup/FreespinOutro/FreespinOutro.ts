@@ -168,29 +168,18 @@ export default class FreespinOutro extends cc.Component {
                 this.btnCollect.getComponent(cc.Button).interactable = false;
 
                 let data = {
-                    // callFunc: () => {
-                    //     if (this.animationCanBePlayed) {
-                    //         // this.skeOutro.setAnimation(0, "end", false);
-                    //         if (this._onCloseCB) this._onCloseCB();
-                    //         this.onHide();
-                    //     }
-                    //     else {
-                    //         if (this._onCloseCB) this._onCloseCB();
-                    //         this.onHide();
-                    //     }
-                    // }
+                    callFunc: () => {
+                        if (this.animationCanBePlayed) {
+                            // this.skeOutro.setAnimation(0, "end", false);
+                            if (this._onCloseCB) this._onCloseCB();
+                            this.onHide();
+                        }
+                        else {
+                            if (this._onCloseCB) this._onCloseCB();
+                            this.onHide();
+                        }
+                    }
                 }
-                setTimeout(() => {
-                    if (this.animationCanBePlayed) {
-                        // this.skeOutro.setAnimation(0, "end", false);
-                        if (this._onCloseCB) this._onCloseCB();
-                        this.onHide();
-                    }
-                    else {
-                        if (this._onCloseCB) this._onCloseCB();
-                        this.onHide();
-                    }
-                }, 1000)
 
 
                 PopupController.instance.showPrTrainsitionEffect(data).then(() => {

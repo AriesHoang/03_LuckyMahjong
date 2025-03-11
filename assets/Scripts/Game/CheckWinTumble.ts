@@ -131,7 +131,7 @@ export default class CheckWinTumble extends cc.Component {
         // }
         
 
-        SoundController.inst.MainAudio.playAudio(AudioPlayId.sfx_TumbleEffect);
+        // SoundController.inst.MainAudio.playAudio(AudioPlayId.sfx_TumbleEffect);
         this.rowWinLine = [[],[],[],[],[]];
         data.winLines.forEach((lineData) => {
             

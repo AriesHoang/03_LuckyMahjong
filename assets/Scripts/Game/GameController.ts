@@ -5,21 +5,21 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
-import {clientEvent} from "../Core/observer/clientEvent";
-import {Signal} from "../Core/observer/Signal";
+import { clientEvent } from "../Core/observer/clientEvent";
+import { Signal } from "../Core/observer/Signal";
 import BoardData from "../Data/GamePlay/BoardData";
 import LineWinData from "../Data/GamePlay/LineWinData";
-import {Cfg, GameConfig} from "../Manager/Config";
-import {EventName} from "../Manager/EventName";
+import { Cfg, GameConfig } from "../Manager/Config";
+import { EventName } from "../Manager/EventName";
 import PopupController from "../Manager/PopupController";
 import RootData from "../Manager/RootData";
 import TextController from "../Manager/TextController";
 import NetworkNoticePopup from "../Popup/Network/NetworkNoticePopup";
-import FreespinGamble, {E_GAMBLE_ACTION} from "../Popup/FreespinGamble/FreespinGamble";
+import FreespinGamble, { E_GAMBLE_ACTION } from "../Popup/FreespinGamble/FreespinGamble";
 import Utils from "../Utils/Utils";
-import {ActionCheckWin, E_BOARD_MODE, E_BOARD_STATE} from "./BoardUI";
+import { ActionCheckWin, E_BOARD_MODE, E_BOARD_STATE } from "./BoardUI";
 import SoundController from "../Manager/SoundController";
-import {AudioPlayId} from "../Core/audio/AudioPlayId";
+import { AudioPlayId } from "../Core/audio/AudioPlayId";
 import PlayerData from "../Data/PlayerData";
 
 
@@ -97,12 +97,12 @@ export default class GameController extends cc.Component {
                 }
             }, 200);
         }
-        if(this.boardData.freespinNum > 0 )
-            SoundController.inst.MainAudio.playAudio(AudioPlayId.bgmMainFreespin, true) 
-          else{
+        if (this.boardData.freespinNum > 0)
+            SoundController.inst.MainAudio.playAudio(AudioPlayId.bgmMainFreespin, true)
+        else {
             SoundController.inst.MainAudio.playAudio(AudioPlayId.bgmMain, true);
-          
-          }  
+
+        }
         //   SoundController.inst.MainAudio.playSFXAmbience();
     }
 
@@ -140,9 +140,9 @@ export default class GameController extends cc.Component {
 
         const has_enough_balance = await this.checkBalanceForSpin(isBuyFeature, buyFeatureID);
         if (has_enough_balance) {
-            if(this.boardData.boardMode == E_BOARD_MODE.NORMAL){
+            if (this.boardData.boardMode == E_BOARD_MODE.NORMAL) {
                 this.requestSpinning(isBuyFeature, buyFeatureID);
-            }else{
+            } else {
                 this.requestFreeGame();
             }
 
@@ -182,7 +182,7 @@ export default class GameController extends cc.Component {
         }
     }
 
-    requestFreeGame(){
+    requestFreeGame() {
         let pars: object = {};
         Utils.postHttp(Cfg.gameSpinURL, JSON.stringify(pars), (err, response) => {
             if (err || !response) {
@@ -204,9 +204,9 @@ export default class GameController extends cc.Component {
     requestSpinning(isBuyFeature: boolean = false, buyFeatureID: number = null) {
         //type: 1 - Base, 2 - Ante, 3 - Buy
         let type = 1;
-        if(isBuyFeature){
+        if (isBuyFeature) {
             type = 3;
-        }else if(RootData.instance.gamePlayData.isAnteBet){
+        } else if (RootData.instance.gamePlayData.isAnteBet) {
             type = 2;
         }
 
@@ -218,10 +218,10 @@ export default class GameController extends cc.Component {
         let cheatData = RootData.instance.gamePlayData.cheatData;
         // cc.log("cheatData: ", cheatData);
         if (cheatData != null && cheatData.triggerWinMode) {
-            pars["reels"] = [167,37,144, 148, 200];
-        // }else if (cheatData != null && cheatData.triggerJackpot) {
-        //     pars["reels"] = [14, 17, 14, 17, 14];
-        //     pars["jackpot"] = true;
+            pars["reels"] = [167, 37, 144, 148, 200];
+            // }else if (cheatData != null && cheatData.triggerJackpot) {
+            //     pars["reels"] = [14, 17, 14, 17, 14];
+            //     pars["jackpot"] = true;
         }
 
         // if (isBuyFeature) {
@@ -249,7 +249,7 @@ export default class GameController extends cc.Component {
 
             let spinData = JSON.parse(response);
             cc.log("Spinning response: ", spinData);
-           
+
             this.spin(spinData);
             // if (isBuyFeature) {
             //     // PopupController.instance.showPr(FreespinGamble, spinData).then(() => {
@@ -273,410 +273,104 @@ export default class GameController extends cc.Component {
         clientEvent.dispatchEvent(EventName.ResetValuetMulti);
         // data = {
         //     "bet": {
-        //         "id": 230817106000,
+        //         "id": 230817106968,
         //         "currency": "USD",
-        //         "chargedAmount": 1,
-        //         "payoutAmount": 16.6,
+        //         "chargedAmount": 0.1,
+        //         "payoutAmount": 0,
         //         "data": {
         //             "base": {
         //                 "reels": [
         //                     [
-        //                         4,
-        //                         9,
-        //                         1
+        //                         11,
+        //                         1,
+        //                         3
         //                     ],
         //                     [
-        //                         4,
-        //                         4,
-        //                         7,
-        //                         7,
-        //                         1
-        //                     ],
-        //                     [
-        //                         5,
+        //                         2,
+        //                         2,
+        //                         12,
         //                         3,
-        //                         13,
+        //                         3
+        //                     ],
+        //                     [
+        //                         -3,
+        //                         3,
+        //                         2,
+        //                         2,
+        //                         12
+        //                     ],
+        //                     [
+        //                         7,
+        //                         3,
+        //                         12,
         //                         -1,
         //                         1
         //                     ],
         //                     [
         //                         6,
-        //                         2,
-        //                         9,
-        //                         5,
-        //                         5
-        //                     ],
-        //                     [
-        //                         9,
-        //                         2,
-        //                         5
+        //                         11,
+        //                         4
         //                     ]
         //                 ],
         //                 "tumbles": [
         //                     {
         //                         "winLines": [
         //                             {
-        //                                 "symbol": 4,
+        //                                 "symbol": 3,
         //                                 "ways": [
         //                                     [
-        //                                         0
+        //                                         2
+        //                                     ],
+        //                                     [
+        //                                         3,
+        //                                         4
         //                                     ],
         //                                     [
         //                                         0,
         //                                         1
         //                                     ],
         //                                     [
-        //                                         2
+        //                                         1
         //                                     ]
         //                                 ],
         //                                 "baseRate": 0.1,
-        //                                 "winRate": 0.2
-        //                             },
-        //                             {
-        //                                 "symbol": 1,
-        //                                 "ways": [
-        //                                     [
-        //                                         2
-        //                                     ],
-        //                                     [
-        //                                         4
-        //                                     ],
-        //                                     [
-        //                                         2,
-        //                                         3,
-        //                                         4
-        //                                     ]
-        //                                 ],
-        //                                 "baseRate": 0.05,
-        //                                 "winRate": 0.15
+        //                                 "winRate": 0.4
         //                             }
         //                         ],
         //                         "addedSymbols": [
         //                             [
-        //                                 2,
-        //                                 6
-        //                             ],
-        //                             [
-        //                                 2,
-        //                                 9,
-        //                                 -9
-        //                             ],
-        //                             [
-        //                                 2,
-        //                                 2
-        //                             ],
-        //                             [],
-        //                             []
-        //                         ],
-        //                         "multiplier": 1,
-        //                         "winRate": 0.35
-        //                     }
-        //                     , {
-        //                         "winLines": [
-        //                             {
-        //                                 "symbol": 2,
-        //                                 "ways": [
-        //                                     [
-        //                                         0
-        //                                     ],
-        //                                     [
-        //                                         0
-        //                                     ],
-        //                                     [
-        //                                         0,
-        //                                         1,
-        //                                         4
-        //                                     ],
-        //                                     [
-        //                                         1
-        //                                     ],
-        //                                     [
-        //                                         1
-        //                                     ]
-        //                                 ],
-        //                                 "baseRate": 0.5,
-        //                                 "winRate": 1.5
-        //                             },
-        //                             {
-        //                                 "symbol": 9,
-        //                                 "ways": [
-        //                                     [
-        //                                         2
-        //                                     ],
-        //                                     [
-        //                                         1,
-        //                                         2
-        //                                     ],
-        //                                     [
-        //                                         4
-        //                                     ],
-        //                                     [
-        //                                         2
-        //                                     ],
-        //                                     [
-        //                                         0
-        //                                     ]
-        //                                 ],
-        //                                 "baseRate": 2,
-        //                                 "winRate": 4
-        //                             }
-        //                         ],
-        //                         "addedSymbols": [
-        //                             [
-        //                                 10,
         //                                 3
-        //                             ],
-        //                             [
-        //                                 1,
-        //                                 -1
         //                             ],
         //                             [
         //                                 -6,
-        //                                 1,
-        //                                 8
+        //                                 9
         //                             ],
         //                             [
-        //                                 1,
-        //                                 6
-        //                             ],
-        //                             [
-        //                                 6,
-        //                                 11
-        //                             ]
-        //                         ],
-        //                         "multiplier": 2,
-        //                         "winRate": 5.5
-        //                     },
-        //                     {
-        //                         "winLines": [
-        //                             {
-        //                                 "symbol": 3,
-        //                                 "ways": [
-        //                                     [
-        //                                         1
-        //                                     ],
-        //                                     [
-        //                                         2
-        //                                     ],
-        //                                     [
-        //                                         4
-        //                                     ]
-        //                                 ],
-        //                                 "baseRate": 0.15,
-        //                                 "winRate": 0.15
-        //                             },
-        //                             {
-        //                                 "symbol": 6,
-        //                                 "ways": [
-        //                                     [
-        //                                         2
-        //                                     ],
-        //                                     [
-        //                                         2
-        //                                     ],
-        //                                     [
-        //                                         0
-        //                                     ],
-        //                                     [
-        //                                         1,
-        //                                         2
-        //                                     ],
-        //                                     [
-        //                                         0
-        //                                     ]
-        //                                 ],
-        //                                 "baseRate": 1.05,
-        //                                 "winRate": 2.1
-        //                             }
-        //                         ],
-        //                         "addedSymbols": [
-        //                             [
-        //                                 2,
         //                                 1
         //                             ],
         //                             [
-        //                                 8
-        //                             ],
-        //                             [
         //                                 7
         //                             ],
-        //                             [
-        //                                 7,
-        //                                 7
-        //                             ],
-        //                             [
-        //                                 9
-        //                             ]
-        //                         ],
-        //                         "multiplier": 3,
-        //                         "winRate": 2.25
-        //                     },
-        //                     {
-        //                         "winLines": [
-        //                             {
-        //                                 "symbol": 1,
-        //                                 "ways": [
-        //                                     [
-        //                                         1
-        //                                     ],
-        //                                     [
-        //                                         1,
-        //                                         2
-        //                                     ],
-        //                                     [
-        //                                         1,
-        //                                         2
-        //                                     ],
-        //                                     [
-        //                                         2
-        //                                     ]
-        //                                 ],
-        //                                 "baseRate": 0.5,
-        //                                 "winRate": 2
-        //                             }
-        //                         ],
-        //                         "addedSymbols": [
-        //                             [
-        //                                 8
-        //                             ],
-        //                             [
-        //                                 8
-        //                             ],
-        //                             [
-        //                                 3,
-        //                                 7
-        //                             ],
-        //                             [
-        //                                 6
-        //                             ],
         //                             []
         //                         ],
-        //                         "multiplier": 5,
-        //                         "winRate": 2
-        //                     },
-        //                     {
-        //                         "winLines": [
-        //                             {
-        //                                 "symbol": 8,
-        //                                 "ways": [
-        //                                     [
-        //                                         0
-        //                                     ],
-        //                                     [
-        //                                         0,
-        //                                         1,
-        //                                         2
-        //                                     ],
-        //                                     [
-        //                                         3
-        //                                     ]
-        //                                 ],
-        //                                 "baseRate": 1.5,
-        //                                 "winRate": 4.5
-        //                             }
-        //                         ],
-        //                         "addedSymbols": [
-        //                             [
-        //                                 3
-        //                             ],
-        //                             [
-        //                                 -3,
-        //                                 2,
-        //                                 -5
-        //                             ],
-        //                             [
-        //                                 3
-        //                             ],
-        //                             [],
-        //                             []
-        //                         ],
-        //                         "multiplier": 10,
-        //                         "winRate": 4.5
-        //                     },
-        //                     {
-        //                         "winLines": [
-        //                             {
-        //                                 "symbol": 3,
-        //                                 "ways": [
-        //                                     [
-        //                                         0
-        //                                     ],
-        //                                     [
-        //                                         0
-        //                                     ],
-        //                                     [
-        //                                         0,
-        //                                         1
-        //                                     ]
-        //                                 ],
-        //                                 "baseRate": 0.5,
-        //                                 "winRate": 1
-        //                             }
-        //                         ],
-        //                         "addedSymbols": [
-        //                             [
-        //                                 10
-        //                             ],
-        //                             [],
-        //                             [
-        //                                 2,
-        //                                 -3
-        //                             ],
-        //                             [],
-        //                             []
-        //                         ],
-        //                         "multiplier": 10,
-        //                         "winRate": 1
-        //                     },
-        //                     {
-        //                         "winLines": [
-        //                             {
-        //                                 "symbol": 2,
-        //                                 "ways": [
-        //                                     [
-        //                                         1
-        //                                     ],
-        //                                     [
-        //                                         0,
-        //                                         1
-        //                                     ],
-        //                                     [
-        //                                         0
-        //                                     ]
-        //                                 ],
-        //                                 "baseRate": 0.5,
-        //                                 "winRate": 1
-        //                             }
-        //                         ],
-        //                         "addedSymbols": [
-        //                             [
-        //                                 6
-        //                             ],
-        //                             [
-        //                                 -11,
-        //                                 3
-        //                             ],
-        //                             [
-        //                                 10
-        //                             ],
-        //                             [],
-        //                             []
-        //                         ],
-        //                         "multiplier": 10,
-        //                         "winRate": 1
+        //                         "multiplier": 1,
+        //                         "winRate": 0.4
         //                     }
         //                 ],
-        //                 "scatterWinRate": 0
+        //                 "scatterWinRate": 5
         //             },
-        //             "freeGame": null,
-        //             "baseAmount": 1,
-        //             "winRate": 0.6
+        //             "freeGame": {
+        //                 "remains": 15,
+        //                 "rounds": []
+        //             },
+        //             "baseAmount": 0.1,
+        //             "winRate": 0
         //         },
-        //         "createdAt": "2025-02-11T15:20:18.1012381+00:00",
-        //         "completedAt": "2025-02-11T15:20:18.1192149+00:00"
+        //         "createdAt": "2025-02-24T08:31:33.7663654+00:00",
+        //         "completedAt": "2025-02-24T08:31:33.7763286+00:00"
         //     },
         //     "balance": {
-        //         "amount": 10014.55,
+        //         "amount": 9994.86,
         //         "currency": {
         //             "symbol": "USD",
         //             "decimalDigits": 2,
@@ -710,10 +404,11 @@ export default class GameController extends cc.Component {
         // }
 
 
+
         this.boardData.onHaveDataSpin(data);
         this.lineWinData.onHaveDataSpin(data.bet.data);
     }
-    spinFreeGame(data){
+    spinFreeGame(data) {
 
     }
 
@@ -788,11 +483,11 @@ export default class GameController extends cc.Component {
         //     this.autoSpinNum--;
         // }
         // if(!playerReward?.remainingCount && this.boardData.spinData?.isLastFreeSpins && this.isAutoSpin&& !isdownautoSpinNum ){
-        if(isLastFreeSpins && this.isAutoSpin && !isdownautoSpinNum ){
+        if (isLastFreeSpins && this.isAutoSpin && !isdownautoSpinNum) {
             this.autoSpinNum--;
             // isdownautoSpinNum = true;
         }
-        
+
         if (!this.isAutoSpin) {
             clientEvent.dispatchEvent(EventName.AutoSpinButtonChange, false);
         }
@@ -812,9 +507,9 @@ export default class GameController extends cc.Component {
         //check & update balance
         if (!this.boardData.isFreeSpin) {
             let old_balance = RootData.instance.playerData.balance;
-            
-            let total_bet = isBuyFeature ? (RootData.instance.gamePlayData.getCurBetNormal() * GameConfig.rateBuyFeature) : 
-        ((RootData.instance.gamePlayData.isAnteBet ? GameConfig.rateAnte : 1) * RootData.instance.gamePlayData.getCurBetNormal());
+
+            let total_bet = isBuyFeature ? (RootData.instance.gamePlayData.getCurBetNormal() * GameConfig.rateBuyFeature) :
+                ((RootData.instance.gamePlayData.isAnteBet ? GameConfig.rateAnte : 1) * RootData.instance.gamePlayData.getCurBetNormal());
 
             if (old_balance < total_bet) {
                 return false;
@@ -859,15 +554,15 @@ export default class GameController extends cc.Component {
 
         }
         if (cheatData != null && cheatData.triggerWinMode) {
-            if(this.boardData.isFreeSpin){
+            if (this.boardData.isFreeSpin) {
                 pars["cheatPayout"] = {
                     "triggerWinMode": 4,
                 }
-            }else
-            pars["cheatPayout"] = {
-                "triggerWinMode": 4,
-                numberOfFS:Utils.randomFromTo(7,12)
-            }
+            } else
+                pars["cheatPayout"] = {
+                    "triggerWinMode": 4,
+                    numberOfFS: Utils.randomFromTo(7, 12)
+                }
         }
         if (cheatData != null && cheatData.freeSpinStickywilds) {
             //Cheat number of wilds //fgType 0 => sticky, 1 is wild columns

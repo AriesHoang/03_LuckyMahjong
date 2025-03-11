@@ -141,7 +141,7 @@
      "RULE_FREESPINS_4": "The Multiplier resets after losing a Tumble.",
      "RULE_FREESPINS_5": "Free Spins cannot be retriggered.",
 
-     "RULE_RTP_1": "The game's theoretical return to player (RTP) is 96.32%, representing the long-term payout.",
+     "RULE_RTP_1": "The game's theoretical return to player (RTP) is 96.43%, representing the long-term payout.",
 
 
      "GAME_CONTROLS": "GAME CONTROLS",
