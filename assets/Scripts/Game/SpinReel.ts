@@ -165,7 +165,7 @@ export default class SpinReel extends cc.Component {
         this.itemList.forEach((item, index) => {
             if (item.node.parent != this.node) {
                 if (exceptionID == null || index != exceptionID) {
-                    Utils.changeParent(item.node, this.node);
+                    Utils.changeParent(item.node, this.node);                    
                 }
                 (item as ItemSymbol).stopAnimWin();
             }

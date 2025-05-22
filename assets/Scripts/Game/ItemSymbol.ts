@@ -219,7 +219,7 @@ export default class ItemSymbol extends cc.Component {
         }
         else if (state == E_ANIM_STATE.win) {
             if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
-                anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_scatter);
+                anim_cfg.name = null;
                 anim_cfg.loop = false;
             } else if (this.itemCfg.symbol == E_SYMBOL.WILD) {
                 anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_wild_chess);
@@ -285,7 +285,7 @@ export default class ItemSymbol extends cc.Component {
             else if (state == E_ANIM_STATE.win) {
 
                 if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
-                    anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_scatter);
+                    anim_cfg.name = null;
                     anim_cfg.loop = false;
                 } else if (this.itemCfg.symbol == E_SYMBOL.WILD) {
                     anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_wild_chess);
@@ -301,7 +301,7 @@ export default class ItemSymbol extends cc.Component {
             }
             else if (state == E_ANIM_STATE.appear) {
                 if (this.itemCfg.symbol == E_SYMBOL.SCATTER) {
-                    anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Scatter_wait);
+                    anim_cfg.name = null;
                     anim_cfg.loop = true;
                 } else if (this.itemCfg.symbol == E_SYMBOL.WILD) {
                     anim_cfg.name = Utils.enumToString(E_ItemSpineAnim, E_ItemSpineAnim.Win_gold_chess);
@@ -388,7 +388,12 @@ export default class ItemSymbol extends cc.Component {
     }
 
     stopAnimWin() {
-        this.setItemState(E_ANIM_STATE.idle);
+        if(this.itemCfg.symbol == E_SYMBOL.SCATTER){
+            this.hightlight_ske.node.active = false;
+            this.ske.node.active = false;
+            this.static_image.node.active = true;
+        }else
+            this.setItemState(E_ANIM_STATE.idle);
     }
 
     disableBlur() {

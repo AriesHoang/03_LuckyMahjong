@@ -69,7 +69,7 @@ export default class CustomChangeToImage extends CustomChangeMultilingual {
     }
 
     checkIsHaveConfig(idLanguag:supportedTextLanguage,key:string):boolean{
-        this.config = this.listLanguageUseImg.find(element => element.languageId = idLanguag)
+        this.config = this.listLanguageUseImg.find(element => element.languageId == idLanguag)
         if(this.config){
          
             this.loadKeyForConfig(key);

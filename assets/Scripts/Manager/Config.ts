@@ -1,4 +1,8 @@
-export const envURL = "https://sandbox-game.reelgame-api.store/api/";
+export const envURL_Sandbox = "https://sandbox-game.reelgame-api.store/api/"; // Sandbox
+export const envURL_Product = "https://game.reelgame.io/api/"; // Production
+
+export const envURL = envURL_Product;
+// export const envURL = envURL_Sandbox;
 // export const envURL = "https://32cf-116-110-43-37.ngrok-free.app";
 export const DEBUG_ENV_LIST = ["https://api.dev.game.topasianplatform.com", "https://api.mga.game.topasianplatform.com", "https://api.dev.game.hellogames.asia"];
 export const DEBUG_ENV_REGEX: RegExp = /pre-staging.*topplatform\.asia/;
@@ -22,7 +26,7 @@ export const Cfg = {
 
 	jackpotValues: [-1, 25, 75, 250, 1000],
 
-	scatterItemID: 10,
+	scatterItemID: 12,
 
 	redHeartItemId: 0,
 	blueHeartItemId: 1,
@@ -66,7 +70,7 @@ export const Cfg = {
 	playAsDemo: false,
 	isDebug: true,
 	isDafa: false,
-	gameVersionStr: "V_1.0.0",
+	gameVersionStr: "V_1.0.4",
 	rtpValue: 96.43,
 	authPollingInterval: 30,
 	lastAuthPollMoment: null,

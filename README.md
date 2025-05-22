@@ -1,4 +1,4 @@
-# Mochi Monster
+# Lucky Mahjong
 
 
 

@@ -9,6 +9,7 @@ import FreeSpinInfo from "../Game/FreeSpinInfo";
 import NumberLabel from "../Common/NumberLabel";
 import CurrencyConverter from "../Common/CurrencyConverter";
 import StageLoadingFont from "../Common/Multilingual/StageLoadingFont";
+import TextController from "../Manager/TextController";
 
 const { ccclass, property } = cc._decorator;
 
@@ -131,7 +132,7 @@ export default class LayoutModeController extends cc.Component {
                         () => {
                             this.bonusWinNumber = totalWin;
                         },
-                        "BONUS WIN: ");
+                        TextController.getRawText("Bonus_Win") + ": ");
                 }
             }
         }

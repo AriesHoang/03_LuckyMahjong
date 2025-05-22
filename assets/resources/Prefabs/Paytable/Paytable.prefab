@@ -18740,16 +18740,14 @@
     "__type__": "PaytableInfo",
     "symbolType": 13,
     "description": [
-      "WILD_SYMBOL"
+      "PAYTABLE_WILD"
     ],
     "number": -1
   },
   {
     "__type__": "PaytableInfo",
     "symbolType": 12,
-    "description": [
-      "SCATTER_SYMBOL"
-    ],
+    "description": [],
     "number": -1
   },
   {

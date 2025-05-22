@@ -115,9 +115,10 @@ export default class InfoBarController extends cc.Component {
         }
 
         let strPrefix = "WIN ";
-        if(description == "info_bar_win_02"){
-            strPrefix = "TOTAL WIN "
-        }
+        // if(description == "info_bar_win_02"){
+        //     strPrefix = "TOTAL WIN "
+        // }
+        strPrefix = TextController.getRawText(description) + ": ";
 
         if (playIncrementAnim) {
             this.amountLabel.string = "";

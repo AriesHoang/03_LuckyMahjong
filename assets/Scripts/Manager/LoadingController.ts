@@ -32,6 +32,9 @@ export default class LoadingController extends cc.Component {
     @property(cc.Node)
     iconTemple: cc.Node = null;
 
+    @property(cc.Node)
+    footerNode: cc.Node = null;
+
     private gameSceneLoaded: boolean = false;
     private _isAuthorized: boolean = false;
     private _configLoaded: boolean = false;
@@ -59,6 +62,9 @@ export default class LoadingController extends cc.Component {
     }
 
     start() {
+        if(window.isProduction)
+            this.footerNode.active = window.isProduction;
+        
         // clientEvent.on(EventName.UpdateRemoteConfig, this.updateAuthPollingInterval, this);
         this.LoadingSceneMain();
     }
